@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-取消订单</title>
+		<link rel="stylesheet" type="text/css" href="/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/views/domain/cancel_order.css"/>
+	</head>
+	<body>
+		<header></header>
+		<section class="position cover">
+			<div class="nav clearfix">
+				<span class="f_l">您的位置：</span>
+				<a href="/views/individual/home_page.html" class="position_first f_l">个人区</a><i class="iconfont f_l">&#xe600;</i>
+				<span class="f_l my_order">我的订单</span>
+			</div>
+			<ul class="steps clearfix">
+				<li class="step_cont"><img src="/img/flow_path_down_01.png"/><div class="step">拍下宝贝</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_down_02.png"/><div class="step">确认订单</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_02.png"/><div class="step"><span>交易关闭</span></div></li>
+				<div class="transaction_closed">
+					<p class="check"><i class="iconfont">&#xe625;</i><strong>交易已关闭，由于您的违约，您的保证金已被扣除，</strong><a href="javascript:void(0);">查看详情</a></p>
+					<p class="close_cont">关闭类型:<span class="close">买家取消订单</span></p>
+					<p class="reason_cont">原因:<span class="reason">我不想买了</span></p>
+				</div>
+			</ul>
+			<h2>收货地址</h2>
+			<div class="address">
+				<span class="name">陶宇初</span>&ensp;,
+				<span class="phone">13613956462</span>&ensp;,
+				<span class="address_detail">广东省&emsp;深圳市&emsp;宝安区&ensp;，广东省深圳市宝安区西乡黄田鸿丰华创意园4楼</span>
+				<span class="post_code">524000</span>
+			</div>	
+			<iframe src="/views/domain/order_info.html" width="100%" name="orderInfo" onload="orderInfoFrame()" scrolling="no" noresize="noresize" id="orderInfo" ></iframe>
+		</section>
+		<iframe src="/views/domain/footer.html" width="100%" name="bottomFrame" scrolling="no" noresize="noresize" id="bottomFrame" ></iframe>
+	</body>
+	<script src="/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/views/domain/cancel_order.js" type="text/javascript" charset="utf-8"></script>
+</html>

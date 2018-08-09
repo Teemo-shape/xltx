@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-已售管理</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/views/individual/sold_manage.css"/>
+		<script src="../static/js/libs/get-user.js"></script>
+		<script>
+			isPermitted(ctx + "/saler/order/list");
+        </script>
+        <!-- 查询接口未完成 查询暂时隐藏 -->
+	</head>
+	<body>
+		<div id="app" v-cloak>
+			<header-cart></header-cart>
+			<div class="bg"></div>
+			<section class="home_page cover clearfix">
+				<left-menu :name="menu_name" ></left-menu>
+				<div class="container f_l">
+                    <h4>拍卖商品</h4>
+                    <div class="search_cont clearfix" v-if="false">
+                        <div class="f_l m_b30 clearfix">
+                            <label for="order_id">订单编号：</label><input type="text" v-model="order_id" class="search_input search_input" id="order_id">
+                            <label for="addressee">收件人名称：</label><input type="text" v-model="addressee" class="search_input" id="addressee">
+                            <label for="business_state">交易状态：</label><input type="text" v-model="business_state" class="search_input" id="business_state">
+                        </div>
+                        <span class="set_time">创建时间：</span><el-date-picker class="f_l" type="daterange" range-separator="至" v-model="daterange"
+                            start-placeholder="开始日期" end-placeholder="结束日期"></el-date-picker><button class="button searth_btn" type="button">搜索</button>
+                    </div>
+
+					<div class="tab_content">
+						<dl class="order_list">
+							<dt class="clearfix">
+								<div class="product_name f_l">货物名称</div>
+								<div class="product_price f_l">金额</div>
+								<div class="product_num f_l">数量</div>
+								<div class="product_state f_l">状态</div>
+                            </dt>
+							<dd v-if="loading" class="no_order">数据加载中...</dd>
+							<dd v-if="!loading" v-show="!Boolean(search_auction.length)" class="no_order">没有数据</dd>
+							<dd v-if="!loading" v-show="Boolean(search_auction.length)" v-for="(order,index) in current_auction">
+								<dl class="order_item">
+									<dt class="clearfix">
+										<span class="order_time">{{order.over_time}}</span>
+										<i>订单编号：</i><span class="order_id">{{order.id_order}}</span>
+									</dt>
+									<dd class="clearfix">
+										<div class="order_name f_l clearfix">
+											<div class="order_img f_l">
+												<a v-if="order.type_goods==1" :href="'/goods/product_detail.html?id='+order.id_goods_revision"><img :src="order.url_pic"/></a>
+												<a v-if="order.type_goods==2" :href="'/goods/dutch_auction.html?id='+order.id_goods_revision"><img :src="order.url_pic"/></a>
+												<a v-if="order.type_goods==3" :href="'/goods/ranking_auction.html?id='+order.id_goods_revision"><img :src="order.url_pic"/></a>
+												<a v-if="order.type_goods==4" :href="'/goods/valuation_auction.html?id='+order.id_goods_revision"><img :src="order.url_pic"/></a>
+											</div>
+											<div class="order_title f_l">
+												<a v-if="order.type_goods==1" :href="'/goods/product_detail.html?id='+order.id_goods_revision">{{order.name_goods}}</a>
+												<a v-if="order.type_goods==2" :href="'/goods/dutch_auction.html?id='+order.id_goods_revision">{{order.name_goods}}</a>
+												<a v-if="order.type_goods==3" :href="'/goods/ranking_auction.html?id='+order.id_goods_revision">{{order.name_goods}}</a>
+												<a v-if="order.type_goods==4" :href="'/goods/valuation_auction.html?id='+order.id_goods_revision">{{order.name_goods}}</a>
+											</div>
+										</div>
+										<div class="product_price f_l">
+											<i>¥{{order.money_order.toFixed(2)}}</i>
+										</div>
+										<div class="product_num f_l">{{order.amount}}</div>
+										<div class="product_state f_l">
+											<div class="state" v-if="order.state_order==1">待买家确认订单</div>
+											<div class="state" v-if="order.state_order==2">待买家确认收货</div>
+											<div class="state" v-if="order.state_order==3">待卖家确认收款</div>
+											<div class="state" v-if="order.state_order==4">交易完成</div>
+											<div class="state" v-if="order.state_order==5">买家有争议</div>
+											<div class="state" v-if="order.state_order==6">卖家有争议</div>
+											<div class="state" v-if="order.state_order==10 || order.state_order==13 || order.state_order==14">弃拍</div>
+											<div class="count_down" v-if="Boolean(order.count_down)"><i class="iconfont">&#xe624;</i>{{order.count_down}}</div>
+											<a class="button action_btn" :href="'/order/auction_process_sell.html?id='+order.id_order" v-if="order.state_order==3" type="button">待确认收款</a>
+											<a class="order_detail" :href="'/order/auction_process_sell.html?id='+order.id_order">订单详情</a>
+										</div>
+									</dd>
+								</dl>
+							</dd>
+						</dl>
+						<div class="paging" v-show="search_auction.length > page_num">
+							
+						</div>
+					</div>
+				</div>
+				<div id="goTop" class="iconfont">&#xe61e;</div>
+			</section>
+			<common-footer></common-footer>
+		</div>
+	</body>
+</html>

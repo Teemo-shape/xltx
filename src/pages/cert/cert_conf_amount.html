@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-实名认证-确认金额</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/views/individual/cert_conf_amount.css"/>
+		<script src="../static/js/libs/get-user.js"></script>
+		<script>
+			isPermitted(ctx + "/cert/index");
+		</script>
+	</head>
+	<body>
+		<div id="app" v-cloak>
+			<header-cart ref="header"></header-cart>
+			<div class="bg"></div>
+			<section class="home_page cover clearfix">
+				<left-menu :name="menu_name" ></left-menu>
+				<div class="container f_l">
+					<h4>实名认证</h4>
+					<input type="hidden" id="time" value="">
+					<ul class="steps_num">
+						<li class="number first pass">1</li>
+						<li class="number second pass">2</li>
+						<li class="number third pass">3</li>
+						<li class="number fourth pass">4</li>
+						<li class="number fifth wait">5</li>
+						<div class="border border_wait"></div>
+						<div class="border_pass border"></div>
+					</ul>
+					<ul class="steps_value clearfix">
+						<li class="step pass">填写资料</li>
+						<li class="step pass">提交资料</li>
+						<li class="step pass">等待审核</li>
+						<li class="step pass">等您反馈</li>
+						<li class="step wait">完成</li>
+					</ul>
+					<div class="content">
+						<p class="fail_tip"></p>
+						<div class="normal hide">
+							<p>
+								<span class="company_name"></span>(<span class="bank_id"></span>)提交的实名认证申请在<span class="submit_time"></span>审核通过，<!--
+								-->请在<i class="iconfont">&#xe624;</i><span class="time"></span>内输入打款金额，完成实名认证。
+							</p>
+							<div class="money_cont">
+								<label for="money">请输入打款金额</label>
+								<input type="hidden" value="" id="id" />
+								<input type="text" name="money" id="money" enter="go_next" trigger="['btn_next']" value="" class="input"/>
+							</div>
+							<p class="fail fail_tip" id="msg_money"></p>
+							<button type="button" class="button confirm_money" id="btn_next" disabled="disabled">确认</button>
+						</div>
+						<div class="overtime hide">
+							您未在实名认证草稿有效时间内提交资料，原来的草稿已作废，请<a href="./cert_apply.html">重新认证</a>！;
+						</div>
+						<div class="frozen hide">
+							<span class="company_name"></span>(<span class="bank_id"></span>)提交的实名认证申请在<span class="submit_time"></span>审核通过，但输入打款金额的错误次数已超过限制,该账户已被冻结，认证失败,请<a href="javascript:void(0);">联系客服</a>。
+						</div>
+						<div class="rejected hide">
+							<span class="company_name"></span>(<span class="bank_id"></span>)提交的实名认证申请审核未通过，请<a href="./cert_apply.html">重新认证</a>！
+						</div>
+						<div class="invalid hide">
+							<span class="company_name"></span>(<span class="bank_id"></span>)提交的实名认证申请在<span class="submit_time"></span>审核通过，但在有效时间内未输入打款金额，没有完成实名认证，该申请作废，请<a href="./cert_apply.html">重新认证</a>！
+						</div>
+					</div>
+				</div>
+			</section>
+			<common-footer></common-footer>
+		</div>
+	</body>
+	<script src="../static/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/config/package.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/config/input.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/cert/cert_conf_amount.js" type="text/javascript" charset="utf-8"></script>
+</html>

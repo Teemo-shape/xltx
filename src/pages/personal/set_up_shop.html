@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-开通店铺</title>
+		<link rel="stylesheet" type="text/css" href="/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/views/individual/set_up_shop.css"/>
+	</head>
+	<body>
+		<header></header>
+		<div class="bg"></div>
+		<section class="home_page cover clearfix">
+			<ul class="menu f_l">
+				<li>
+					<dl>
+						<dd><a href="/index.html"><i class="iconfont">&#xe611;</i>首页</a></dd>
+						<dd><a href="/views/individual/home_page.html"><i class="iconfont">&#xe616;</i>我的主页</a></dd>
+						<dd><a href="/views/individual/backlog.html"><i class="iconfont giant">&#xe61a;</i>我的待办</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>我买到的</dt>
+						<dd><a href="/views/individual/order_list.html"><i class="iconfont">&#xe69c;</i>普通订单</a></dd>
+						<dd><a href="/views/individual/my_auction.html"><i class="iconfont">&#xe60f;</i>拍卖商品</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>卖家功能</dt>
+						<dd><a href="javascript:void(0);"><i class="iconfont little_small">&#xe917;</i>发布商品</a></dd>
+						<dd><a href="/views/individual/logistics_management.html"><i class="iconfont">&#xe69a;</i>发货管理</a></dd>
+						<dd><a href="javascript:void(0);"><i class="iconfont">&#xe662;</i>咨询管理</a></dd>
+						<dd class="active"><a href="/views/individual/set_up_shop.html"><i class="iconfont little_big">&#xe6b6;</i>店铺概况</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>账号管理</dt>
+						<dd><a href="/views/individual/cert_index.html"><i class="iconfont small">&#xe619;</i>企业实名</a></dd>
+						<dd><a href="/views/individual/member_index.html"><i class="iconfont">&#xe61f;</i>内部成员</a></dd>
+						<dd><a href="/views/individual/shipping_address.html"><i class="iconfont little_big">&#xe6cd;</i>收货地址</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>财务区</dt>
+						<dd><a href="/views/individual/my_bill.html"><i class="iconfont">&#xe610;</i>我的账单</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>资料库</dt>
+						<dd><a href="/views/individual/attention.html"><i class="iconfont big">&#xe655;</i>关注</a></dd>
+						<dd><a href="/views/individual/browse_history.html"><i class="iconfont">&#xe618;</i>足迹</a></dd>
+						<dd><a href="/views/individual/my_statistics.html"><i class="iconfont giant">&#xe613;</i>我的统计</a></dd>
+						<dd><a href="javascript:void(0);"><i class="iconfont">&#xe6a7;</i>我的咨询</a></dd>
+					</dl>
+				</li>
+			</ul>
+			<div class="container f_l">
+				<div class="set_store hide active">
+					<h4 class="title">店铺概况</h4>
+					<div class="ask clearfix">
+						<div class="iconfont f_l icon">&#xe62b;</div>
+						<div class="cont f_l">
+							<h5>您尚未开通店铺，是否开通 ？</h5>
+							<p>
+								<span class="order_number">1</span>点击“立即开通”&gt;&gt;&ensp;
+								<span class="order_number">2</span>填写基本信息&gt;&gt;&ensp;
+								<span class="order_number">3</span>开通成功
+							</p>
+						</div>
+						<button type="button" class="button set_btn f_r">立即开通</button>
+					</div>
+				</div>
+				<div class="basic_info hide">
+					<form action="" method="post">
+						<div class="company_intro">
+							<label for="intro">公司介绍</label>
+							<textarea type="text" name="intro" id="intro" class="big" ></textarea>
+						</div>
+						<dl class="information">
+							<dt>基本信息</dt>
+							<dd>
+								<label for="fund">注册资金</label>
+								<input type="text" name="fund" id="fund" class="small" value="" />
+							</dd>
+							<dd>
+								<label for="trade">主营行业</label>
+								<textarea type="text" name="trade" id="trade" class="big" ></textarea>
+							</dd>
+						</dl>
+						<dl class="information">
+							<dt>经营信息</dt>
+							<dd>
+								<label for="market">主要市场</label>
+								<textarea type="text" name="market" id="market" class="big" ></textarea>
+							</dd>
+							<dd>
+								<label for="client">主要客户</label>
+								<textarea type="text" name="client" id="client" class="big" ></textarea>
+							</dd>
+							<dd>
+								<label for="sales">年营业额</label>
+								<input type="text" name="sales" id="sales" class="small" value="" />
+							</dd>
+						</dl>
+						<button type="button" class="button confirm">确定</button>
+					</form>
+				</div>
+				<div class="success set_up hide">
+					<h4>开通店铺</h4>
+					<h2><i class="iconfont">&#xe602;</i>您已成功开通店铺</h2>
+					<p>您可以进行以下操作：</p>
+					<a href="/views/domain/store.html">进入店铺</a>
+				</div>
+				<div class="successed set_up hide">
+					<h4>开通店铺</h4>
+					<h2>店铺已开通</h2>
+					<p>您可以进行以下操作：</p>
+					<a href="/views/domain/store.html">进入店铺</a>
+				</div>
+			</div>
+		</section>
+		<iframe src="/views/domain/footer.html" width="100%" name="bottomFrame" scrolling="no" noresize="noresize" id="bottomFrame" ></iframe>
+	</body>
+	<script src="/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		/*
+		 * 加载头部
+		 */
+		$("header").load("/views/domain/header.html");
+	</script>
+</html>

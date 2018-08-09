@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-内部成员-修改邮箱-第二步</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/views/individual/member_uptmail_third.css"/>
+		<script src="../static/js/libs/get-user.js"></script>
+		<script>
+			isPermitted(ctx + "/member/bindedit/email");
+		</script>
+	</head>
+	<body>
+		<div id="app" v-cloak>
+			<header-cart ref="header"></header-cart>
+			<div class="bg"></div>
+			<section class="home_page cover clearfix">
+				<left-menu :name="menu_name" ></left-menu>
+				<div class="container f_l">
+					<h4>
+						<a href="./member_index.html" class="go">内部成员</a>&gt;
+						<a href="./member_info.html" class="go">个人资料</a>&gt;
+						<span class="current">修改邮箱</span>
+					</h4>
+					<div class="step_num clearfix">
+						<span class="first_step step f_l pass">01</span>
+						<span class="second_step step f_l pass">02</span>
+						<span class="third_step step f_r pass">03</span>
+						<hr class="middle-line"/>
+					</div>
+					<div class="step_name clearfix">
+						<span class="first_name step_text f_l pass">填写邮箱</span>
+						<span class="second_name step_text f_l pass">修改邮箱</span>
+						<span class="third_name step_text f_r pass">完成</span>
+					</div>
+					<p class="congratulation"><i class="iconfont">&#xe602;</i>恭喜您，修改邮箱成功!</p>
+					<a href="./member_info.html" class="button back"><em>{{num}}秒</em> 后自动返回个人资料</a>
+				</div>
+			</section>
+			<common-footer></common-footer>
+		</div>
+	</body>
+</html>

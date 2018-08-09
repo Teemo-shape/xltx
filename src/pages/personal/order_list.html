@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-普通订单</title>
+		<link rel="stylesheet" type="text/css" href="/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/views/individual/order_list.css"/>
+	</head>
+	<body>
+		<header></header>
+		<div class="bg"></div>
+		<section class="home_page cover clearfix">
+			<ul class="menu f_l">
+				<li>
+					<dl>
+						<dd><a href="/index.html"><i class="iconfont">&#xe611;</i>首页</a></dd>
+						<dd><a href="/views/individual/home_page.html"><i class="iconfont">&#xe616;</i>我的主页</a></dd>
+						<dd><a href="/views/individual/backlog.html"><i class="iconfont giant">&#xe61a;</i>我的待办</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>我买到的</dt>
+						<dd class="active"><a href="/views/individual/order_list.html"><i class="iconfont">&#xe69c;</i>普通订单</a></dd>
+						<dd><a href="/views/individual/my_auction.html"><i class="iconfont">&#xe60f;</i>拍卖商品</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>卖家功能</dt>
+						<dd><a href="javascript:void(0);"><i class="iconfont little_small">&#xe917;</i>发布商品</a></dd>
+						<dd><a href="/views/individual/logistics_management.html"><i class="iconfont">&#xe69a;</i>发货管理</a></dd>
+						<dd><a href="javascript:void(0);"><i class="iconfont">&#xe662;</i>咨询管理</a></dd>
+						<dd><a href="/views/individual/set_up_shop.html"><i class="iconfont little_big">&#xe6b6;</i>店铺概况</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>账号管理</dt>
+						<dd><a href="/views/individual/cert_index.html"><i class="iconfont small">&#xe619;</i>企业实名</a></dd>
+						<dd><a href="/views/individual/member_index.html"><i class="iconfont">&#xe61f;</i>内部成员</a></dd>
+						<dd><a href="/views/individual/shipping_address.html"><i class="iconfont little_big">&#xe6cd;</i>收货地址</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>财务区</dt>
+						<dd><a href="/views/individual/my_bill.html"><i class="iconfont">&#xe610;</i>我的账单</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>资料库</dt>
+						<dd><a href="/views/individual/attention.html"><i class="iconfont big">&#xe655;</i>关注</a></dd>
+						<dd><a href="/views/individual/browse_history.html"><i class="iconfont">&#xe618;</i>足迹</a></dd>
+						<dd><a href="/views/individual/my_statistics.html"><i class="iconfont giant">&#xe613;</i>我的统计</a></dd>
+						<dd><a href="javascript:void(0);"><i class="iconfont">&#xe6a7;</i>我的咨询</a></dd>
+					</dl>
+				</li>
+			</ul>
+			<div class="container f_l">
+				<ul class="tab clearfix">
+					<li class="tab_item">我买的</li>
+					<div class="border_top"></div>
+					<div class="border_bottom"></div>
+				</ul>
+				<div class="tab_content">
+					<div class="search_word">
+						<label for="search" class="iconfont">&#xe604;</label><input type="text" name="search" id="search" value="" placeholder="请输入关键词"/>
+					</div>
+					<ul class="state_list clearfix">
+						<li class="state_item f_l">
+							<div class="radio">
+								<label for="unpaid" class="iconfont unchecked label"></label>
+								<input type="radio" name="state" id="unpaid" value="unpaid"/>
+							</div>待付款<span>12</span>
+						</li>
+						<li class="state_item f_l">
+							<div class="radio">
+								<label for="pending_delivery" class="iconfont unchecked label"></label>
+								<input type="radio" name="state" id="pending_delivery" value="pending_delivery"/>
+							</div>待发货<span>3</span>
+						</li>
+						<li class="state_item f_l">
+							<div class="radio">
+								<label for="wait_receive" class="iconfont unchecked label"></label>
+								<input type="radio" name="state" id="wait_receive" value="wait_receive"/>
+							</div>待收货<span>3</span>
+						</li>
+						<li class="state_item f_l">
+							<div class="radio">
+								<label for="complete" class="iconfont unchecked label"></label>
+								<input type="radio" name="state" id="complete" value="complete"/>
+							</div>已完成<span></span>
+						</li>
+					</ul>
+					<dl class="order_list">
+						<dt class="clearfix">
+							<div class="product_name f_l">货物名称</div>
+							<div class="product_num f_l">数量</div>
+							<div class="product_price f_l">价格</div>
+							<div class="product_state f_l">交易状态</div>
+						</dt>
+						<dd>
+							<dl class="order_item">
+								<dt><span class="order_time">2017-11-18</span>订单编号：<span class="order_id">89744030819631726</span></dt>
+								<dd class="clearfix">
+									<div class="order_name f_l clearfix">
+										<div class="order_img f_l">
+											<img src="/img/order_01.png"/>
+										</div>
+										<div class="order_title f_l">
+											<a href="/views/domain/order_first.html">SN8F5708&ensp;SONIX单片机IC&ensp;可重复烧写8051核一级代理原装供应</a>
+										</div>
+									</div>
+									<div class="product_num f_l">200PCS</div>
+									<div class="product_price f_l">¥600.00</div>
+									<div class="product_state f_l">
+										<div class="state">等待买家付款</div>
+										<a href="/views/domain/order_first.html">订单详情</a>
+									</div>
+								</dd>
+							</dl>
+						</dd>
+						<dd>
+							<dl class="order_item">
+								<dt><span class="order_time">2017-11-18</span>订单编号：<span class="order_id">89744030819631726</span></dt>
+								<dd class="clearfix">
+									<div class="order_name f_l clearfix">
+										<div class="order_img f_l">
+											<img src="/img/order_01.png"/>
+										</div>
+										<div class="order_title f_l">
+											<a href="/views/domain/order_first.html">SN8F5708&ensp;SONIX单片机IC&ensp;可重复烧写8051核一级代理原装供应</a>
+										</div>
+									</div>
+									<div class="product_num f_l">200PCS</div>
+									<div class="product_price f_l">¥600.00</div>
+									<div class="product_state f_l">
+										<div class="state">交易成功</div>
+										<a href="/views/domain/order_first.html">订单详情</a>
+										<a href="/views/domain/order_fourth.html">查看物流</a>
+									</div>
+								</dd>
+								<dd class="clearfix">
+									<div class="order_name f_l clearfix">
+										<div class="order_img f_l">
+											<img src="/img/order_01.png"/>
+										</div>
+										<div class="order_title f_l">
+											<a href="/views/domain/order_first.html">SN8F5708&ensp;SONIX单片机IC&ensp;可重复烧写8051核一级代理原装供应</a>
+										</div>
+									</div>
+									<div class="product_num f_l">200PCS</div>
+									<div class="product_price f_l">¥600.00</div>
+									<div class="product_state f_l">
+										<div class="state">交易成功</div>
+										<a href="/views/domain/order_first.html">订单详情</a>
+										<a href="/views/domain/order_fourth.html">查看物流</a>
+									</div>
+								</dd>
+							</dl>
+						</dd>
+						<dd>
+							<dl class="order_item">
+								<dt><span class="order_time">2017-11-18</span>订单编号：<span class="order_id">89744030819631726</span></dt>
+								<dd class="clearfix">
+									<div class="order_name f_l clearfix">
+										<div class="order_img f_l">
+											<img src="/img/order_01.png"/>
+										</div>
+										<div class="order_title f_l">
+											<a href="/views/domain/order_first.html">SN8F5708&ensp;SONIX单片机IC&ensp;可重复烧写8051核一级代理原装供应</a>
+										</div>
+									</div>
+									<div class="product_num f_l">200PCS</div>
+									<div class="product_price f_l">¥600.00</div>
+									<div class="product_state f_l">
+										<div class="state">交易关闭</div>
+										<a href="/views/domain/order_first.html">订单详情</a>
+									</div>
+								</dd>
+							</dl>
+						</dd>	
+						<dd>
+							<dl class="order_item">
+								<dt><span class="order_time">2017-11-18</span>订单编号：<span class="order_id">89744030819631726</span></dt>
+								<dd class="clearfix">
+									<div class="order_name f_l clearfix">
+										<div class="order_img f_l">
+											<img src="/img/order_01.png"/>
+										</div>
+										<div class="order_title f_l">
+											<a href="/views/domain/order_first.html">SN8F5708&ensp;SONIX单片机IC&ensp;可重复烧写8051核一级代理原装供应</a>
+										</div>
+									</div>
+									<div class="product_num f_l">200PCS</div>
+									<div class="product_price f_l">¥600.00</div>
+									<div class="product_state f_l">
+										<div class="state">等待卖家发货</div>
+										<a href="/views/domain/order_first.html">订单详情</a>
+									</div>
+								</dd>
+							</dl>
+						</dd>
+						<dd>
+							<dl class="order_item">
+								<dt><span class="order_time">2017-11-18</span>订单编号：<span class="order_id">89744030819631726</span></dt>
+								<dd class="clearfix">
+									<div class="order_name f_l clearfix">
+										<div class="order_img f_l">
+											<img src="/img/order_01.png"/>
+										</div>
+										<div class="order_title f_l">
+											<a href="/views/domain/order_first.html">SN8F5708&ensp;SONIX单片机IC&ensp;可重复烧写8051核一级代理原装供应</a>
+										</div>
+									</div>
+									<div class="product_num f_l">200PCS</div>
+									<div class="product_price f_l">¥600.00</div>
+									<div class="product_state f_l">
+										<div class="state">卖家已发货</div>
+										<a href="/views/domain/order_third.html">订单详情</a>
+										<a href="/views/domain/order_fourth.html">查看物流</a>
+									</div>
+								</dd>
+							</dl>
+						</dd>
+					</dl>
+					<div class="paging">
+						
+					</div>
+				</div>
+			</div>
+			<div id="goTop" class="iconfont">&#xe61e;</div>
+		</section>
+		<iframe src="/views/domain/footer.html" width="100%" name="bottomFrame" scrolling="no" noresize="noresize" id="bottomFrame" ></iframe>
+	</body>
+	<script src="/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/plugins/jquery.pages.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/views/individual/order_list.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		/*
+		 * 加载头部
+		 */
+		$("header").load("/views/domain/header.html");
+	</script>
+</html>

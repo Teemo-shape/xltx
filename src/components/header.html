@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-头部</title>
+		<link rel="stylesheet" type="text/css" href="/css/views/domain/header.css"/>
+	</head>
+	<body>
+		<header class="clearfix">
+			<div class="logo f_l">
+				<a href="/index.html">
+					<img src="/img/logo.png"/>
+				</a>
+			</div>
+			<div class="classify f_l">
+		        <h4 class="classify_btn dropdown clearfix">
+		          	<span class="select_classify">所有品类</span>
+		          	<span class="iconfont">&#xe792;</span>
+		        </h4>
+		        <ul class="select_items arrow_appear">
+		          	<li class="select_item"><a href="javascript:void(0)">所有品类</a></li>
+		        	<li class="select_item"><a href="javascript:void(0)">软件</a></li>
+		        	<li class="select_item active"><a href="javascript:void(0)"></a>音频</li>
+		        	<li class="select_item"><a href="javascript:void(0)">电脑</a></li>
+		        </ul>
+			</div>
+			<a class="shop_car_logo f_r" href="/views/domain/view_cart.html">
+				<i class="iconfont">&#xe603;</i>
+				<span>3</span>
+			</a>
+			<div class="account f_r">
+		        <div class="account_title">
+		        	<a href="/views/individual/home_page.html">我的账户<span class="iconfont account_menu">&#xe792;</span></a>
+		        </div>
+		        <ul class="account_items appear arrow_appear" id="not_login">
+		          	<li class="account_item"><a href="/views/domain/login.html">登录</a></li>
+		          	<li class="account_item"><a href="/views/domain/register.html">注册</a></li>
+		        </ul>
+		        <ul class="account_items arrow_appear" id="has_login">
+		          	<li class="account_item"><a href="/views/individual/home_page.html">我的主页</a></li>
+		        </ul>
+			</div>
+			<div class="search clearfix f_l">
+				<div class="select_btn f_l">
+					<div class="search_title dropdown clearfix">
+			          	<span class="select_classify">音频</span>
+			          	<span class="iconfont">&#xe61c;</span>
+			        </div>
+			        <ul class="select_items">
+			        	<li class="select_item">分类</li>
+			        	<li class="select_item">软件</li>
+			        	<li class="select_item active">音频</li>
+			        	<li class="select_item">电脑</li>
+			        </ul>
+				</div>
+				<div class="search_icon f_r">
+					<span class="iconfont">&#xe604;</span>
+					<input type="submit" class="icon_input" value="搜索" onclick="location.href='/views/domain/search_results.html'"/>
+				</div>
+				<div class="search_container f_l">
+					<input type="text" class="search_input" value="" name="select" placeholder="IC电子元件"/>
+				</div>
+			</div>
+		</header>
+	</body>
+	<script src="/js/views/domain/header.js" type="text/javascript" charset="utf-8"></script>
+</html>

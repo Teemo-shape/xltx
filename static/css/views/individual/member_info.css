@@ -1,0 +1,437 @@
+body{
+	color: #333;
+	font-size: 16px;
+}
+iframe{
+	width: 100%;
+	border: none;
+}
+.cover{
+	width: 1200px;
+	margin: 0 auto;
+}
+/*
+ * 背景
+ */
+.bg{
+	width: 100%;
+	height: 1390px;
+	background: #f5f5f5;
+	position: absolute;
+	left: 0;
+	top: 170px;
+	z-index: -1;
+}
+/*
+ * 主页信息
+ * tab栏
+ */
+.home_page{
+	margin: 30px auto;
+	position: relative;
+}
+/*
+ * 左侧菜单
+ */
+.menu{
+	width: 258px;
+	color: #111;
+	font-size: 20px;
+	background: #fff;
+	border: solid 1px #e5e5e5;
+	margin-right: 20px;
+}
+.menu .active .iconfont{
+	color: #fa5400;
+}
+.menu>li{
+	border-bottom: solid 1px #e5e5e5;
+}
+.menu>li:last-child{
+	border-bottom: none;
+}
+.menu dl{
+	padding-top: 30px;
+	padding-bottom: 20px;
+}
+.menu dd:hover{
+	background: #f5f5f5;
+}
+.menu dl dt{
+	line-height: 1;
+	padding-left: 30px;
+	margin-bottom: 25px;
+}
+.menu dl dd{
+	height: 40px;
+	line-height: 40px;
+	margin-bottom: 10px;
+}
+.menu dl dd:last-child{
+	margin-bottom: 0;
+}
+.menu dl a{
+	display: block;
+	padding: 0 30px;
+}
+.menu dd .iconfont{
+	width: 30px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 30px;
+	color: #999;
+    vertical-align: middle;
+    display: inline-block;
+	margin-right: 30px;
+}
+.menu dd .giant{
+	font-size: 23px;
+	line-height: 35px;
+}
+.menu dd .little_big{
+	font-size: 28px;
+    line-height: 32px;
+}
+.menu dd .big{
+    font-size: 25px;
+    line-height: 38px;
+}
+.menu dd .small{
+	font-size: 38px;
+    text-indent: -3px;
+    line-height: 34px;
+}
+.menu dd .little_small{
+	font-size: 36px;
+    text-indent: -2px;
+}
+/*
+ * 右侧内容
+ */
+.container{
+	width: 918px;
+	height: 1468px;
+	color: #111;
+	border: solid 1px #dfdfdf;
+	box-shadow: 0 0 3px #999;
+	background: #fff;
+	margin-bottom: 35px;
+}
+.tab{
+	border-bottom: solid 1px #e5e5e5;
+	position: relative;
+}
+.tab .tab_item{
+	width: 140px;
+	height: 58px;
+	text-align: center;
+	font-size: 18px;
+	line-height: 58px;
+	border-right: solid 1px #e5e5e5;
+	float: left;
+}
+/*
+ * left动态计算
+ */
+.tab .border_top{
+	width: 140px;
+	height: 5px;
+	background: #fa5400;
+	position: absolute;
+	top: -1px;
+	left: 0;
+}
+.tab .border_bottom{
+	width: 140px;
+	height: 1px;
+	background: #fff;
+	position: absolute;
+	bottom: -1px;
+	left: 0;
+}
+.tab_content{
+	padding-top: 20px;
+}
+.hide{
+	display: none;
+	padding: 0 10px;
+}
+.hide.active{
+	height: 1468px;
+	display: block;
+}
+#basic_info{
+	padding-top: 20px;
+}
+.container h4{
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 1;
+	border-bottom: solid 1px #e5e5e5;
+	padding-bottom: 10px;
+	margin: 20px 30px 30px;
+}
+/*
+ * 基本信息
+ */
+.basic{
+	margin: 0 0 30px 40px;
+}
+.basic li{
+	font-size: 18px;
+	line-height: 1;
+	margin-bottom: 20px;
+}
+.basic li:last-child{
+	margin-bottom: 0;
+}
+.basic .edit_name{
+	height: 26px;
+	line-height: 26px;
+	margin-bottom: 17px;
+}
+.container .name_edit{
+	width: 18px;
+    height: 20px;
+    font-size: 21px;
+    text-indent: -2px;
+    vertical-align: middle;
+    line-height: 18px;
+    cursor: pointer;
+    display: inline-block;
+}
+.basic .name{
+	margin-right: 20px;
+}
+#user{
+	text-indent: 10px;
+	border: solid 1px #e5e5e5;
+	margin-right: 20px;
+}
+.fail{
+	color: #fa5400;
+	font-size: 14px;
+	line-height: 26px;
+	display: none;
+	margin-left: 20px;
+}
+.wechat_bg{
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: .35;
+	filter: alpha(opacity=0.35);
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 4;
+}
+#qr_code{
+	width: 300px;
+	height: 400px;
+	background: #fff;
+	display: none;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	z-index: 5;
+}
+.basic .email,
+.basic .phone,
+.basic .wechat{
+    min-width: 150px;
+	display: inline-block;
+    margin-right: 30px;
+}
+.basic .info_name{
+	width: 90px;
+	text-align: right;
+    display: inline-block;
+}
+.wechat{
+	vertical-align: top;
+}
+.wechat img{
+	width: 80px;
+	height: 80px;
+	display: block;
+}
+#basic_info .button{
+	line-height: 1;
+	text-decoration: underline;
+}
+#basic_info .button:hover{
+	text-decoration: underline;
+}
+.safe{
+	margin-top: 40px;
+	margin-left: 30px;
+}
+.safe li{
+	line-height: 1;
+	margin-bottom: 40px;
+}
+.safe .info_name{
+	width: 140px;
+	font-size: 18px;
+	text-align: right;
+	margin-right: 30px;
+}
+.info_name .iconfont{
+	width: 30px;
+    height: 20px;
+    font-size: 30px;
+    line-height: 20px;
+	vertical-align: bottom;
+	display: inline-block;
+	margin-right: 10px;
+}
+.safe .info_value{
+	width: 320px;
+	line-height: 26px;
+	margin-top: -5px;
+	margin-bottom: -5px;
+	margin-right: 150px;
+}
+.safe .actions,
+.safe .change{
+	font-size: 18px;
+}
+.safe .relative{
+	height: 18px;
+	position: relative;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.level{
+	width: 250px;
+	height: 8px;
+	background: #999;
+	position: absolute;
+	top: 5px;
+	left: 0;
+}
+
+/*
+ * 消息订阅
+ */
+.container .set_message{
+	margin-bottom: 50px;
+}
+.title{
+	font-size: 14px;
+	text-align: center;
+	margin: 0 0 35px 90px;
+}
+.info{
+	width: 292px;
+	height: 24px;
+    line-height: 24px;
+    display: block;
+	margin-right: 226px;
+}
+.email_notice{
+	width: 48px;
+	margin-right: 120px;
+}
+.short_message{
+	width: 48px;
+}
+.notice_type{
+	margin-left: 90px;
+	margin-bottom: 36px;
+}
+.notice_type dt{
+	font-weight: 700;
+	margin-bottom: 12px;
+}
+.notice_type dt .iconfont{
+	width: 28px;
+	height: 24px;
+	font-size: 24px;
+    text-align: center;
+	line-height: 26px;
+	vertical-align: top;
+	margin-right: 10px;
+	display: inline-block;
+}
+.notice_type dt .small{
+	line-height: 23px;
+}
+.notice_type dd{
+	line-height: 20px;
+	margin-bottom: 20px;
+}
+.notice_type .check{
+	text-align: center;
+	position: relative;
+}
+.check label{
+	width: 20px;
+    height: 20px;
+    cursor: pointer;
+    display: inline-block;
+}
+.check label:before{
+    width: 20px;
+    height: 20px;
+    font-size: 24px;
+    text-indent: -2px;
+    display: block;
+}
+.unchecked:before{
+	content: '\e6da';
+	color: #999;
+    line-height: 22px;
+}
+.checked:before{
+	content: '\e60d';
+	color: #fa5400;
+	line-height: 18px;
+}
+.check input{
+	display: none;
+}
+.save{
+	width: 112px;
+	height: 38px;
+	text-align: center;
+	line-height: 38px;
+	color: #fff;
+	background: #666;
+	cursor: not-allowed;
+	opacity: 0.35;
+	filter: alpha(opacity=0.35);
+	display: block;
+	margin: 4px auto 0;
+}
+
+/*
+ * 操作日志
+ */
+.container .new_trends{
+	margin-bottom: 40px;
+}
+.trends{
+	margin-left: 32px;
+}
+.trend{
+	margin-bottom: 20px;
+}
+.trend .task{
+	color: #fa5400;
+}
+
+
+/*
+ * footer
+ */
+#bottomFrame{
+	height: 260px;
+	background: #f5f5f5;
+}

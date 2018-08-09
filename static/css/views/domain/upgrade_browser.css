@@ -1,0 +1,80 @@
+html{
+	min-height: 100%;
+}
+body{
+	min-width: 768px;
+	min-height: 100%;
+	overflow: visible;
+	position: relative;
+}
+a{
+	color: #333;
+}
+.exp--browser-check--banner-container {
+    position: absolute;
+    top: 109px;
+    left: -10px;
+    z-index: 10;
+    width: 100%;
+    padding: 20px 20px 20px 0;
+    background-color: #e7ff00;
+}
+.exp--browser-check--banner-container .exp--browser-check--content {
+    position: relative;
+    left: 50%;
+    width: 435px;
+    margin-left: -217px;
+}
+.exp--browser-check--content {
+    max-width: 500px;
+}
+.exp--browser-check--title {
+    text-align: left;
+    text-transform: uppercase;
+}
+.edf-font-size--xlarge {
+    font-size: 25px;
+}
+.edf-font-size--xlarge {
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.04em;
+    margin: 0 0 0.12em 0;
+    word-spacing: -0.05em;
+}
+.exp--browser-check--keyline {
+    font-size: 12px;
+    margin: 20px 0;
+}
+.exp--browser-check--logo-container {
+    display: inline-block;
+    vertical-align: middle;
+}
+.exp--browser-check--banner-container img {
+    border: 0 none;
+    float: left;
+}
+.exp--browser-check--logo-container img {
+    width: 90px;
+}
+.exp--browser-check--message {
+    display: inline-block;
+    width: 320px;
+    vertical-align: top;
+    text-align: left;
+    padding-left: 15px;
+}
+.exp--browser-check--cta-container {
+    text-align: right;
+    margin-top: 10px;
+}
+.exp--browser-check--banner-container .exp--browser-check--link {
+    font-size: 24px;
+}
+.exp--browser-check--cta-container .exp--browser-check--help-link-container {
+    margin-top: 10px;
+}
+.exp--browser-check--cta-container .exp--browser-check--help-link-container .exp--browser-check--help-link {
+    text-decoration: none;
+    border-bottom: solid 1px;
+}
+

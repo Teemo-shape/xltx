@@ -1,0 +1,85 @@
+/*
+ * 卖家信息，标的物信息
+ */
+
+.cover{
+	width: 1200px;
+	margin: 0 auto;
+}
+.cover h2{
+	font-size: 20px;
+	line-height: 1;
+	padding: 30px 0 20px 30px;
+}
+.cover .seller_info{
+	line-height: 36px;
+	border-bottom: solid 1px #e5e5e5;
+	padding-left: 60px;
+	padding-bottom: 20px;
+}
+.cover .seller_info .info_left{
+	width: 400px;
+}
+.info_left .iconfont{
+	color: #1296db;
+	font-size: 24px;
+}
+.info_left .call_me{
+	text-decoration: underline;
+}
+.info_left .call_me:hover{
+	text-decoration: underline;
+}
+.corpores{
+	border: solid 1px #d1d1d1;
+}
+.corpores .corpores_info{
+	line-height: 36px;
+	padding:20px 0 20px 65px;
+}
+.corpores .corpores_order{
+	width: 280px;
+	margin-right: 118px;
+}
+.corpores>ul{
+	width: 980px;
+	margin: 0 auto;
+}
+.corpores .corpore{
+	border-top: solid 1px #e5e5e5;
+	padding: 30px 0;
+}
+.corpores .corpore .corpore_img{
+	width: 105px;
+	height: 103px;
+	text-align: center;
+	border: solid 1px #d1d1d1;
+}
+.corpore .corpore_img img{
+	width: auto;
+	max-width: 100%;
+}
+.corpore .corpore_title{
+	width: 300px;
+	height: 105px;
+	margin-left: 10px;
+}
+.corpore .corpore_num{
+	margin-left: 382px;
+	line-height: 105px;
+}
+.all_corpore{
+	width: 980px;
+	line-height: 24px;
+	border-top: solid 1px #e5e5e5;
+	padding: 30px 0;
+	margin: 0 auto;
+}
+.all_corpore .corpore_price{
+	width: 130px;
+	font-size: 24px;
+	color: #fa5400;
+	text-align: center;
+	margin-right: 60px;
+	margin-left: 56px;
+}

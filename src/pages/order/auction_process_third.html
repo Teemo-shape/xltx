@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-拍卖订单-付款</title>
+		<link rel="stylesheet" type="text/css" href="/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/views/domain/auction_process_third.css"/>
+	</head>
+	<body>
+		<header></header>
+		<section class="position cover">
+			<div class="nav clearfix">
+				<span class="f_l">您的位置：</span>
+				<a href="/views/individual/home_page.html" class="position_first f_l">个人区</a><i class="iconfont f_l">&#xe600;</i>
+				<span class="f_l my_order">我的订单</span>
+			</div>
+			<ul class="steps clearfix">
+				<li class="step_cont"><img src="/img/flow_path_down_01.png"/><div class="step">拍下宝贝</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_down_02.png"/><div class="step">确认订单</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_down_01.png"/><div class="step">付款</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_04.png"/><div class="step">卖家发货</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_02.png"/><div class="step">确认收货</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_03.png"/><div class="step">退保证金</div></li>
+				<div class="transaction_closed">
+					<p class="state">请您及时支付货款，自拍获商品起超过24小时未支付将判定您负违约责任，交易取消并扣除您的保证金</p>
+					<p class="notice">
+						请在<i class="iconfont">&#xe624;</i><span class="count_down">17小时22分35秒</span>
+						时间内确认并付款；否则系统将判定您负违约责任，交易取消并扣除保证金<br />
+						如果您想放弃拍品，可以直接<a href="/views/domain/cancel_order.html" class="cancle_order">取消订单</a>系统将判定您负违约责任，交易取消并扣除保证金
+					</p>
+				</div>
+			</ul>	
+			<h2>支付</h2>
+			<div class="pay_cont">
+				<div class="step select_pay_way">
+					<div class="step_name">选择支付方式</div>
+					<div class="pay_ways clearfix">
+						<span class="pay_way">
+							<i class="iconfont chenkbox">&#xe671;</i>
+							<i class="pay_app wechat"></i>
+						</span>
+						<span class="pay_way">
+							<i class="iconfont chenkbox">&#xe671;</i>
+							<i class="pay_app alipay"></i>
+						</span>
+					</div>
+				</div>
+				<div class="affirm">
+					<p class="notice">订单提交前，请再次确认配送信息、账单信息和已选购商品。</p>
+					<div class="account clearfix">
+						<div class="f_r">
+							<span class="account_left">总计：</span><span class="all_price">¥&ensp;3000.00</span>
+							<button class="pay_btn" type="button">确认并支付</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<h2>收货地址</h2>
+			<div class="address">
+				陶宇初，13613956462，广东省&emsp;深圳市&emsp;宝安区，广东省深圳市宝安区西乡黄田鸿丰华创意园4楼<br />524000
+			</div>
+			<h2 class="replenish">补充留言</h2>
+			<div class="remarks">
+				<textarea name="message" class="message"></textarea>
+				<div class="check clearfix">
+					<span class="tips"><i class="iconfont">&#xe723;</i>付款前您可以给卖家留言。</span><button class="button f_r confirm" type="button">确定</button>
+				</div>
+			</div>
+			<iframe src="/views/domain/order_info.html" width="100%" name="orderInfo" onload="orderInfoFrame()" scrolling="no" noresize="noresize" id="orderInfo" ></iframe>
+		</section>
+		<iframe src="/views/domain/footer.html" width="100%" name="bottomFrame" scrolling="no" noresize="noresize" id="bottomFrame" ></iframe>
+	</body>
+	<script src="/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/views/domain/auction_process_third.js" type="text/javascript" charset="utf-8"></script>
+</html>

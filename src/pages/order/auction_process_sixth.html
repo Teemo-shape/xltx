@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-拍卖订单-退保证金</title>
+		<link rel="stylesheet" type="text/css" href="/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/views/domain/auction_process_sixth.css"/>
+	</head>
+	<body>
+		<header></header>
+		<section class="position cover">
+			<div class="nav clearfix">
+				<span class="f_l">您的位置：</span>
+				<a href="home_page.html" class="position_first f_l">个人区</a><i class="iconfont f_l">&#xe600;</i>
+				<span class="f_l my_order">我的订单</span>
+			</div>
+			<ul class="steps clearfix">
+				<li class="step_cont"><img src="/img/flow_path_down_01.png"/><div class="step">拍下宝贝</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_down_02.png"/><div class="step">确认订单</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_down_01.png"/><div class="step">付款</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_down_03.png"/><div class="step">卖家发货</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_down_02.png"/><div class="step">确认收货</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_down_01.png"/><div class="step">退保证金</div></li>
+				<div class="transaction_closed">
+					<p class="state"><i class="iconfont complete">&#xe666;</i>已成功退还您的保证金，<a href="javascript:void(0);">查看详情</a></p>
+				</div>
+			</ul>
+			<iframe src="logistics.html" width="100%" name="logistics" id="logistics" scrolling="no" noresize="noresize" onload="logisticsFrame()" ></iframe>
+			<iframe src="order_info.html" width="100%" name="orderInfo" onload="orderInfoFrame()" scrolling="no" noresize="noresize" id="orderInfo" ></iframe>
+		</section>
+		<iframe src="footer.html" width="100%" name="bottomFrame" scrolling="no" noresize="noresize" id="bottomFrame" ></iframe>
+	</body>
+	<script src="/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/plugins/jquery.pages.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/views/domain/auction_process_sixth.js" type="text/javascript" charset="utf-8"></script>
+</html>

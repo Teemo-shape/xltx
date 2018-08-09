@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-企业实名</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/views/individual/cert_index.css"/>
+		<script src="../static/js/libs/get-user.js"></script>
+		<script>
+			isPermitted(ctx + "/cert/index");
+		</script>
+	</head>
+	<body>
+		<div id="app" v-cloak>
+			<header-cart ref="header"></header-cart>
+			<div class="bg"></div>
+			<section class="home_page cover clearfix">
+				<left-menu :name="menu_name" ></left-menu>
+				<div class="container f_l">
+					<h4 class="title">实名认证</h4>
+					<p class="tip">亲爱的用户，部分操作需要先实名认证，实名认证有助于提高可信度。</p>
+					<div class="ask clearfix">
+						<div class="iconfont f_l icon">&#xe6b7;</div>
+						<div class="cont f_l">系统检测您尚未实名认证，请认证。</div>
+						<a href="./cert_apply.html" class="button set_btn f_r">立即认证</a>
+					</div>
+				</div>
+			</section>
+			<common-footer></common-footer>
+		</div>
+	</body>
+</html>

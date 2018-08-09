@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+		<title>芯联-我的主页</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/views/individual/home_page.css"/>
+	</head>
+	<body>
+		<div id="app">
+			<header-cart></header-cart>
+			<div class="bg"></div>
+			<section class="home_page cover clearfix">
+				<left-menu :name="menu_name" ></left-menu>
+				<div class="container f_l">
+					<div class="info">
+						<div class="img_change bg_change">
+							<input type="file" name="headSculpture" id="headSculpture" value=""/>
+							<label for="headSculpture" class="iconfont">&#xe669;</label>
+						</div>
+						<div class="home_info clearfix">
+							<div class="head_sculpture f_l">
+								<img src="../static/img/seller_info_02.png"/>
+								<div class="img_change home_logo_change">
+									<input type="file" name="bgImg" id="bgImg" value=""/>
+									<label for="bgImg" class="iconfont">&#xe669;</label>
+								</div>
+							</div>
+							<div class="info_text f_l">
+								<h2 class="home_title">深圳唯创知音电子有限公司</h2>
+								<p>
+									<span class="home_intro">最诚信！最讲信用！最负责的中国深圳企业~！</span>
+									<i class="iconfont edit_intro">&#xe60e;</i>
+								</p>
+							</div>
+						</div>
+						<ul class="my_order clearfix">
+							<li><button type="button" class="button" >待付款<span class="unpaid">2</span></button></li>
+							<li><button type="button" class="button">待收货<span class="waiting_goods">2</span></button></li>
+							<li class="auction_item"><button type="button" class="button">我正参拍<span class="auction">3</span></button></li>
+							<li><button type="button" class="button">待发货<span class="waiting_delivery">2</span></button></li>
+						</ul>
+					</div>
+					<div class="message">
+						<h3>关注的动态</h3>
+						<div class="scroll_outside">
+							<ul class="scroll">
+								<li class="trend store">
+									<div class="trend_top clearfix">
+										<div class="do f_l"><a href="./seller_info.html">深科特</a>关注了商家</div><span class="trend_time f_r">1小时前</span>
+									</div>
+									<div class="trend_content clearfix">
+										<div class="trend_left f_l">
+											<img src="../static/img/seller_info_03.png"/>
+										</div>
+										<div class="trend_right f_l">
+											<p class="store_title">深圳市安玛科技有限公司</p>
+											<p class="store_intro">最诚信！最讲信用！最负责的中国深圳企业~！ </p>
+											<div class="actions">
+												<button type="button" class="sale_btn button"><i class="iconfont">&#xe653;</i><span class="sale_num">16</span>在售</button>
+												<button type="button" class="fans_btn button"><i class="iconfont">&#xe869;</i><span class="fans_num">36</span>关注者</button>
+												<button type="button" class="attention_btn button"><i class="iconfont">&#xe60c;</i>关注</button>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="trend product">
+									<div class="trend_top clearfix">
+										<div class="do f_l"><a href="./seller_info.html">芯联天下</a>收藏了商家</div><span class="trend_time f_r">1天前</span>
+									</div>
+									<div class="trend_content clearfix">
+										<div class="trend_left f_l">
+											<img src="../static/img/seller_info_04.png"/>
+										</div>
+										<div class="trend_right f_l">
+											<p class="product_title">SN8F5708 SONIX单片机IC FLASH可重复 烧写8051核一级代理原装供应</p>
+											<div class="price">¥5.47</div>
+											<div class="actions">
+												<button type="button" class="comment_btn button"><i class="iconfont">&#xe63b;</i><span class="comment_num">16</span>评论</button>
+												<button type="button" class="fans_btn button"><i class="iconfont">&#xe869;</i><span class="fans_num">36</span>关注者</button>
+												<button type="button" class="attention_btn button"><i class="iconfont">&#xe60c;</i>关注</button>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="trend product">
+									<div class="trend_top clearfix">
+										<div class="do f_l"><a href="./seller_info.html">深科特</a>发布了商家</div><span class="trend_time f_r">3 天前</span>
+									</div>
+									<div class="trend_content clearfix">
+										<div class="trend_left f_l">
+											<img src="../static/img/seller_info_04.png"/>
+										</div>
+										<div class="trend_right f_l">
+											<p class="product_title">SN8F5708 SONIX单片机IC FLASH可重复 烧写8051核一级代理原装供应</p>
+											<div class="price">¥5.47</div>
+											<div class="actions">
+												<button type="button" class="comment_btn button"><i class="iconfont">&#xe63b;</i><span class="comment_num">16</span>评论</button>
+												<button type="button" class="fans_btn button"><i class="iconfont">&#xe869;</i><span class="fans_num">36</span>关注者</button>
+												<button type="button" class="attention_btn button"><i class="iconfont">&#xe60c;</i>关注</button>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="trend product">
+									<div class="trend_top clearfix">
+										<div class="do f_l"><a href="./seller_info.html">芯联天下</a>评论了商家</div><span class="trend_time f_r">3 天前</span>
+									</div>
+									<div class="trend_content clearfix">
+										<div class="trend_left f_l">
+											<img src="../static/img/seller_info_04.png"/>
+										</div>
+										<div class="trend_right f_l">
+											<p class="product_title">SN8F5708 SONIX单片机IC FLASH可重复 烧写8051核一级代理原装供应</p>
+											<div class="price">¥5.47</div>
+											<div class="actions">
+												<button type="button" class="comment_btn button"><i class="iconfont">&#xe63b;</i><span class="comment_num">16</span>评论</button>
+												<button type="button" class="fans_btn button"><i class="iconfont">&#xe869;</i><span class="fans_num">36</span>关注者</button>
+												<button type="button" class="attention_btn button"><i class="iconfont">&#xe60c;</i>关注</button>
+											</div>
+										</div>
+									</div>
+									<p class="comment_text">
+										包装很单薄，也没送什么，这点不是很好，就图中的一个盒子。电脑还是很不错的，开机也就4，5秒吧，很
+										快。还有语音助手。不需要更新系统，因为是新发的嘛。设置还是需要耐心的。没什么毛病，一切都很顺
+										畅。颜值也很高。我用s8拍的，应该很清楚。最满意的一点就是基本不怎么发热，还有就是安静的出奇。晚
+										上也听不见声音。要把耳朵贴上去才听的见。非常棒。…
+										<button type="button" class="look_more button">显示更多<i class="iconfont">&#xe605;</i></button>
+									</p>
+								</li>
+								<div class="scroll_border"></div>
+								<div class="scroll_bar"></div>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="goTop" class="iconfont">&#xe61e;</div>
+			</section>
+			<common-footer></common-footer>
+		</div>
+	</body>
+	<script src="../static/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/personal/home_page.js" type="text/javascript" charset="utf-8"></script>
+</html>

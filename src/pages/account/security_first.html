@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-密保重置密码-验证账号</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/views/domain/security_first.css"/>
+		<script src="../static/js/libs/get-user.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<headersim></headersim>
+		</div>
+		<form action="" class="container">
+			<div class="step_num clearfix">
+				<span class="first_step step pass f_l">01</span>
+				<span class="second_step step nopass f_l">02</span>
+				<span class="third_step step nopass f_r">03</span>
+				<hr class="middle-line"/>
+			</div>
+			<div class="step_name clearfix">
+				<span class="first_name pass f_l">验证账号</span>
+				<span class="second_name nopass f_l">验证密保</span>
+				<span class="third_name nopass f_r">重置密码</span>
+			</div>
+			<p class="fail fail_tip"></p>
+			<input type="text" class="input cont" name="account" id="account" enter="go_next" trigger="['btn_next']" placeholder="输入手机号或邮箱"/>
+			<input type="text" class="hide" style="display:none;">
+			<p class="fail" id="msg_account"></p>
+			<button type="button" class="send_next button" id="btn_next" disabled="disabled">确定</button>
+		</form>
+	</body>
+	<script src="../static/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/config/package.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/config/input.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/account/security_first.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

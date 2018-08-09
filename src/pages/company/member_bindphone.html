@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-内部成员-手机验证</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/views/individual/member_uptphone.css"/>
+		<script src="../static/js/libs/get-user.js"></script>
+		<script>
+			isPermitted(ctx + "/member/bindedit/phone");
+		</script>
+	</head>
+	<body>
+		<div id="app" v-cloak>
+			<header-cart ref="header"></header-cart>
+			<div class="bg"></div>
+			<section class="home_page cover clearfix">
+				<left-menu :name="menu_name" ></left-menu>
+				<div class="container f_l">
+					<h4>
+						<a href="./member_index.html" class="go">内部成员</a>&gt;
+						<a href="./member_info.html" class="go">个人资料</a>&gt;
+						<span class="current">绑定手机号</span>
+					</h4>
+					<div class="step_num clearfix">
+						<span class="first_step step pass">01</span>
+						<span class="second_step step wait">02</span>
+						<hr class="middle-line"/>
+					</div>
+					<div class="step_name clearfix">
+						<span class="first_name f_l">填写手机号</span>
+						<span class="second_name f_r wait">绑定手机号</span>
+					</div>
+					<p class="fail fail_tip"></p>
+					<form action="" id="form" method="post">
+						<ul class="items">
+							<li class="item clearfix">
+								<div class="info_name member f_l">手机号<i>*</i></div>
+								<input type="text" name="user" callback="hasRegister" enter="go_next" trigger="['btn_next','btn_getcode']" id="phone" class="set_user input f_l"  value="" placeholder="请输入要验证的手机号"/>
+							</li>
+							<p class="fail" id="msg_phone"></p>
+							<li class="item pin_card clearfix">
+								<input type="text" name="phone_ident_code" id="code" enter="go_next" trigger="['btn_next']" class="phone_input_code input f_l" value="" placeholder="请输入手机验证码"/>
+								<input type="button" class="f_l get_phone_card button" id="btn_getcode" value="获取验证码">
+								<div class="f_l hidden_btn"></div>
+							</li>
+							<p class="fail" id="msg_code"></p>
+						</ul>
+						<button type="button" class="button submit" id="btn_next" disabled="disabled">提交</button>
+					</form>
+				</div>
+			</section>
+			<common-footer></common-footer>
+		</div>
+	</body>
+	<script src="../static/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/config/package.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/config/input.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/company/member_bindphone.js" type="text/javascript" charset="utf-8"></script>
+</html>

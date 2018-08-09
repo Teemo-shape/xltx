@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-我的账单</title>
+		<link rel="stylesheet" type="text/css" href="/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/views/individual/my_bill.css"/>
+	</head>
+	<body>
+		<header></header>
+		<div class="bg"></div>
+		<section class="home_page cover clearfix">
+			<ul class="menu f_l">
+				<li>
+					<dl>
+						<dd><a href="/index.html"><i class="iconfont">&#xe611;</i>首页</a></dd>
+						<dd><a href="/views/individual/home_page.html"><i class="iconfont">&#xe616;</i>我的主页</a></dd>
+						<dd><a href="/views/individual/backlog.html"><i class="iconfont giant">&#xe61a;</i>我的待办</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>我买到的</dt>
+						<dd><a href="/views/individual/order_list.html"><i class="iconfont">&#xe69c;</i>普通订单</a></dd>
+						<dd><a href="/views/individual/my_auction.html"><i class="iconfont">&#xe60f;</i>拍卖商品</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>卖家功能</dt>
+						<dd><a href="javascript:void(0);"><i class="iconfont little_small">&#xe917;</i>发布商品</a></dd>
+						<dd><a href="/views/individual/logistics_management.html"><i class="iconfont">&#xe69a;</i>发货管理</a></dd>
+						<dd><a href="javascript:void(0);"><i class="iconfont">&#xe662;</i>咨询管理</a></dd>
+						<dd><a href="/views/individual/set_up_shop.html"><i class="iconfont little_big">&#xe6b6;</i>店铺概况</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>账号管理</dt>
+						<dd><a href="/views/individual/cert_index.html"><i class="iconfont small">&#xe619;</i>企业实名</a></dd>
+						<dd><a href="/views/individual/member_index.html"><i class="iconfont">&#xe61f;</i>内部成员</a></dd>
+						<dd><a href="/views/individual/shipping_address.html"><i class="iconfont little_big">&#xe6cd;</i>收货地址</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>财务区</dt>
+						<dd class="active"><a href="/views/individual/my_bill.html"><i class="iconfont">&#xe610;</i>我的账单</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>资料库</dt>
+						<dd><a href="/views/individual/attention.html"><i class="iconfont big">&#xe655;</i>关注</a></dd>
+						<dd><a href="/views/individual/browse_history.html"><i class="iconfont">&#xe618;</i>足迹</a></dd>
+						<dd><a href="/views/individual/my_statistics.html"><i class="iconfont giant">&#xe613;</i>我的统计</a></dd>
+						<dd><a href="javascript:void(0);"><i class="iconfont">&#xe6a7;</i>我的咨询</a></dd>
+					</dl>
+				</li>
+			</ul>
+			<div class="container f_l">
+				<h4>我的账单</h4>
+				<div class="select_cont clearfix">
+					<div class="date f_l"><input type="text" class="demo-input" placeholder="请选择日期" id="selectTime"></div><i class="iconfont down f_l">&#xe61c;</i>
+					<div class="check_cont f_l">
+						<i class="iconfont">&#xe6da;</i>
+						<input type="checkbox" name="bill" id="common" value=""/>
+					</div>
+					<label for="common" class="f_l">普通交易账单</label>
+					<div class="check_cont f_l">
+						<i class="iconfont">&#xe6da;</i>
+						<input type="checkbox" name="bill" id="auction" value=""/>
+					</div>
+					<label for="auction" class="f_l">竞拍交易账单</label>
+				</div>
+				<dl class="bill_items">
+					<dt>
+						<ul class="bill_item dt clearfix">
+							<li class="serial_number">流水号</li>
+							<li class="bill_date">日期</li>
+							<li class="remarks">备注</li>
+							<li class="income">收入</li>
+							<li class="pay">支出</li>
+							<li class="action">操作</li>
+						</ul>
+					</dt>
+					<dd>
+						<ul class="bill_item clearfix">
+							<li class="serial_number">73267481180392</li>
+							<li class="bill_date">2017-06-12 10:08:02</li>
+							<li class="remarks">退保证金</li>
+							<li class="income">+ ￥1200</li>
+							<li class="pay">--</li>
+							<li class="action"><button type="button" class="button detail">详情</button></li>
+						</ul>
+					</dd>
+					<dd>
+						<ul class="bill_item clearfix">
+							<li class="serial_number">73267481180392</li>
+							<li class="bill_date">2017-06-12 10:08:02</li>
+							<li class="remarks">卖出货物</li>
+							<li class="income">+ ￥12000</li>
+							<li class="pay">--</li>
+							<li class="action"><button type="button" class="button detail">详情</button></li>
+						</ul>
+					</dd>
+					<dd>
+						<ul class="bill_item clearfix">
+							<li class="serial_number">73267481180392</li>
+							<li class="bill_date">2017-06-12 10:08:02</li>
+							<li class="remarks">购买商品</li>
+							<li class="income">--</li>
+							<li class="pay">- ￥12000</li>
+							<li class="action"><button type="button" class="button detail">详情</button></li>
+						</ul>
+					</dd>
+					<dd>
+						<ul class="bill_item clearfix">
+							<li class="serial_number">73267481180392</li>
+							<li class="bill_date">2017-06-12 10:08:02</li>
+							<li class="remarks">扣除保证金</li>
+							<li class="income">--</li>
+							<li class="pay">- ￥12000</li>
+							<li class="action"><button type="button" class="button detail">详情</button></li>
+						</ul>
+					</dd>
+					<dd>
+						<ul class="bill_item clearfix">
+							<li class="serial_number">73267481180392</li>
+							<li class="bill_date">2017-06-12 10:08:02</li>
+							<li class="remarks">退保证金</li>
+							<li class="income">+ ￥12000</li>
+							<li class="pay">--</li>
+							<li class="action"><button type="button" class="button detail">详情</button></li>
+						</ul>
+					</dd>
+				</dl>
+			</div>
+			<div id="goTop" class="iconfont">&#xe61e;</div>
+		</section>
+		<iframe src="/views/domain/footer.html" width="100%" name="bottomFrame" scrolling="no" noresize="noresize" id="bottomFrame" ></iframe>
+	</body>
+	<script src="/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/plugins/laydate/laydate.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/views/individual/my_bill.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		/*
+		 * 加载头部
+		 */
+		$("header").load("/views/domain/header.html");
+	</script>
+</html>

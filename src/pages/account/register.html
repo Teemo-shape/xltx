@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>芯联-注册</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/views/domain/register.css" />
+    <script src="../static/js/libs/get-user.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <headersim></headersim>
+    </div>
+    <form action="" class="container cover" method="post">
+      <h2>账号注册</h2>
+      <p class="fail_tip fail"></p>
+      <input type="text" class="cont input" name="phone" callback="checkIsRegister" enter="go_next" trigger="['btn_next','btn_getcode']" id="phone"
+        placeholder="你的手机号" />
+      <p class="fail" id="msg_phone"></p>
+      <div class="pin_card clearfix cont" id="pin_card">
+        <input type="text" class="input f_l write_pin" id="code" enter="go_next" trigger="['btn_next']" name="pin" placeholder="输入手机验证码" />
+        <input type="button" class="f_l get_phone_card button" id="btn_getcode" value="获取手机验证码" disabled="disabled">
+        <div class="f_l hidden_btn"></div>
+      </div>
+      <p class="fail" id="msg_code"></p>
+      <input type="password" name="password" id="pwd" related="pwd2" enter="go_next" trigger="['btn_next']" class="input cont" value="" placeholder="请输入密码" />
+      <p class="notice fail">建议使用字母（区分大小写），数字和特殊字符两种及两种以上的组合，至少6位字符</p>
+      <p class="fail" id="msg_pwd"></p>
+      <input type="password" name="password_again" related="pwd" id="pwd2" enter="go_next" trigger="['btn_next']" class="input cont" value="" placeholder="再次输入密码"
+      />
+      <p class="fail" id="msg_pwd2"></p>
+      <button type="button" class="register button" id="btn_next" disabled="disabled">注册</button>
+      <div class="other clearfix">
+        <a class="go_login f_r" href="./login.html">已有账号?
+          <span>去登录</span>
+        </a>
+      </div>
+    </form>
+    
+  </body>
+  <script src="../static/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../static/js/config/package.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../static/js/config/input.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../static/js/account/register.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

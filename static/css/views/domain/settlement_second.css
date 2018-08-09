@@ -1,0 +1,264 @@
+body{
+	color: #333;
+}
+
+iframe{
+	width: 100%;
+	border: none;
+}
+.cover{
+	width: 1200px;
+	margin: 0 auto;
+}
+/*
+ * 结算
+ */
+.title{
+	font-size: 24px;
+	text-align: center;
+	font-weight: 700;
+	margin:30px auto 36px;
+}
+.notice{
+	width: 1125px;
+	background: #e5e5e5;
+	padding: 15px 40px 15px 30px;
+	margin-bottom: 40px;
+}
+.summary_title{
+	height: 80px;
+	background: #e5e5e5;
+	font-size: 20px;
+	font-weight: 800;
+	padding-left: 30px;
+	line-height: 80px;
+}
+.summary_title .f_r{
+	width: 118px;
+	height: 38px;
+	border: 1px solid #999;
+	font-size: 16px;
+	font-weight: 500;
+	text-align: center;
+	line-height: 38px;
+	margin-right: 40px;
+	margin-top: 20px;
+}
+.order_info{
+	padding-top: 36px;
+	border: 1px solid #d1d1d1;
+}
+.order_info .company_item{
+	line-height: 44px;
+	border-bottom: 1px solid #e5e5e5;
+	display: inline-block;
+	margin-left: 60px;
+}
+.order_info .company_item .company{
+	color: #666;
+	display: inline-block;
+	margin-left: 8px;
+	margin-right: 10px;
+}
+.order_info .company_item .iconfont{
+	color: #1296da;
+	font-size: 24px;
+    vertical-align: top;
+    margin-right: 8px;
+}
+.order_info .company_item .contact{
+	text-decoration: underline;
+}
+.order_info .company_item .contact:hover{
+	text-decoration: underline;
+}
+.order_items .order_item{
+	width: 915px;
+	border-bottom: 1px solid #e5e5e5;
+    margin-left: 120px;
+    padding: 30px 0;
+}
+.order_items .order_item .order_item_img{
+	border: 1px solid #d1d1d1;
+}
+.order_item_img img{
+	width: auto;
+	max-width: 100%;
+	text-align: center;
+}
+.order_item .order_item_text{
+	width: 300px;
+	line-height: 32px;
+	padding-top: 26px;
+	padding-left: 10px;
+}
+.order_item .order_item_price{
+	width: 146px;
+	text-align: center;
+	font-weight: 600;
+	color: #fa5400;
+	line-height: 56px;
+	padding-top: 26px;
+	margin-left: 32px;
+}
+.order_item .order_item_num{
+	line-height: 56px;
+	padding-top: 26px;
+}
+.amount{
+	width: 919px;
+	font-size: 20px;
+	padding-top: 44px;
+	padding-bottom: 48px;
+	margin: 0 auto;
+}
+.amount .f_r{
+	line-height: 30px;
+}
+.amount .amount_num{
+	width: 146px;
+	font-size: 24px;
+	text-align: center;
+	font-weight: 600;
+	color: #fa5400;
+	margin-left: 32px;
+}
+
+/*
+ * 配送和支付
+ */
+.pay{
+	margin: 30px auto;
+}
+.pay h2{
+	height: 80px;
+	font-size: 20px;
+	line-height: 80px;
+    font-weight: 500;
+	color: #fff;
+	background: #000;
+	padding-left: 30px;
+}
+.pay .pay_cont{
+	width: 100%;
+	padding-right: 40px;
+	padding-left: 30px;
+	border: 1px solid #d1d1d1;
+	box-sizing: border-box;
+}
+.pay_cont .step{
+	padding-top: 40px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.pay_cont .dispatching{
+	padding-left: 20px;
+	position: relative;
+}
+.pay_cont .step .step_name{
+	font-size: 20px;
+	line-height: 1;
+	font-weight: 600;
+	margin-bottom: 30px;
+}
+.pay_cont .step>ul{
+	margin-top: 20px;
+}
+.pay_cont .step li{
+	line-height: 36px;
+	margin-left: 20px;
+}
+.pay_cont .step .pay_name{
+	display: inline-block;
+	margin-right: 70px;
+}
+.step .pay_num{
+	margin-bottom: 40px;
+}
+.step .pay_num .sub_cont{
+	width: 348px;
+	float: right;
+	text-align: center;
+}
+.sub_cont .transport{
+	width: 64px;
+	display: inline-block;
+}
+.sub_cont .price{
+	width: 84px;
+	color: #fa5400;
+	display: inline-block;
+	margin-right: 200px;
+}
+.step .edit{
+	width: 116px;
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+	border: 1px solid #d1d1d1;
+	position: absolute;
+	top: 40px;
+	right: 0;
+}
+.select_pay_way{
+	padding-left: 30px;
+}
+.select_pay_way .pay_ways{
+	margin-bottom: 40px;
+}
+.select_pay_way .pay_way{
+	width: 248px;
+	height: 72px;
+	line-height: 72px;
+	text-align: center;
+	border: 1px solid #d1d1d1;
+	float: left;
+	margin-right: 30px;
+}
+.select_pay_way .pay_way .chenkbox{
+	font-size: 20px;
+	vertical-align: top;
+	display: inline-block;
+	margin-right: 26px;
+}
+.select_pay_way .pay_way .pay_app{
+	width: 140px;
+	height: 36px;
+	display: inline-block;
+	margin-top: 18px;
+}
+.select_pay_way .pay_way .wechat{
+	background: url(/img/wechat.png) no-repeat;
+	background-size: contain;
+}
+.select_pay_way .pay_way .alipay{
+	background: url(/img/alipay.png) no-repeat;
+	background-size: contain;
+}
+.pay_cont .affirm{
+	padding-top: 60px;
+	padding-left: 40px;
+}
+.pay_cont .affirm .tip{
+	line-height: 36px;
+	margin-bottom: 30px;
+}
+.pay_cont .affirm .account{
+	margin-bottom: 50px;
+	font-size: 24px;
+}
+.pay_cont .affirm .pay_btn{
+	width: 174px;
+	height: 70px;
+	color: #fff;
+	text-align: center;
+	line-height: 70px;
+	background: #fa5400;
+	border: none;
+	margin-left: 34px;
+}
+.affirm .account .all_price{
+	width: 120px;
+	text-align: center;
+	color: #fa5400;
+	display: inline-block;
+}

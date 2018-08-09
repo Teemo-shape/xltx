@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-邮箱验证</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/views/domain/mail_psd.css"/>
+		<script src="../static/js/libs/get-user.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<headersim></headersim>
+		</div>
+		<div class="container">
+			<div class="step_num clearfix">
+				<span class="first_step step f_l">01</span>
+				<span class="second_step step f_r">02</span>
+				<hr class="middle-line"/>
+			</div>
+			<div class="step_name clearfix">
+				<span class="first_name f_l">验证邮箱</span>
+				<span class="second_name f_r">重置密码</span>
+			</div>
+			<div class="sub_cont">
+				<p class="fail_tip fail"></p>
+				<input type="text" class="input cont" id="email" name="mail" enter="go_next" trigger="['btn_next']" placeholder="输入绑定的的邮箱号"/>
+				<p class="fail" id="msg_email"></p>
+				<button type="button" class="send_mail button" id="btn_next" disabled="disabled">发送验证邮件</button>
+			</div>
+			<div class="send_input">
+				<p class="tip"><span class="notice"></span></p>
+				<p class="tip">电子邮箱：<span class="mail_number"></span>
+					<span class="send_again_cont">
+						<button type="button" class="button send_again">没收到，再发一次</button>
+						<button class="hidden_btn"></button>
+					</span>
+				</p>
+			</div>
+		</div>
+	</body>
+	<script src="../static/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/config/package.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/config/input.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/account/mail_psd.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

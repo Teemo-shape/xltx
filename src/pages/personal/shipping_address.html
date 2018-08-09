@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-收货地址</title>
+		<link rel="stylesheet" type="text/css" href="/css/libs/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/views/individual/shipping_address.css"/>
+	</head>
+	<body>
+		<header></header>
+		<div class="bg"></div>
+		<section class="home_page cover clearfix">
+			<ul class="menu f_l">
+				<li>
+					<dl>
+						<dd><a href="/index.html"><i class="iconfont">&#xe611;</i>首页</a></dd>
+						<dd><a href="/views/individual/home_page.html"><i class="iconfont">&#xe616;</i>我的主页</a></dd>
+						<dd><a href="/views/individual/backlog.html"><i class="iconfont giant">&#xe61a;</i>我的待办</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>我买到的</dt>
+						<dd><a href="/views/individual/order_list.html"><i class="iconfont">&#xe69c;</i>普通订单</a></dd>
+						<dd><a href="/views/individual/my_auction.html"><i class="iconfont">&#xe60f;</i>拍卖商品</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>卖家功能</dt>
+						<dd><a href="javascript:void(0);"><i class="iconfont little_small">&#xe917;</i>发布商品</a></dd>
+						<dd><a href="/views/individual/logistics_management.html"><i class="iconfont">&#xe69a;</i>发货管理</a></dd>
+						<dd><a href="javascript:void(0);"><i class="iconfont">&#xe662;</i>咨询管理</a></dd>
+						<dd><a href="/views/individual/set_up_shop.html"><i class="iconfont little_big">&#xe6b6;</i>店铺概况</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>账号管理</dt>
+						<dd><a href="/views/individual/cert_index.html"><i class="iconfont small">&#xe619;</i>企业实名</a></dd>
+						<dd><a href="/views/individual/member_index.html"><i class="iconfont">&#xe61f;</i>内部成员</a></dd>
+						<dd class="active"><a href="/views/individual/shipping_address.html"><i class="iconfont little_big">&#xe6cd;</i>收货地址</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>财务区</dt>
+						<dd><a href="/views/individual/my_bill.html"><i class="iconfont">&#xe610;</i>我的账单</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>资料库</dt>
+						<dd><a href="/views/individual/attention.html"><i class="iconfont big">&#xe655;</i>关注</a></dd>
+						<dd><a href="/views/individual/browse_history.html"><i class="iconfont">&#xe618;</i>足迹</a></dd>
+						<dd><a href="/views/individual/my_statistics.html"><i class="iconfont giant">&#xe613;</i>我的统计</a></dd>
+						<dd><a href="javascript:void(0);"><i class="iconfont">&#xe6a7;</i>我的咨询</a></dd>
+					</dl>
+				</li>
+			</ul>
+			<div class="container f_l">
+				<h4>收货地址管理</h4>
+				<p class="tip"><span class="title">新增收货地址</span>以下均为必填项</p>
+				<div class="new_address">
+					<ul>
+						<li>
+							<label for="nickname"><span class="info_name">地址别称(如:家庭)</span><i class="must">*</i></label>
+							<input type="text" name="nickname" id="nickname" value="" />
+						</li>
+						<li>
+							<label for="name"><span class="info_name">姓名</span><i class="must">*</i></label>
+							<input type="text" name="name" id="name" value=""/>
+						</li>
+						<li>
+							<div class="linkage"><span class="info_name">省-市-县/区</span><i class="must">*</i></div>
+							<form class="form-inline">
+						      	<div id="distpicker" class="clearfix">
+							        <div class="form-group f_l">
+							          	<label class="sr-only" for="province">Province</label>
+							          	<select class="form-control" id="province"></select>
+							        </div>
+							        <div class="form-group f_l">
+							          	<label class="sr-only" for="city">City</label>
+							          	<select class="form-control" id="city"></select>
+							        </div>
+							        <div class="form-group f_l">
+							          	<label class="sr-only" for="district">District</label>
+							          	<select class="form-control" id="district"></select>
+							        </div>
+						      	</div>
+						    </form>
+						</li>
+						<li>
+							<label for="address"><span class="info_name">地址</span><i class="must">*</i></label>
+							<input type="text" name="address" id="address" value=""/>
+						</li>
+						<li>
+							<label for="post_code"><span class="info_name">邮编</span></label>
+							<input type="text" name="post_code" id="post_code" value=""/>
+						</li>
+						<li>
+							<label for="post_code"><span class="info_name">收货人电话</span><i class="must">*</i></label>
+							<input type="tel" name="post_code" id="post_code" value=""/>
+						</li>
+					</ul>
+					<p class="phone_notice">请输入收件人手机号以便发货时联系</p>
+					<button type="button" class="save button">保存</button>
+					<button type="button" class="cancle button">取消</button>
+				</div>
+				<div class="tip">
+					收货地址<span class="explain">已保存了<i class="save_address">3</i>条地址，还能保存<i class="left_num">17</i>条地址</span>
+				</div>
+				<dl class="table">
+					<dt class="clearfix">
+						<div class="nick_name">别称</div>
+						<div class="consignee">收货人</div>
+						<div class="area">所在地区</div>
+						<div class="detail">详细地址</div>
+						<div class="post_code">邮编</div>
+						<div class="phone">电话手机</div>
+						<div class="actions">操作</div>
+					</dt>
+					<dd class="default_address clearfix">
+						<div class="nick_name">公司</div>
+						<div class="consignee">张三</div>
+						<div class="area">广东省&ensp;深圳市&ensp;宝安区</div>
+						<div class="detail">西乡黄田社区鸿丰华互联网创意圆A栋</div>
+						<div class="post_code">518052</div>
+						<div class="phone">18*******43</div>
+						<div class="actions"><button type="button" class="button change">修改</button><button type="button" class="button delete">删除</button></div>
+						<div class="default iconfont">&#xe666;</div>
+					</dd>
+					<dd class="clearfix">
+						<div class="nick_name">家庭</div>
+						<div class="consignee">张三</div>
+						<div class="area">广东省&ensp;深圳市&ensp;宝安区</div>
+						<div class="detail">西乡黄田社区鸿丰华互联网创意圆A栋</div>
+						<div class="post_code">518052</div>
+						<div class="phone">18*******43</div>
+						<div class="actions"><button type="button" class="button change">修改</button><button type="button" class="button delete">删除</button></div>
+						<div class="default set_default"><button class="button set_btn">设为默认</button></div>
+					</dd>
+					<dd class="clearfix">
+						<div class="nick_name">公司</div>
+						<div class="consignee">张三</div>
+						<div class="area">广东省&ensp;深圳市&ensp;宝安区</div>
+						<div class="detail">西乡黄田社区鸿丰华互联网创意圆A栋</div>
+						<div class="post_code">518052</div>
+						<div class="phone">18*******43</div>
+						<div class="actions"><button type="button" class="button change">修改</button><button type="button" class="button delete">删除</button></div>
+						<div class="default set_default"><button class="button set_btn">设为默认</button></div>
+					</dd>
+				</dl>
+			</div>
+		</section>
+		<iframe src="/views/domain/footer.html" width="100%" name="bottomFrame" scrolling="no" noresize="noresize" id="bottomFrame" ></iframe>
+	</body>
+	<script src="/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/libs/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/plugins/distpicker.data.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/plugins/distpicker.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/views/individual/shipping_address.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		/*
+		 * 加载头部
+		 */
+		$("header").load("/views/domain/header.html");
+	</script>
+</html>

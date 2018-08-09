@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-内部成员-修改密码</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/views/individual/member_chgpsw.css"/>
+		<script src="../static/js/libs/get-user.js"></script>
+		<script>
+			isPermitted(ctx + "/member/update/psw");
+		</script>
+	</head>
+	<body>
+		<div id="app" v-cloak>
+			<header-cart ref="header"></header-cart>
+			<div class="bg"></div>
+			<section class="home_page cover clearfix">
+				<left-menu :name="menu_name" ></left-menu>
+				<div class="container f_l">
+					<h4>
+						<a href="./member_index.html" class="go">内部成员</a>&gt;
+						<a href="./member_info.html" class="go">个人资料</a>&gt;
+						<span class="current">修改密码</span>
+					</h4>
+					<p class="fail fail_tip"></p>
+					<p class="notice fail">建议使用字母（区分大小写），数字和特殊字符两种及两种以上的组合，至少6位字符</p>
+					<form action="" method="post">
+						<ul class="items">
+							<li class="item clearfix">
+								<label class="info_name f_l" for="password">新密码</label>
+								<input type="password" name="password" id="pwd" related="pwd2" enter="go_next" trigger="['btn_next']" class="set_user input f_l"  value="" />
+							</li>
+							<p class="fail" id="msg_pwd"></p>
+							<li class="item clearfix">
+								<label class="info_name f_l" for="password_again">确认密码</label>
+								<input type="password" name="password_again" id="pwd2" related="pwd" enter="go_next" trigger="['btn_next']" class="again input f_l"  value="" />
+							</li>
+							<p class="fail" id="msg_pwd2"></p>
+						</ul>
+						<button type="button" class="button submit" id="btn_next" disabled="disabled">确认</button>
+					</form>
+				</div>
+			</section>
+			<common-footer></common-footer>
+		</div>
+	</body>
+	<script src="../static/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/config/package.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/config/input.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/company/member_chgpsw.js" type="text/javascript" charset="utf-8"></script>
+</html>

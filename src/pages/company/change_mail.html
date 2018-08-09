@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css"/>
+    <style>
+        body{
+            background: #f5f5f5;
+        }
+        .container{
+            width: 518px;
+            height: 674px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            padding: 0 151px;
+            margin: 60px auto 0;
+        }
+        .container h4{
+            font-size: 28px;
+            line-height: 50px;
+            text-align: center;
+            margin-top: 180px;
+        }
+        .container .iconfont{
+            font-size: 62px;
+            line-height: 54px;
+            color: #fa5400;
+            vertical-align: top;
+            margin-right: 20px;
+        }
+    </style>
+    <script src="../static/js/libs/get-user.js"></script>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <headersim></headersim>
+        <div class="container">
+            <h4 v-if="Boolean(msg)"><i class="iconfont">&#xe651;</i>{{msg}}</h4>
+        </div>
+    </div>
+</body>
+</html>

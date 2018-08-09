@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-拍卖订单-确认订单</title>
+		<link rel="stylesheet" type="text/css" href="/css/libs/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/views/domain/auction_process_second.css"/>
+	</head>
+	<body>
+		<header></header>
+		<section class="position cover">
+			<div class="nav clearfix">
+				<span class="f_l">您的位置：</span>
+				<a href="/views/individual/home_page.html" class="position_first f_l">个人区</a><i class="iconfont f_l">&#xe600;</i>
+				<span class="f_l my_order">我的订单</span>
+			</div>
+			<ul class="steps clearfix">
+				<li class="step_cont"><img src="/img/flow_path_down_01.png"/><div class="step">拍下宝贝</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_down_02.png"/><div class="step">确认订单</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_03.png"/><div class="step">付款</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_04.png"/><div class="step">卖家发货</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_02.png"/><div class="step">确认收货</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_03.png"/><div class="step">退保证金</div></li>
+				<div class="transaction_closed">
+					<p class="state">请确认您的订单信息是否正确，并确定您的配送方式</span></p>
+					<p class="notice">
+						请在<i class="iconfont">&#xe624;</i><span class="count_down">17小时22分35秒</span>
+						时间内确认并付款；否则系统将判定您负违约责任，交易取消并扣除保证金<br />
+						如果您想放弃拍品，可以直接<a href="/views/individual/cancel_order.html" class="cancle_order">取消订单</a>系统将判定您负违约责任，交易取消并扣除保证金
+					</p>
+				</div>
+			</ul>
+			<iframe src="order_info.html" width="100%" name="orderInfo" onload="orderInfoFrame()" scrolling="no" noresize="noresize" id="orderInfo" ></iframe>
+			<h2>配送</h2>
+			<div class="dispatching">
+				<div class="tab_delivery">
+					<button type="button" class="button"><i class="iconfont active">&#xe64d;</i>快速送货上门</button>
+					<button type="button" class="button"><i class="iconfont">&#xe671;</i>自提</button>
+				</div>
+				<div class="delivery">
+					<ul>
+						<li class="active">
+							<div class="default clearfix">
+								<span class="text">首选地址</span>
+							</div>
+							<p class="delivery_name">陶宇初</p>
+							<p class="delivery_address">广东省深圳市宝安区黄田宏丰工业区</p>
+							<p class="delivery_phone">13613956462</p>
+							<span class="delivery_edit  delivery_btn">编辑</span>
+							<span class="iconfont  delivery_btn">&#xe666;</span>
+						</li>
+						<li class="">
+							<div class="default clearfix">
+								<span class="text">ABC</span>
+								<span class="delivery_edit delivery_btn f_r">编辑</span>
+								<span class="use_this delivery_btn f_r">使用此地址</span>
+							</div>
+							<p class="delivery_name">陶宇初</p>
+							<p class="delivery_address">广东省深圳市宝安区黄田宏丰工业区</p>
+							<p class="delivery_phone">13613956462</p>
+						</li>
+					</ul>
+					<div class="new_address">
+						<ul>
+							<li>
+								<label for="nickname">地址别称(如:家庭)<span class="must">*</span></label>
+								<input type="text" name="nickname" id="nickname" value="" />
+							</li>
+							<li>
+								<label for="name">姓名<span class="must">*</span></label>
+								<input type="text" name="name" id="name" value=""/>
+							</li>
+							<li>
+								<span class="linkage">省-市-县/区<span class="must">*</span></span>
+								<form class="form-inline">
+							      	<div id="distpicker">
+								        <div class="form-group">
+								          	<label class="sr-only" for="province">Province</label>
+								          	<select class="form-control" id="province"></select>
+								        </div>
+								        <div class="form-group">
+								          	<label class="sr-only" for="city">City</label>
+								          	<select class="form-control" id="city"></select>
+								        </div>
+								        <div class="form-group">
+								          	<label class="sr-only" for="district">District</label>
+								          	<select class="form-control" id="district"></select>
+								        </div>
+							      	</div>
+							    </form>
+							</li>
+							<li>
+								<label for="address">地址<span class="must">*</span></label>
+								<input type="text" name="address" id="address" value=""/>
+							</li>
+							<li>
+								<label for="post_code">邮编</label>
+								<input type="text" name="post_code" id="post_code" value=""/>
+							</li>
+							<li>
+								<label for="post_code">收货人电话<span class="must">*</span></label>
+								<input type="tel" name="post_code" id="post_code" value=""/>
+								<p class="phone_notice">请输入收件人手机号以便发货时联系</p>
+							</li>
+						</ul>
+						<button type="button" class="save">保存并使用此地址</button>
+						<button type="button" class="cancle">取消</button>
+					</div>
+					<div class="other_options">
+						<div class="add_address">[+]<span>添加新地址</span></div>
+						<div>
+							<label for="email">电子邮件<span class="must">*</span></label>
+							<input type="email" name="email" id="email" value="" />
+							<span>我们将发送订单信息至此邮件地址。</span>
+						</div>
+						<div class="option_notice">
+							<span class="iconfont">&#xe60a;</span>
+							若订单出现错误，出于隐私考虑我们将仅与您联系。请务必填写所有信息。
+						</div>
+					</div>
+				</div>
+				<div class="next clearfix">
+					<span class="must">*</span>必填项
+					<button class="next_page f_r" type="button">确定</button>
+				</div>
+			</div>
+		</section>
+		<section class="dispatching cover">
+			
+		</section>
+		<iframe src="/views/domain/footer.html" width="100%" name="bottomFrame" scrolling="no" noresize="noresize" id="bottomFrame" ></iframe>
+	</body>
+	<script src="/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/libs/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/plugins/distpicker.data.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/plugins/distpicker.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/views/domain/auction_process_second.js" type="text/javascript" charset="utf-8"></script>
+</html>

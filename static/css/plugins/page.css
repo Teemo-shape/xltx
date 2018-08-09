@@ -1,0 +1,96 @@
+
+.clearfix{
+	*zoom:1;
+} /* 针对IE6/7 hack，触发IE6/7的haslayout，以清除浮动 */
+.clearfix:before,.clearfix:after{
+	display:block;
+	content:"";
+	height:0;
+	visibility: hidden;
+	overflow: hidden;
+}
+.clearfix:after{
+	clear:both;
+}
+a{
+	text-decoration: none;
+}
+.page_container{
+	display: inline-block;
+	background: #fff;
+	margin: 20px auto 30px;
+}
+.page_container a{
+	color: #333;
+}
+.page_container a,
+.page_container span{
+	height: 43px;
+	text-align: center;
+	line-height: 43px;
+	background: #f5f5f5;
+	border: 1px solid #d1d1d1;
+	margin: 0 8px;
+	float: left;
+}
+.page_container .prevPage,
+.page_container .disabled,
+.page_container .nextPage{
+	width: 88px;
+	font-size: 16px;
+}
+.page_container .current{
+	width: 52px;
+	background: #fff;
+	color: #ff7e21;
+	border: none;
+	font-size: 20px;
+}
+.page_container .hiding{
+	margin: 0 16px;
+}
+.page_container .pagecount{
+	height: 45px;
+	font-size: 20px;
+	line-height: 45px;
+	border: none;
+	background: #fff;
+	margin-left: 24px;
+}
+.page_container .countYe{
+	width: 216px;
+	height: 45px;
+	font-size: 20px;
+	border: none;
+	background: #fff;
+	margin-left: 12px;
+}
+.page_container .tcdNumber,
+.page_container .hiding,
+.page_container .countYe .page_num{
+	width: 52px;
+	font-size: 20px;
+	color: #333;
+}
+.page_container .hiding{
+	border: none;
+	background: #fff;
+}
+.page_container .countYe .page_num{
+	text-align: center;
+	outline: none;
+	padding: 0;
+	border: 1px solid #999;
+	margin: 0 4px;
+}
+.page_container .countYe .turndown{
+	width: 69px;
+	font-size: 20px;
+	line-height: 45px;
+	color: #fff;
+	background: #fa5400;
+	display: inline-block;
+	margin-left: 12px;
+	float: none;
+	vertical-align: top;
+}

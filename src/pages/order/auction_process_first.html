@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-拍卖订单-拍下宝贝</title>
+		<link rel="stylesheet" type="text/css" href="/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/views/domain/auction_process_first.css"/>
+	</head>
+	<body>
+		<header></header>
+		<section class="position cover">
+			<div class="nav clearfix">
+				<span class="f_l">您的位置：</span>
+				<a href="home_page.html" class="position_first f_l">个人区</a><i class="iconfont f_l">&#xe600;</i>
+				<span class="f_l my_order">我的订单</span>
+			</div>
+			<ul class="steps clearfix">
+				<li class="step_cont"><img src="/img/flow_path_down_01.png"/><div class="step">拍下宝贝</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_02.png"/><div class="step">确认订单</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_03.png"/><div class="step">付款</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_04.png"/><div class="step">卖家发货</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_02.png"/><div class="step">确认收货</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_03.png"/><div class="step">退保证金</div></li>
+				<div class="transaction_closed">
+					<p class="state">当前订单状态：<span class="current_state">恭喜您已竞获宝贝</span></p>
+					<div class="check">点击这里<button type="button" class="button check_btn">确认订单</button></div>
+					<p class="notice">
+						请在<i class="iconfont">&#xe624;</i><span class="count_down">17小时22分35秒</span>
+						时间内确认并付款；否则系统将判定您负违约责任，交易取消并扣除保证金<br />
+						如果您想放弃拍品，可以直接<a href="/views/domain/cancel_order.html" class="cancle_order">取消订单</a>系统将判定您负违约责任，交易取消并扣除保证金
+					</p>
+				</div>
+			</ul>	
+			<iframe src="order_info.html" width="100%" name="orderInfo" onload="orderInfoFrame()" scrolling="no" noresize="noresize" id="orderInfo" ></iframe>
+			<h2>报价记录</h2>
+			<dl class="quotation_record">
+				<dt>
+					<span class="status">状态</span><span class="number">号码</span><span class="price">价格</span><span class="time">时间</span>
+				</dt>
+				<dd class="me">
+					<span class="status">成交</span><span class="number">S6402<i class="my_num">我</i></span>
+					<span class="price">3000元</span><span class="time">2017年10月09日&ensp;11:31:00</span>
+				</dd>
+				<dd>
+					<span class="status">出局</span><span class="number">A6598</span>
+					<span class="price">2500元</span><span class="time">2017年10月09日&ensp;11:20:00</span>
+				</dd>
+				<dd>
+					<span class="status">出局</span><span class="number">A6598</span>
+					<span class="price">2500元</span><span class="time">2017年10月09日&ensp;11:20:00</span>
+				</dd>
+				<dd>
+					<span class="status">出局</span><span class="number">A6598</span>
+					<span class="price">2500元</span><span class="time">2017年10月09日&ensp;11:20:00</span>
+				</dd>
+			</dl>
+			<p class="points">...</p>
+			<div class="paging">
+				
+			</div>
+		</section>
+		<iframe src="/views/domain/footer.html" width="100%" name="bottomFrame" scrolling="no" noresize="noresize" id="bottomFrame" ></iframe>
+	</body>
+	<script src="/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/plugins/jquery.pages.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/views/domain/auction_process_first.js" type="text/javascript" charset="utf-8"></script>
+</html>

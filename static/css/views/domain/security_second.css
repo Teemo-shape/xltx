@@ -1,0 +1,144 @@
+body{
+	line-height: 1;
+	background: #f9f9f9;
+}
+.container{
+	width: 518px;
+	height: 674px;
+	border-radius: 5px;
+	border:1px solid #ccc;
+	border-radius: 5px;
+	background-color: #fff;
+	padding: 0 151px;
+	margin: 0 auto;
+}
+.step_num{
+	height: 18px;
+	font-size: 36px;
+	font-family: impact;
+	padding-top: 18px;
+	margin-top: 86px;
+	margin-bottom: 16px;
+	position: relative;
+}
+.step{
+	background: #fff;
+	padding: 0 4px;
+	position: absolute;
+	top: 0px;
+	z-index: 2;
+}
+.step_num .pass{
+	color: #fa5400;
+}
+.nopass{
+	color: #999;
+}
+.first_step{
+	left: 26px;
+}
+.second_step{
+	left: 240px;
+}
+.third_step{
+	right: 22px;
+}
+.step_name{
+	font-size: 16px;
+	color: #333;
+	margin-bottom: 70px;
+}
+.step_name span{
+	width: 92px;
+	text-align: center;
+}
+.step_name .first_name{
+	margin-right: 124px;
+}
+.cont{
+	width: 516px;
+	border: 1px solid #d1d1d1;
+	display: block;
+	margin: 0 auto;
+}
+.container .input{
+	height: 38px;
+	line-height: 38px;
+	text-indent: 10px;
+	border: 1px solid #d1d1d1;
+}
+.question{
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+.answer{
+	font-size: 18px;
+	line-height: 40px;
+}
+.info_name{
+	width: 128px;
+	text-align: right;
+}
+.question .info_name{
+	margin-right: 20px;
+}
+.answer .info_name{
+	margin-right: 10px;
+}
+.answer .info_value{
+	width: 306px;
+}
+.question_fail{
+	margin-bottom: 20px;
+}
+.container input::-webkit-input-placeholder{
+	color: #e5e5e5;
+}
+.container input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: #e5e5e5;
+}
+.container input::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: #e5e5e5;
+}
+.container input:-ms-input-placeholder { /* Internet Explorer 10+ */
+	color: #e5e5e5;
+}
+
+.question{
+	margin-bottom: 20px;
+}
+
+.fail{
+	width: 308px;
+	min-height: 30px;
+	font-size: 12px;
+	color: #fa5400;
+	line-height: 30px;
+	margin-left: 138px;
+}
+.fail_tip{
+	font-size: 14px;
+	background: #faddd9;
+	visibility: hidden;
+	margin-bottom: 8px;
+}
+.fail_tip i{
+    font-size: 18px;
+    vertical-align: top;
+    display: inline-block;
+	margin: 0 4px;
+}
+.question_fail{
+	margin-bottom: 10px;
+}
+.send_next{
+	width: 520px;
+	line-height: 60px;
+	font-size: 22px;
+	letter-spacing: 16px;
+	background: #717274;
+	cursor: not-allowed;
+	opacity: .35;
+	filter:alpha(opacity=0.35);
+	color: #fff;
+}

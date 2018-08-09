@@ -1,0 +1,525 @@
+body{
+	color: #333;
+	font-size: 16px;
+}
+iframe{
+	width: 100%;
+	border: none;
+}
+.cover{
+	width: 1200px;
+	margin: 0 auto;
+}
+/*
+ * 背景
+ */
+.bg{
+	width: 100%;
+	height: 1390px;
+	background: #f5f5f5;
+	position: absolute;
+	left: 0;
+	top: 180px;
+	z-index: -1;
+}
+/*
+ * 主页信息
+ * tab栏
+ */
+.home_page{
+	margin-top: 40px;
+	margin-bottom: 30px;
+	position: relative;
+}
+.menu{
+	width: 258px;
+	color: #111;
+	font-size: 20px;
+	background: #fff;
+	border: solid 1px #e5e5e5;
+	margin-right: 20px;
+}
+.menu .active .iconfont{
+	color: #fa5400;
+}
+.menu>li{
+	border-bottom: solid 1px #e5e5e5;
+}
+.menu>li:last-child{
+	border-bottom: none;
+}
+.menu dl{
+	padding-top: 30px;
+	padding-bottom: 20px;
+}
+.menu dd:hover{
+	background: #f5f5f5;
+}
+.menu dl dt{
+	line-height: 1;
+	font-weight: 500;
+	padding-left: 30px;
+	margin-bottom: 25px;
+}
+.menu dl dd{
+	height: 40px;
+	line-height: 40px;
+	margin-bottom: 10px;
+}
+.menu dl dd:last-child{
+	margin-bottom: 0;
+}
+.menu dl a{
+	display: block;
+	padding: 0 30px;
+}
+.menu dd .iconfont{
+	width: 30px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 30px;
+	color: #999;
+    vertical-align: middle;
+    display: inline-block;
+	margin-right: 30px;
+}
+.menu dd .giant{
+	font-size: 23px;
+	line-height: 35px;
+}
+.menu dd .little_big{
+	font-size: 28px;
+    line-height: 32px;
+}
+.menu dd .big{
+    font-size: 25px;
+    line-height: 38px;
+}
+.menu dd .small{
+	font-size: 38px;
+    text-indent: -3px;
+    line-height: 34px;
+}
+.menu dd .little_small{
+	font-size: 36px;
+    text-indent: -2px;
+}
+/*
+ * 右侧内容
+ */
+.container{
+	width: 918px;
+	height: 1468px;
+	border: solid 1px #d7d7d7;
+	box-shadow: 0 0 3px #999;
+	background: #fff;
+	padding: 0;
+	margin:0 0 32px;
+	position: relative;
+}
+.container h4{
+	font-size: 18px;
+	font-weight: 500;
+	border-bottom: solid 1px #e5e5e5;
+	padding-bottom: 10px;
+	margin: 20px 30px 30px;
+}
+.container .go{
+	color: #666;
+}
+.container .go:hover{
+	color: #111;
+}
+.info_list{
+	margin: 0 20px;
+}
+.fail{
+	height: 30px;
+	font-size: 12px;
+	color: #fa5400;
+	line-height: 30px;
+	margin-left: 95px;
+}
+.tmpl_fail{
+	height: auto;
+	display: none;
+    margin: -20px 0 -10px;
+}
+.shipping_cont{
+	margin-bottom: 0;
+}
+.info_name{
+	width: 95px;
+	line-height: 40px;
+	text-align: right;
+}
+.info_name i{
+	color: #fa5400;
+	margin-right: 6px;
+}
+.tmpl_name{
+	width: 398px;
+}
+.input{
+	height: 38px;
+	line-height: 38px;
+	text-indent: 10px;
+	border: solid 1px #d1d1d1;
+}
+.select_cont{
+	position: relative;
+}
+.select_items{
+	width: 100%;
+    border: 1px solid #ccc;
+    display: none;
+	position: absolute;
+	top: 39px;
+	left: -1px;
+	background: #fff;
+    z-index: 2;
+}
+.product_address{
+	min-width: 222px;
+	position: relative;
+}
+#area{
+    width: 222px;
+    height: 38px;
+    line-height: 38px;
+    text-indent: 10px;
+    border: solid 1px #d1d1d1;
+}
+.form_cont{
+	width:300px;
+	background: #fff;
+	border: solid 1px #d1d1d1;
+	display: none;
+	padding: 10px;
+	position:absolute;
+	left: -10px;
+	top: 30px;
+	z-index: 4;
+}
+.province_cont{
+	width: 100%;
+	border-left: solid 1px #ccc;
+	border-right: solid 1px #ccc;
+	background: #fff;
+	display: none;
+	position: absolute;
+	top: 39px;
+	left: -1px;
+	z-index: 3;
+}
+.province_list{
+	position: relative;
+}
+.province_item{
+	border-bottom: solid 1px #ccc;
+}
+.city_cont{
+	min-width: 120px;
+	border: solid 1px #ccc;
+	border-bottom: none;
+	background: #fff;
+	display: none;
+	position: absolute;
+	top: -1px;
+	left: 100%;
+	z-index: 4;
+}
+.city_item{
+	border-bottom: solid 1px #ccc;
+}
+.layui-form-checked[lay-skin=primary] i {
+    border-color: #fa5400;
+    background-color: #fa5400;
+}
+.layui-form-checked i, .layui-form-checked:hover i {
+    color: #fa5400;
+    border-color: #fa5400;
+}
+.layui-form-checked, .layui-form-checked:hover {
+    border-color: #fa5400;
+}
+.layui-form-checkbox:hover{
+	border-color: #fa5400;
+}
+
+
+
+
+
+
+
+
+
+
+.delivery_time{
+	min-width: 222px;
+	margin-right: 10px;
+}
+.delivery_time .iconfont,
+.product_address .iconfont{
+	width: 30px;
+	text-align: center;
+	font-size: 18px;
+	text-indent: 0;
+}
+.delivery_time .select_classify{
+	margin-left: 10px;
+}
+.delivery_time .select_items{
+	text-align: center;
+}
+.tip{
+	font-size: 14px;
+	line-height: 40px;
+}
+input[type=radio]{
+	display: none;
+}
+.delivery_ways .checked:before{
+	content: '\e68c';
+}
+.delivery_ways .unchecked:before{
+	content: '\e68d';
+}
+.delivery_ways .iconfont{
+	width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 18px;
+    font-size: 20px;
+    text-indent: -2px;
+    margin-right: 10px;
+}
+.delivery_ways span{
+	width: 130px;
+	display: inline-block;
+}
+.low{
+	line-height: 1;
+}
+.custom_tmpl{
+	width: 668px;
+	font-size: 14px;
+	border: solid 1px #999;
+	margin-bottom: 20px;
+	display: none;
+}
+.custom_tmpl.active{
+	display: block;
+}
+.custom_tmpl dt{
+	height: 36px;
+	line-height: 36px;
+    font-weight: 700;
+	background: #e5e5e5;
+	padding: 0 10px;
+}
+.custom_tmpl dd{
+	padding: 0 10px;
+}
+.custom_tmpl li{
+	float: left;
+}
+.custom_tmpl .address{
+	width: 182px;
+	margin-right: 37px;
+	position: relative;
+}
+.default_item .address{
+	line-height: 28px;
+	padding: 10px 0;
+}
+.custom_item .address{
+    line-height: 24px;
+    margin-top: 13px;
+    margin-bottom: 11px;
+}
+.custom_tmpl .default_item{
+	background: #f5f5f5;
+}
+.default_item .default_freight{
+	font-weight: 700;
+}
+.custom_tmpl .custom_item{
+	border-bottom: solid 1px #999;
+}
+.custom_tmpl .actions .button,
+.custom_tmpl .add_model{
+	color: #fa5400;
+	line-height: 26px;
+}
+.custom_tmpl .set_region{
+	text-align: left;
+	text-decoration: underline;
+	display: block;
+}
+.custom_tmpl .is_postage{
+	width: 75px;
+	text-align: center;
+	margin-right: 52px;
+}
+.custom_tmpl dd .is_postage{
+	padding: 10px 0;
+}
+.custom_tmpl dd .freight{
+	padding: 10px 0;
+}
+.custom_tmpl .freight{
+	width: 70px;
+	margin-right: 36px;
+}
+.custom_tmpl .freight_input{
+	width: 62px;
+	text-align: center;
+}
+.custom_tmpl .tmpl_input{
+	height: 26px;
+	line-height: 26px;
+	border: solid 1px #d1d1d1;
+}
+.custom_tmpl dd .condition{
+	padding: 10px 0;
+}
+.custom_tmpl .condition{
+	width: 128px;
+	text-align: center;
+}
+.custom_tmpl .actions{
+	width: 68px;
+	text-align: center;
+}
+.custom_tmpl dd .actions{
+	padding: 10px 0;
+}
+.free_delivery{
+	width: 75px;
+	line-height: 26px;
+}
+.custom_tmpl .dropdown{
+	width: 75px;
+}
+.free_delivery .select_classify{
+	/*margin-left: 10px;*/
+}
+.custom_tmpl .dropdown .iconfont{
+	width: 22px;
+    height: 26px;
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center;
+    display: inline-block;
+}
+.select_items li{
+	float: initial;
+}
+.select_item.active{
+	background: dodgerblue;
+}
+.select_item:hover{
+	background: dodgerblue;
+}
+.delivery_input{
+	width: 58px;
+	text-align: center;
+	margin: 0 6px;
+}
+.buttons{
+	margin-left: 115px;
+}
+.buttons .button{
+	width: 96px;
+	height: 38px;
+	font-size: 14px;
+	text-align: center;
+	line-height: 38px;
+	color: #fff;
+}
+.buttons .save{
+	background: #fa5400;
+	margin-right: 20px;
+}
+.buttons .cancle{
+	background: #222;
+}
+.notice{
+	color: #666;
+	font-size: 14px;
+	line-height: 16px;
+	margin-bottom: 10px;
+}
+
+.shipping_list{
+	margin-bottom: 20px;
+}
+.shipping_item .label{
+	height: 16px;
+	display: inline-block;
+}
+.shipping_list .shipping_item{
+	padding: 10px 0;
+}
+.shipping_item .checkbox{
+	margin-right: 10px;
+}
+
+
+
+input[type=checkbox],
+input[type=radio]{
+	display: none;
+}
+.label{
+	cursor: pointer;
+	font-weight: 500;
+	text-align: left;
+	font-size: 16px;
+	color: #111;
+	line-height: 1;
+	border-radius: initial;
+	padding: 0;
+	margin: 0;
+}
+.shipping_list .checkbox{
+	width: 16px;
+	height: 16px;
+	font-size: 18px;
+	line-height: 18px;
+	text-indent: -1px;
+	vertical-align: top;
+    display: inline-block;
+    margin: 0 10px 0 0;
+}
+.shipping_list .checkbox:before{
+	width: 16px;
+    height: 16px;
+	line-height: 18px;
+    display: block;
+}
+.shipping_list .checked:before{
+	line-height: 16px;
+}
+.shipping_list .unchecked:before{
+	content: '\e6da';
+	color: #666;
+}
+.shipping_list .checked:before{
+	content: '\e60d';
+	color: #fa5400;
+}
+
+
+
+/*
+ * footer
+ */
+#bottomFrame{
+	height: 260px;
+	background: #f5f5f5;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-企业实名-等待打款</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/views/individual/cert_wait_varify.css"/>
+		<script src="../static/js/libs/get-user.js"></script>
+		<script>
+			isPermitted(ctx + "/cert/index");
+		</script>
+	</head>
+	<body>
+		<div id="app" v-cloak>
+			<header-cart ref="header"></header-cart>
+			<div class="bg"></div>
+			<section class="home_page cover clearfix">
+				<left-menu :name="menu_name" ></left-menu>
+				<div class="container f_l">
+					<h4>实名认证</h4>
+					<ul class="steps_num">
+						<li class="number first pass">1</li>
+						<li class="number second pass">2</li>
+						<li class="number third pass">3</li>
+						<li class="number fourth wait">4</li>
+						<li class="number fifth wait">5</li>
+						<div class="border border_wait"></div>
+						<div class="border_pass border"></div>
+					</ul>
+					<ul class="steps_value clearfix">
+						<li class="step pass">填写资料</li>
+						<li class="step pass">提交资料</li>
+						<li class="step pass">等待审核</li>
+						<li class="step wait">等您反馈</li>
+						<li class="step wait">完成</li>
+					</ul>
+					<div class="content">
+						<p>
+							贵公司提交的营业执照和工商信息均合法有效，请耐心等待审核！审核通过后，为了验证贵公司账户的真实性，会向您的账户（<span class="card_id"></span>）打款，请留意手机短信，并在下一步输入正确的打款金额，谢谢合作！
+						</p>
+					</div>
+				</div>
+			</section>
+			<common-footer></common-footer>
+		</div>
+	</body>
+	<script src="../static/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/config/package.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/config/input.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/cert/cert_wait_varify.js" type="text/javascript" charset="utf-8"></script>
+</html>

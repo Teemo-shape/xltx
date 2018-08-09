@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-内部成员</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/views/individual/member_index.css"/>
+		<script src="../static/js/libs/get-user.js"></script>
+		<script>
+			isPermitted(ctx + "/member/index");
+		</script>
+	</head>
+	<body>
+		<div id="app" v-cloak>
+			<header-cart ref="header"></header-cart>
+			<div class="bg"></div>
+			<section class="home_page cover clearfix">
+				<left-menu :name="menu_name" ></left-menu>
+				<div class="container f_l">
+					<h4>内部成员</h4>
+					<div class="add_members" v-if="iAmAdmin">
+						[<i class="iconfont">&#xe62a;</i>]<a href="./add_member.html">添加新成员</a>
+					</div>
+					<p class="fail fail_tip"></p>
+					<dl class="members_list">
+						<dt>
+							<ul class="members_item clearfix">
+								<li class="user_name">会员名</li>
+								<li class="authority">权限</li>
+								<li class="state">状态</li>
+								<li class="actions">操作</li>
+							</ul>
+						</dt>
+						<dd v-for="(member,index) in member_list">
+							<ul class="members_item clearfix">
+								<li class="user_name clearfix" :title="member.uname"><span>{{member.uname}}</span><span class="identify" v-if="uid==member.uid">我</span><span class="identify" v-if="member.is_manager=='1'">管理员</span></li>
+								<li class="authority" :title="member.names_permission">
+									<a :href="'./edit_member.html?uid=' + member.uid" v-if="iAmAdmin && uid!=member.uid && Boolean(member.names_permission)" class="button hover_link ellipsis">{{member.names_permission}}</a>
+									<a :href="'./edit_member.html?uid=' + member.uid" v-if="iAmAdmin && uid!=member.uid && !Boolean(member.names_permission)" class="button hover_link ellipsis">-</a>
+									<span class="ellipsis" v-if="(!iAmAdmin && Boolean(member.names_permission)) || (iAmAdmin && uid==member.uid) && Boolean(member.names_permission)">{{member.names_permission}}</span>
+									<span class="ellipsis" v-if="(!iAmAdmin && !Boolean(member.names_permission)) || (iAmAdmin && uid==member.uid) && !Boolean(member.names_permission)">-</span>
+								</li>
+								<li class="state">{{member.status}}</li>
+								<li class="actions">
+									<button type="button" v-if="uid!=member.uid && (iAmAdmin)" @click="checkDelete(index)" class="button delete">移除</button>
+									<a v-if="uid==member.uid" :href="'./member_info.html?uid=' + member.uid" class="button edit_info_btn">个人资料</a>
+									<span v-if="uid!=member.uid && !iAmAdmin">-</span>
+								</li>
+							</ul>
+						</dd>
+					</dl>
+					<p class="tip" v-if="!hasCertified">您还没有归属实名认证的公司，您可以去<a href="../cert/cert_pass.html">实名认证</a>或联系管理员申请加入</p>
+				</div>
+			</section>
+			<common-footer></common-footer>
+		</div>
+	</body>
+</html>

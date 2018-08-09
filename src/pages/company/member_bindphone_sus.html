@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-内部成员-修改手机</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/views/individual/member_uptphone_sus.css"/>
+		<script src="../static/js/libs/get-user.js"></script>
+		<script>
+			isPermitted(ctx + "/member/bindedit/phone");
+		</script>
+	</head>
+	<body>
+		<div id="app" v-cloak>
+			<header-cart ref="header"></header-cart>
+			<div class="bg"></div>
+			<section class="home_page cover clearfix">
+				<left-menu :name="menu_name" ></left-menu>
+				<div class="container f_l">
+					<h4>
+						<a href="./member_index.html" class="go">内部成员</a>&gt;
+						<a href="./member_info.html" class="go">个人资料</a>&gt;
+						<span class="current">绑定手机号</span>
+					</h4>
+					<div class="step_num clearfix">
+						<span class="first_step step pass">01</span>
+						<span class="second_step step pass">02</span>
+						<hr class="middle-line"/>
+					</div>
+					<div class="step_name clearfix">
+						<span class="first_name f_l">填写手机号</span>
+						<span class="second_name f_r">绑定手机号</span>
+					</div>
+					<p class="congratulation"><i class="iconfont">&#xe602;</i>恭喜您，绑定手机成功!</p>
+					<a href="./member_info.html" class="button back"><em>{{num}}秒</em> 后自动返回个人资料</a>
+				</div>
+			</section>
+			<common-footer></common-footer>
+		</div>
+	</body>
+</html>

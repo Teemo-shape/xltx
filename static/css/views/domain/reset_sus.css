@@ -1,0 +1,70 @@
+body{
+	line-height: 1;
+	background: #f9f9f9;
+}
+.container{
+	width: 520px;
+	height: 674px;
+	border-radius: 5px;
+	border:1px solid #ccc;
+	border-radius: 5px;
+	background-color: #fff;
+	padding: 0 150px;
+	margin: 0 auto;
+}
+.step_num{
+	height: 18px;
+	font-size: 36px;
+	font-family: impact;
+	padding-top: 18px;
+	margin-top: 86px;
+	margin-bottom: 16px;
+	position: relative;
+}
+.step{
+	background: #fff;
+	color: #fa5400;
+	padding: 0 4px;
+	position: absolute;
+	top: 0px;
+	z-index: 2;
+}
+.first_step{
+	left: 26px;
+}
+.second_step{
+	right: 22px;
+}
+.step_name{
+	font-size: 16px;
+	color: #333;
+	margin-bottom: 90px;
+}
+.step_name span{
+	width: 92px;
+	text-align: center;
+}
+h2{
+	text-align: center;
+	font-weight: 500;
+	font-size: 24px;
+	margin-bottom: 40px;
+}
+h2 .iconfont{
+	width: 58px;
+	height: 44px;
+	font-size: 76px;
+	line-height: 40px;
+	color: #fa5400;
+	text-indent: -9px;
+	vertical-align: text-bottom;
+	display: inline-block;
+	margin-right: 10px;
+}
+.back{
+	text-align: center;
+}
+.back a{
+	border-bottom: solid 1px #333;
+	margin-left: 10px;
+}

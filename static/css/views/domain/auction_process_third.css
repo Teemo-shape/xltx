@@ -1,0 +1,274 @@
+body{
+	color: #333;
+	font-size: 16px;
+}
+iframe{
+	width: 100%;
+	border: none;
+}
+.cover{
+	width: 1200px;
+	margin: 0 auto;
+}
+i,span,div,img,a{
+	vertical-align: top;
+}
+.button{
+	border: none;
+	background: none;
+	outline: none;
+	cursor: pointer;
+}
+
+/*
+ * 您的位置
+ */
+.position{
+	margin-top: 10px;
+    margin-bottom: 30px;
+}
+.position .nav{
+	margin-top: 20px;
+    line-height: 1;
+}
+.position .nav .position_first{
+	color: #fa5400;
+}
+.position .nav .my_order{
+	color: #fa5400;
+}
+.position .steps{
+	text-align: center;
+	margin-top: 20px;
+	padding-bottom: 14px;
+	padding-left: 59px;
+    margin-bottom: 164px;
+	position: relative;
+}
+.steps .step_cont{
+	width: 124px;
+	display: inline-block;
+	float: left;
+	position: relative;
+}
+.step_cont img{
+	position: absolute;
+	top: 4px;
+    left: 31px;
+}
+.steps .step{
+	width: 122px;
+	height: 60px;
+	font-size: 18px;
+	line-height: 60px;
+	border: solid 1px #e5e5e5;
+	box-shadow: 3px 3px 3px #d1d1d1;
+	margin-top: 20px;
+}
+.position .steps>.iconfont{
+    font-size: 38px;
+    color: #e5e5e5;
+    line-height: 60px;
+	display: inline-block;
+    float: left;
+    margin: 20px 16px;
+    margin-bottom: 0;
+}
+.steps .transaction_closed{
+    width: 1138px;
+    text-align: initial;
+    border: solid 1px #ddd;
+    position: absolute;
+    left: 0;
+    bottom: -164px;
+    padding-left: 60px;
+}
+.transaction_closed::before{
+  	width: 0;
+  	height: 0;
+  	content: '';
+  	position: absolute;
+	border: 15px solid transparent;
+	border-bottom-color: inherit;
+  	top: -30px;
+  	left: 493px;
+}
+.transaction_closed:after{
+  	width: 0;
+  	height: 0;
+  	content: '';
+	border: 14px solid transparent;
+  	border-bottom: 14px solid #fff;
+  	position: absolute;
+  	top: -28px;
+  	left: 494px;
+}
+.transaction_closed .state{
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 1;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+.transaction_closed .notice{
+	line-height: 36px;
+	margin-bottom: 20px;
+}
+.notice .iconfont{
+	font-size: 18px;
+}
+.notice .iconfont,
+.notice .count_down{
+	color: #fa5400;
+}
+.notice .cancle_order{
+	font-size: 18px;
+	font-weight: 700;
+	text-decoration: underline;
+	margin: 0 10px;
+}
+.notice .cancle_order:hover{
+	text-decoration: underline;
+}
+.position h2{
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 1;
+	padding: 30px 0 20px 30px;
+}
+
+/*
+ * 支付
+ */
+.pay_cont{
+	width: 100%;
+	padding-right: 40px;
+	padding-left: 30px;
+	border: 1px solid #d1d1d1;
+	box-sizing: border-box;
+}
+.pay_cont .step{
+	border-bottom: 1px solid #e5e5e5;
+}
+.select_pay_way{
+	padding-left: 30px;
+}
+.select_pay_way .step_name{
+	font-size: 20px;
+	line-height: 1;
+	font-weight: 700;
+	padding: 30px 0;
+}
+.select_pay_way .pay_ways{
+	margin-bottom: 40px;
+}
+.select_pay_way .pay_way{
+	width: 248px;
+	height: 72px;
+	line-height: 72px;
+	text-align: center;
+	border: 1px solid #d1d1d1;
+	float: left;
+	margin-right: 30px;
+}
+.select_pay_way .pay_way .chenkbox{
+	font-size: 20px;
+	vertical-align: top;
+	display: inline-block;
+	margin-right: 26px;
+}
+.select_pay_way .pay_way .pay_app{
+	width: 140px;
+	height: 36px;
+	display: inline-block;
+	margin-top: 18px;
+}
+.select_pay_way .pay_way .wechat{
+	background: url(/img/wechat.png) no-repeat;
+	background-size: contain;
+}
+.select_pay_way .pay_way .alipay{
+	background: url(/img/alipay.png) no-repeat;
+	background-size: contain;
+}
+.pay_cont .affirm{
+	padding-top: 20px;
+	padding-left: 40px;
+}
+.pay_cont .affirm .notice{
+	line-height: 36px;
+	margin-bottom: 20px;
+}
+.pay_cont .affirm .account{
+	font-size: 24px;
+    line-height: 70px;
+	margin-bottom: 30px;
+}
+.pay_cont .affirm .pay_btn{
+	width: 174px;
+	height: 70px;
+	color: #fff;
+	text-align: center;
+	background: #fa5400;
+	border: none;
+	margin-left: 34px;
+}
+.affirm .account .all_price{
+	width: 120px;
+	text-align: center;
+	color: #fa5400;
+	display: inline-block;
+}
+/*
+ * 收货地址和留言
+ */
+.position .address{
+	line-height: 36px;
+	margin-left: 60px;
+}
+.position .replenish{
+	padding-top: 20px;
+}
+.remarks{
+	border-bottom: solid 1px #e5e5e5;
+	padding-bottom: 30px;
+}
+.message{
+	width: 545px;
+	height: 120px;
+	border: solid 1px #d1d1d1;
+	margin-bottom: 10px;
+	margin-left: 60px;
+}
+.check{
+	width: 547px;
+	line-height: 30px;
+	margin-left: 60px;
+}
+.check .tips{
+	font-size: 12px;
+}
+.check .tips .iconfont{
+	font-size: 18px;
+	color: #fa5400;
+}
+.check .confirm{
+	width: 66px;
+	height: 30px;
+	font-size: 14px;
+	color: #fff;
+	background: #fa5400;
+}
+
+/*
+ * 卖家信息，标的物信息
+ * 通过iframe嵌入
+ */
+
+/*
+ * footer
+ */
+#bottomFrame{
+	height: 260px;
+	background: #f5f5f5;
+}

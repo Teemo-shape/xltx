@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-关注</title>
+		<link rel="stylesheet" type="text/css" href="/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/views/individual/attention.css"/>
+	</head>
+	<body>
+		<header></header>
+		<div class="bg"></div>
+		<section class="home_page cover clearfix">
+			<ul class="menu f_l">
+				<li>
+					<dl>
+						<dd><a href="/index.html"><i class="iconfont">&#xe611;</i>首页</a></dd>
+						<dd><a href="/views/individual/home_page.html"><i class="iconfont">&#xe616;</i>我的主页</a></dd>
+						<dd><a href="/views/individual/backlog.html"><i class="iconfont giant">&#xe61a;</i>我的待办</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>我买到的</dt>
+						<dd><a href="/views/individual/order_list.html"><i class="iconfont">&#xe69c;</i>普通订单</a></dd>
+						<dd><a href="/views/individual/my_auction.html"><i class="iconfont">&#xe60f;</i>拍卖商品</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>卖家功能</dt>
+						<dd><a href="javascript:void(0);"><i class="iconfont little_small">&#xe917;</i>发布商品</a></dd>
+						<dd><a href="/views/individual/logistics_management.html"><i class="iconfont">&#xe69a;</i>发货管理</a></dd>
+						<dd><a href="javascript:void(0);"><i class="iconfont">&#xe662;</i>咨询管理</a></dd>
+						<dd><a href="/views/individual/set_up_shop.html"><i class="iconfont little_big">&#xe6b6;</i>店铺概况</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>账号管理</dt>
+						<dd><a href="/views/individual/cert_index.html"><i class="iconfont small">&#xe619;</i>企业实名</a></dd>
+						<dd><a href="/views/individual/member_index.html"><i class="iconfont">&#xe61f;</i>内部成员</a></dd>
+						<dd><a href="/views/individual/shipping_address.html"><i class="iconfont little_big">&#xe6cd;</i>收货地址</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>财务区</dt>
+						<dd><a href="/views/individual/my_bill.html"><i class="iconfont">&#xe610;</i>我的账单</a></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>资料库</dt>
+						<dd class="active"><a href="/views/individual/attention.html"><i class="iconfont big">&#xe655;</i>关注</a></dd>
+						<dd><a href="/views/individual/browse_history.html"><i class="iconfont">&#xe618;</i>足迹</a></dd>
+						<dd><a href="/views/individual/my_statistics.html"><i class="iconfont giant">&#xe613;</i>我的统计</a></dd>
+						<dd><a href="javascript:void(0);"><i class="iconfont">&#xe6a7;</i>我的咨询</a></dd>
+					</dl>
+				</li>
+			</ul>
+			<div class="container f_l">
+				<ul class="tab clearfix">
+					<li class="tab_item" data-tabid="#personOfConcern">我关注的人</li>
+					<li class="tab_item" data-tabid="#followMe">关注我的人</li>
+					<li class="tab_item" data-tabid="#concernForProduct">我关注的商品</li>
+					<div class="border_top"></div>
+					<div class="border_bottom"></div>
+				</ul>
+				<ul class="tab_content">
+					<li id="personOfConcern" class="hide active">
+						<div class="search_word">
+							<label for="search" class="iconfont">&#xe604;</label><input type="text" name="search" id="search" value="" placeholder="请输入关键词"/>
+						</div>
+						<ul class="scroll">
+							<li class="trend store">
+								<div class="trend_content clearfix">
+									<div class="trend_left f_l">
+										<img src="/img/seller_info_03.png"/>
+									</div>
+									<div class="trend_right f_l clearfix">
+										<p class="store_title">深圳市安玛科技有限公司</p>
+										<p class="store_intro">最诚信！最讲信用！最负责的中国深圳企业~！ </p>
+										<button type="button" class="attention_btn attention f_r button">关注他</button>
+										<div class="actions">
+											<button type="button" class="sale_btn button"><i class="iconfont">&#xe653;</i><span class="sale_num">16</span>在售</button>
+											<button type="button" class="fans_btn button"><i class="iconfont">&#xe869;</i><span class="fans_num">36</span>关注者</button>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="trend store">
+								<div class="trend_content clearfix">
+									<div class="trend_left f_l">
+										<img src="/img/seller_info_04.png"/>
+									</div>
+									<div class="trend_right f_l clearfix">
+										<p class="store_title">深圳市亦乐科技发展有限公司</p>
+										<p class="store_intro">最诚信！最讲信用！最负责的中国深圳企业~！ </p>
+										<button type="button" class="attention_btn attentioned f_r button">已关注</button>
+										<div class="actions">
+											<button type="button" class="sale_btn button"><i class="iconfont">&#xe653;</i><span class="sale_num">16</span>在售</button>
+											<button type="button" class="fans_btn button"><i class="iconfont">&#xe869;</i><span class="fans_num">36</span>关注者</button>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="trend store">
+								<div class="trend_content clearfix">
+									<div class="trend_left f_l">
+										<img src="/img/seller_info_03.png"/>
+									</div>
+									<div class="trend_right f_l clearfix">
+										<p class="store_title">深圳市安玛科技有限公司</p>
+										<p class="store_intro">最诚信！最讲信用！最负责的中国深圳企业~！ </p>
+										<button type="button" class="attention_btn attention f_r button">关注他</button>
+										<div class="actions">
+											<button type="button" class="sale_btn button"><i class="iconfont">&#xe653;</i><span class="sale_num">16</span>在售</button>
+											<button type="button" class="fans_btn button"><i class="iconfont">&#xe869;</i><span class="fans_num">36</span>关注者</button>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="trend store">
+								<div class="trend_content clearfix">
+									<div class="trend_left f_l">
+										<img src="/img/seller_info_04.png"/>
+									</div>
+									<div class="trend_right f_l clearfix">
+										<p class="store_title">深圳市亦乐科技发展有限公司</p>
+										<p class="store_intro">最诚信！最讲信用！最负责的中国深圳企业~！ </p>
+										<button type="button" class="attention_btn attentioned f_r button">已关注</button>
+										<div class="actions">
+											<button type="button" class="sale_btn button"><i class="iconfont">&#xe653;</i><span class="sale_num">16</span>在售</button>
+											<button type="button" class="fans_btn button"><i class="iconfont">&#xe869;</i><span class="fans_num">36</span>关注者</button>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="trend store">
+								<div class="trend_content clearfix">
+									<div class="trend_left f_l">
+										<img src="/img/seller_info_03.png"/>
+									</div>
+									<div class="trend_right f_l clearfix">
+										<p class="store_title">深圳市安玛科技有限公司</p>
+										<p class="store_intro">最诚信！最讲信用！最负责的中国深圳企业~！ </p>
+										<button type="button" class="attention_btn attention f_r button">关注他</button>
+										<div class="actions">
+											<button type="button" class="sale_btn button"><i class="iconfont">&#xe653;</i><span class="sale_num">16</span>在售</button>
+											<button type="button" class="fans_btn button"><i class="iconfont">&#xe869;</i><span class="fans_num">36</span>关注者</button>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="trend store">
+								<div class="trend_content clearfix">
+									<div class="trend_left f_l">
+										<img src="/img/seller_info_04.png"/>
+									</div>
+									<div class="trend_right f_l clearfix">
+										<p class="store_title">深圳市亦乐科技发展有限公司</p>
+										<p class="store_intro">最诚信！最讲信用！最负责的中国深圳企业~！ </p>
+										<button type="button" class="attention_btn attentioned f_r button">已关注</button>
+										<div class="actions">
+											<button type="button" class="sale_btn button"><i class="iconfont">&#xe653;</i><span class="sale_num">16</span>在售</button>
+											<button type="button" class="fans_btn button"><i class="iconfont">&#xe869;</i><span class="fans_num">36</span>关注者</button>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<div class="paging">
+							
+						</div>
+					</li>
+					<li id="followMe" class="hide">
+						<div class="search_word">
+							<label for="search" class="iconfont">&#xe604;</label><input type="text" name="search" id="search" value="" placeholder="请输入关键词"/>
+						</div>
+						<ul class="scroll">
+							<li class="trend store">
+								<div class="trend_content clearfix">
+									<div class="trend_left f_l">
+										<img src="/img/seller_info_03.png"/>
+									</div>
+									<div class="trend_right f_l clearfix">
+										<p class="store_title">深圳市安玛科技有限公司</p>
+										<p class="store_intro">最诚信！最讲信用！最负责的中国深圳企业~！ </p>
+										<button type="button" class="attention_btn attention f_r button">关注他</button>
+										<div class="actions">
+											<button type="button" class="sale_btn button"><i class="iconfont">&#xe653;</i><span class="sale_num">16</span>在售</button>
+											<button type="button" class="fans_btn button"><i class="iconfont">&#xe869;</i><span class="fans_num">36</span>关注者</button>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="trend store">
+								<div class="trend_content clearfix">
+									<div class="trend_left f_l">
+										<img src="/img/seller_info_04.png"/>
+									</div>
+									<div class="trend_right f_l clearfix">
+										<p class="store_title">深圳市亦乐科技发展有限公司</p>
+										<p class="store_intro">最诚信！最讲信用！最负责的中国深圳企业~！ </p>
+										<button type="button" class="attention_btn attentioned f_r button">已关注</button>
+										<div class="actions">
+											<button type="button" class="sale_btn button"><i class="iconfont">&#xe653;</i><span class="sale_num">16</span>在售</button>
+											<button type="button" class="fans_btn button"><i class="iconfont">&#xe869;</i><span class="fans_num">36</span>关注者</button>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="trend store">
+								<div class="trend_content clearfix">
+									<div class="trend_left f_l">
+										<img src="/img/seller_info_03.png"/>
+									</div>
+									<div class="trend_right f_l clearfix">
+										<p class="store_title">深圳市安玛科技有限公司</p>
+										<p class="store_intro">最诚信！最讲信用！最负责的中国深圳企业~！ </p>
+										<button type="button" class="attention_btn attention f_r button">关注他</button>
+										<div class="actions">
+											<button type="button" class="sale_btn button"><i class="iconfont">&#xe653;</i><span class="sale_num">16</span>在售</button>
+											<button type="button" class="fans_btn button"><i class="iconfont">&#xe869;</i><span class="fans_num">36</span>关注者</button>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="trend store">
+								<div class="trend_content clearfix">
+									<div class="trend_left f_l">
+										<img src="/img/seller_info_04.png"/>
+									</div>
+									<div class="trend_right f_l clearfix">
+										<p class="store_title">深圳市亦乐科技发展有限公司</p>
+										<p class="store_intro">最诚信！最讲信用！最负责的中国深圳企业~！ </p>
+										<button type="button" class="attention_btn attentioned f_r button">已关注</button>
+										<div class="actions">
+											<button type="button" class="sale_btn button"><i class="iconfont">&#xe653;</i><span class="sale_num">16</span>在售</button>
+											<button type="button" class="fans_btn button"><i class="iconfont">&#xe869;</i><span class="fans_num">36</span>关注者</button>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="trend store">
+								<div class="trend_content clearfix">
+									<div class="trend_left f_l">
+										<img src="/img/seller_info_03.png"/>
+									</div>
+									<div class="trend_right f_l clearfix">
+										<p class="store_title">深圳市安玛科技有限公司</p>
+										<p class="store_intro">最诚信！最讲信用！最负责的中国深圳企业~！ </p>
+										<button type="button" class="attention_btn attention f_r button">关注他</button>
+										<div class="actions">
+											<button type="button" class="sale_btn button"><i class="iconfont">&#xe653;</i><span class="sale_num">16</span>在售</button>
+											<button type="button" class="fans_btn button"><i class="iconfont">&#xe869;</i><span class="fans_num">36</span>关注者</button>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="trend store">
+								<div class="trend_content clearfix">
+									<div class="trend_left f_l">
+										<img src="/img/seller_info_04.png"/>
+									</div>
+									<div class="trend_right f_l clearfix">
+										<p class="store_title">深圳市亦乐科技发展有限公司</p>
+										<p class="store_intro">最诚信！最讲信用！最负责的中国深圳企业~！ </p>
+										<button type="button" class="attention_btn attentioned f_r button">已关注</button>
+										<div class="actions">
+											<button type="button" class="sale_btn button"><i class="iconfont">&#xe653;</i><span class="sale_num">16</span>在售</button>
+											<button type="button" class="fans_btn button"><i class="iconfont">&#xe869;</i><span class="fans_num">36</span>关注者</button>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<div class="paging">
+							
+						</div>
+					</li>
+					<li id="concernForProduct" class="hide">
+						<div class="search_word">
+							<label for="search" class="iconfont">&#xe604;</label><input type="text" name="search" id="search" value="" placeholder="请输入关键词"/>
+						</div>
+						<ul class="scroll">
+							<li class="trend store">
+								<div class="trend_content clearfix">
+									<div class="trend_left f_l">
+										<img src="/img/shop_car_01.png"/>
+									</div>
+									<div class="trend_right f_l clearfix">
+										<p class="store_title">IC芯片8针SOIC管 正品原装</p>
+										<p class="store_intro">最诚信！最讲信用！最负责的中国深圳企业~！ </p>
+										<button type="button" class="attention_btn attention f_r button">关注他</button>
+										<div class="actions">
+											<button type="button" class="sale_btn button"><i class="iconfont">&#xe653;</i><span class="sale_num">16</span>在售</button>
+											<button type="button" class="fans_btn button"><i class="iconfont">&#xe869;</i><span class="fans_num">36</span>关注者</button>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="trend store">
+								<div class="trend_content clearfix">
+									<div class="trend_left f_l">
+										<img src="/img/shop_car_02.png"/>
+									</div>
+									<div class="trend_right f_l clearfix">
+										<p class="store_title">耳机信号自动切换IC芯片</p>
+										<p class="store_intro">OMTP/CTIA转换切换芯片,CH8865,ASC0201</p>
+										<button type="button" class="attention_btn attentioned f_r button">已关注</button>
+										<div class="actions">
+											<button type="button" class="sale_btn button"><i class="iconfont">&#xe653;</i><span class="sale_num">16</span>在售</button>
+											<button type="button" class="fans_btn button"><i class="iconfont">&#xe869;</i><span class="fans_num">36</span>关注者</button>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="trend store">
+								<div class="trend_content clearfix">
+									<div class="trend_left f_l">
+										<img src="/img/shop_car_01.png"/>
+									</div>
+									<div class="trend_right f_l clearfix">
+										<p class="store_title">IC芯片8针SOIC管 正品原装</p>
+										<p class="store_intro">最诚信！最讲信用！最负责的中国深圳企业~！ </p>
+										<button type="button" class="attention_btn attention f_r button">关注他</button>
+										<div class="actions">
+											<button type="button" class="sale_btn button"><i class="iconfont">&#xe653;</i><span class="sale_num">16</span>在售</button>
+											<button type="button" class="fans_btn button"><i class="iconfont">&#xe869;</i><span class="fans_num">36</span>关注者</button>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="trend store">
+								<div class="trend_content clearfix">
+									<div class="trend_left f_l">
+										<img src="/img/shop_car_02.png"/>
+									</div>
+									<div class="trend_right f_l clearfix">
+										<p class="store_title">耳机信号自动切换IC芯片</p>
+										<p class="store_intro">OMTP/CTIA转换切换芯片,CH8865,ASC0201</p>
+										<button type="button" class="attention_btn attentioned f_r button">已关注</button>
+										<div class="actions">
+											<button type="button" class="sale_btn button"><i class="iconfont">&#xe653;</i><span class="sale_num">16</span>在售</button>
+											<button type="button" class="fans_btn button"><i class="iconfont">&#xe869;</i><span class="fans_num">36</span>关注者</button>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="trend store">
+								<div class="trend_content clearfix">
+									<div class="trend_left f_l">
+										<img src="/img/shop_car_01.png"/>
+									</div>
+									<div class="trend_right f_l clearfix">
+										<p class="store_title">IC芯片8针SOIC管 正品原装</p>
+										<p class="store_intro">最诚信！最讲信用！最负责的中国深圳企业~！ </p>
+										<button type="button" class="attention_btn attention f_r button">关注他</button>
+										<div class="actions">
+											<button type="button" class="sale_btn button"><i class="iconfont">&#xe653;</i><span class="sale_num">16</span>在售</button>
+											<button type="button" class="fans_btn button"><i class="iconfont">&#xe869;</i><span class="fans_num">36</span>关注者</button>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="trend store">
+								<div class="trend_content clearfix">
+									<div class="trend_left f_l">
+										<img src="/img/shop_car_02.png"/>
+									</div>
+									<div class="trend_right f_l clearfix">
+										<p class="store_title">耳机信号自动切换IC芯片</p>
+										<p class="store_intro">OMTP/CTIA转换切换芯片,CH8865,ASC0201</p>
+										<button type="button" class="attention_btn attentioned f_r button">已关注</button>
+										<div class="actions">
+											<button type="button" class="sale_btn button"><i class="iconfont">&#xe653;</i><span class="sale_num">16</span>在售</button>
+											<button type="button" class="fans_btn button"><i class="iconfont">&#xe869;</i><span class="fans_num">36</span>关注者</button>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<div class="paging">
+							
+						</div>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<iframe src="/views/domain/footer.html" width="100%" name="bottomFrame" scrolling="no" noresize="noresize" id="bottomFrame" ></iframe>
+	</body>
+	<script src="/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/plugins/jquery.pages.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/views/individual/attention.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		/*
+		 * 加载头部
+		 */
+		$("header").load("/views/domain/header.html");
+	</script>
+</html>

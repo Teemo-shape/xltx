@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-普通订单-拍下宝贝</title>
+		<link rel="stylesheet" type="text/css" href="/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/views/domain/order_first.css"/>
+	</head>
+	<body>
+		<header></header>
+		<section class="position cover">
+			<div class="nav clearfix">
+				<span class="f_l">您的位置：</span>
+				<a href="/views/individual/home_page.html" class="position_first f_l">个人区</a><i class="iconfont f_l">&#xe600;</i>
+				<span class="f_l my_order">我的订单</span>
+			</div>
+			<ul class="steps clearfix">
+				<li class="step_cont"><img src="/img/flow_path_down_01.png"/><div class="step">拍下宝贝</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_02.png"/><div class="step">付款</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_04.png"/><div class="step">卖家发货</div></li><span class="iconfont">&#xe600;</span>
+				<li class="step_cont"><img src="/img/flow_path_02.png"/><div class="step">确认收货</div></li>
+				<div class="transaction_closed">
+					<p class="state">当前订单状态：<span class="current_state">宝贝已拍下，请在24小时内付款，若未及时付款，系统将自动取消订单</span></p>
+					<div class="check">点击这里<button type="button" class="button check_btn">付款</button></div>
+					<p class="notice">
+						如果您不想购买，可以直接<a href="javascript:void(0);" class="cancle_order">取消订单</a>
+					</p>
+				</div>
+			</ul>	
+			<h2>收货地址</h2>
+			<div class="address">
+				陶宇初，13613956462，广东省&emsp;深圳市&emsp;宝安区，广东省深圳市宝安区西乡黄田鸿丰华创意园4楼<br />524000
+			</div>
+			<h2 class="replenish">补充留言</h2>
+			<div class="remarks">
+				<textarea name="message" class="message"></textarea>
+				<div class="check clearfix">
+					<span class="tips"><i class="iconfont">&#xe723;</i>付款前您可以给卖家留言。</span><button class="button f_r confirm" type="button">确定</button>
+				</div>
+			</div>
+			<h2>卖家信息</h2>
+			<div class="seller_info">
+				<div class="info_half clearfix">
+					<div class="info_left f_l">
+						昵称：<span class="nick_name">张三</span>&ensp;<i class="iconfont">&#xe66f;</i>&ensp;<a href="javascript:void(0);" class="call_me">联系我</a>
+					</div>
+					<div class="info_right f_l">
+						联系电话：<span class="phone">183****6666</span>
+					</div>
+				</div>
+				<div class="info_half clearfix">
+					<div class="info_left f_l">
+						城市：<span class="city">广东&ensp;深圳</span>
+					</div>
+					<div class="info_right f_l">
+						公司名称：<span class="company">千瑞科技有限公司</span>
+					</div>
+				</div>
+			</div>
+			<h2>订单信息</h2>
+			<div class="corpores">
+				<div class="corpores_info clearfix">
+					<div class="corpores_order f_l">
+						订单编号：<span>88431360666414637</span>
+					</div>
+					<div class="corpores_time f_l">
+						创建时间：<span>2017-11-16&ensp;10:45:25</span>
+					</div>
+				</div>
+				<ul>
+					<li class="corpore clearfix">
+						<div class="corpore_img f_l">
+							<img src="/img/order_01.png"/>
+						</div>
+						<div class="corpore_title f_l">
+							SN8F5708&ensp;SONIX单片机IC&ensp;可重复烧写8051核一级代理原装供应
+						</div>
+						<div class="corpore_num f_l">200PCS</div>
+					</li>
+					<li class="corpore clearfix">
+						<div class="corpore_img f_l">
+							<img src="/img/order_01.png"/>
+						</div>
+						<div class="corpore_title f_l">
+							SN8F5708&ensp;SONIX单片机IC&ensp;可重复烧写8051核一级代理原装供应
+						</div>
+						<div class="corpore_num f_l">200PCS</div>
+					</li>
+				</ul>
+				<div class="all_corpore clearfix">
+					<div class="sub_cont f_r">
+						标的物总额<span class="corpore_price">¥3000.00</span>
+					</div>
+				</div>
+			</div>
+		</section>
+		<iframe src="/views/domain/footer.html" width="100%" name="bottomFrame" scrolling="no" noresize="noresize" id="bottomFrame" ></iframe>
+	</body>
+	<script src="/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/views/domain/order_first.js" type="text/javascript" charset="utf-8"></script>
+</html>

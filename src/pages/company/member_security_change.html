@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-内部成员-密保设置</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/views/individual/member_security.css"/>
+		<script src="../static/js/libs/get-user.js"></script>
+		<script>
+			isPermitted(ctx + "/member/update/security");
+		</script>
+	</head>
+	<body>
+		<div id="app" v-cloak>
+			<header-cart ref="header"></header-cart>
+			<div class="bg"></div>
+			<section class="home_page cover clearfix">
+				<left-menu :name="menu_name" ></left-menu>
+				<div class="container f_l">
+					<h4>
+						<a href="./member_index.html" class="go">内部成员</a>&gt;
+						<span class="current">密保设置</span>
+					</h4>
+					<p class="fail fail_tip"></p>
+					<form action="" id="form" class="items" method="post">
+						<div class="item">
+							<div class="question sub clearfix">
+								<div class="info_name f_l">安全保护问题一：</div>
+								<div class="info_value f_l select"></div>
+							</div>
+							<div class="answer sub clearfix">
+								<div class="info_name f_l">答案：</div>
+								<input type="text" name="answer_first" id="security_answer0" enter="go_next" trigger="['btn_next']" class="info_value input f_l" value="" />
+							</div>
+						</div>
+						<p class="fail" id="msg_security_answer0"></p>
+						<div class="item">
+							<div class="question sub clearfix">
+								<div class="info_name f_l">安全保护问题二：</div>
+								<div class="info_value f_l select"></div>
+							</div>
+							<div class="answer sub clearfix">
+								<div class="info_name f_l">答案：</div>
+								<input type="text" name="answer_second" id="security_answer1" enter="go_next" trigger="['btn_next']" class="info_value input f_l" value="" />
+							</div>
+						</div>
+						<p class="fail" id="msg_security_answer1"></p>
+						<div class="item">
+							<div class="question sub clearfix">
+								<div class="info_name f_l">安全保护问题三：</div>
+								<div class="info_value f_l select"></div>
+							</div>
+							<div class="answer sub clearfix">
+								<div class="info_name f_l">答案：</div>
+								<input type="text" name="answer_third" id="security_answer2" enter="go_next" trigger="['btn_next']" class="info_value input f_l" value="" />
+							</div>
+						</div>
+						<p class="fail" id="msg_security_answer2"></p>
+					</form>
+					<button type="button" class="button submit" id="btn_next" disabled="disabled">保存</button>
+				</div>
+			</section>
+			<common-footer></common-footer>
+		</div>
+	</body>
+	<script src="../static/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/config/package.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/config/input.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/company/member_security_change.js" type="text/javascript" charset="utf-8"></script>
+</html>

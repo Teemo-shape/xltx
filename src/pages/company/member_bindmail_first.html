@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-绑定邮箱</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/views/individual/member_uptmail_first.css"/>
+		<script src="../static/js/libs/get-user.js"></script>
+		<script>
+			isPermitted(ctx + "/member/bindedit/email");
+		</script>
+	</head>
+	<body>
+		<div id="app" v-cloak>
+			<header-cart ref="header"></header-cart>
+			<div class="bg"></div>
+			<section class="home_page cover clearfix">
+				<left-menu :name="menu_name" ></left-menu>
+				<div class="container f_l">
+					<h4>
+						<a href="./member_index.html" class="go">内部成员</a>&gt;
+						<a href="./member_info.html" class="go">个人资料</a>&gt;
+						<span class="current">绑定邮箱</span>
+					</h4>
+					<div class="mail_first hide active">
+						<div class="step_num clearfix">
+							<span class="first_step step f_l pass">01</span>
+							<span class="second_step step f_l">02</span>
+							<span class="third_step step f_r">03</span>
+							<hr class="middle-line"/>
+						</div>
+						<div class="step_name clearfix">
+							<span class="first_name step_text f_l pass">填写邮箱</span>
+							<span class="second_name step_text f_l">绑定邮箱</span>
+							<span class="third_name step_text f_r">完成</span>
+						</div>
+						<p class="fail fail_tip"></p>
+						<form action="" method="post" class="first_send">
+							<div class="info clearfix">
+								<div class="info_name code f_l">邮箱<i>*</i></div>
+								<div class="info_value f_l">
+									<input type="text" name="mail" id="email" enter="go_next" trigger="['btn_next']" value="" placeholder="请输入要认证的邮箱号"/>
+									<input type="text" class="hide" style="display:none;">
+								</div>
+							</div>
+							<p class="fail" id="msg_email"></p>
+							<button type="button" class="button send_mail" id="btn_next" disabled="disabled">发送验证邮箱</button>
+						</form>
+					</div>
+					<div class="mail_second hide">
+						<div class="step_num clearfix">
+							<span class="first_step step f_l pass">01</span>
+							<span class="second_step step f_l pass">02</span>
+							<span class="third_step step f_r">03</span>
+							<hr class="middle-line"/>
+						</div>
+						<div class="step_name clearfix">
+							<span class="first_name step_text f_l pass">验证身份</span>
+							<span class="second_name step_text f_l pass">绑定邮箱</span>
+							<span class="third_name step_text f_r">完成</span>
+						</div>
+						<p class="tip"><span class="notice"></span></p>
+						<p class="tip">电子邮箱：<span class="mail_number"></span>
+							<span class="send_again_cont">
+								<button type="button" class="button send_again">没收到，再发一次</button>
+								<button class="hidden_btn"></button>
+							</span>
+						</p>
+					</div>
+				</div>
+			</section>
+			<common-footer></common-footer>
+		</div>
+	</body>
+	<script src="../static/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/config/package.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/config/input.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/company/member_bindmail_first.js" type="text/javascript" charset="utf-8"></script>
+</html>

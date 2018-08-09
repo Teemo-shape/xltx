@@ -1,0 +1,138 @@
+body{
+	line-height: 1;
+	background: #f9f9f9;
+}
+.container{
+	width: 520px;
+	height: 674px;
+	border-radius: 5px;
+	border:1px solid #ccc;
+	border-radius: 5px;
+	background-color: #fff;
+	padding: 0 150px;
+	margin: 60px auto 0;
+}
+.step_num{
+	height: 18px;
+	font-size: 36px;
+	font-family: impact;
+	padding-top: 18px;
+	margin-top: 86px;
+	margin-bottom: 16px;
+	position: relative;
+}
+.step{
+	background: #fff;
+	padding: 0 4px;
+	position: absolute;
+	top: 0px;
+	z-index: 2;
+}
+.first_step{
+	left: 26px;
+	color: #fa5400;
+}
+.second_step{
+	right: 22px;
+	color: #999;
+}
+.step_name{
+	color: #333;
+	margin-bottom: 70px;
+}
+.step_name span{
+	width: 90px;
+	text-align: center;
+}
+
+
+.cont{
+	width: 516px;
+	border: 1px solid #d1d1d1;
+	display: block;
+	margin: 0 auto;
+}
+.container .input{
+	height: 48px;
+	color: #333;
+	line-height: 48px;
+	text-indent: 10px;
+}
+
+.pin_card{
+	height: 50px;
+	font-size: 18px;
+	border: none;
+}
+.input_code{
+	width: 326px;
+	border: solid 1px #d1d1d1;
+}
+.get_phone_card{
+	color: #fff;
+    background: #717274;
+    cursor: not-allowed;
+    opacity: .35;
+    filter: alpha(opacity=0.35);
+}
+.get_phone_card,
+.hidden_btn{
+	width: 187px; 
+	height: 48px;
+	line-height: 48px;
+	text-align: center;
+	border: solid 1px #d1d1d1;
+ 	border-left:none;
+}
+.hidden_btn{
+	color: #666;
+	background: #f5f5f5;
+	display: none;
+}
+
+.container input::-webkit-input-placeholder{
+	color: #e5e5e5;
+}
+.container input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: #e5e5e5;
+}
+.container input::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: #e5e5e5;
+}
+.container input:-ms-input-placeholder { /* Internet Explorer 10+ */
+	color: #e5e5e5;
+}
+
+.fail{
+	width: 518px;
+	min-height: 30px;
+	font-size: 12px;
+	color: #fa5400;
+	line-height: 30px;
+	margin: 0 auto;
+}
+.fail_tip{
+	font-size: 14px;
+	background: #faddd9;
+	visibility: hidden;
+	margin-bottom: 8px;
+}
+.fail_tip i{
+    font-size: 18px;
+    vertical-align: top;
+    display: inline-block;
+	margin: 0 4px;
+}
+.password_again_fail{
+	margin-bottom: 10px;
+}
+.retrieve{
+	width: 520px;
+	line-height: 60px;
+	font-size: 22px;
+	background: #717274;
+	cursor: not-allowed;
+	opacity: .35;
+	filter:alpha(opacity=0.35);
+	color: #fff;
+}

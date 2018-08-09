@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-店铺概况</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/views/individual/cert_score.css"/>
+		<script src="../static/js/libs/get-user.js"></script>
+		<script>
+			isPermitted(ctx + "/cert/index");
+		</script>
+	</head>
+	<body>
+		<div id="app" v-cloak>
+			<header-cart ref="header"></header-cart>
+			<div class="bg"></div>
+			<section class="home_page cover clearfix">
+				<left-menu :name="menu_name" ></left-menu>
+				<div class="container f_l">
+					<h4>店铺概况</h4>
+					<dl class="overall_score">
+						<dt class="clearfix score_up">
+							<div class="dt_name f_l">
+								<span class="name">卖家综合评分</span><span class="score">9.79</span>
+							</div>
+							<div class="dt_content f_r clearfix">
+								<span class="compare f_l">商品描述满意度</span>
+								<span class="compare_num f_l">
+									<i class="iconfont">&#xe606;</i><span class="percentage">6.32%</span>
+								</span>
+							</div>
+						</dt>
+						<dd class="clearfix score_up">
+							<div class="dd_name f_l">
+								<span class="name">商品质量满意度</span><span class="score">9.65</span>
+							</div>
+							<div class="dd_content  f_r clearfix">
+								<span class="compare f_l">与同行业平均水平</span>
+								<span class="compare_num f_l">
+									<i class="iconfont">&#xe606;</i><span class="percentage">5.32%</span>
+								</span>
+							</div>
+						</dd>
+						<dd class="clearfix score_up">
+							<div class="dd_name f_l">
+								<span class="name">物流速度满意度</span><span class="score">9.65</span>
+							</div>
+							<div class="dd_content  f_r clearfix">
+								<span class="compare f_l">与同行业平均水平</span>
+								<span class="compare_num f_l">
+									<i class="iconfont">&#xe606;</i><span class="percentage">5.32%</span>
+								</span>
+							</div>
+						</dd>
+						<dd class="clearfix score_down">
+							<div class="dd_name f_l">
+								<span class="name">卖家综合评分</span><span class="score">9.65</span>
+							</div>
+							<div class="dd_content  f_r clearfix">
+								<span class="compare f_l">与同行业平均水平</span>
+								<span class="compare_num f_l">
+									<i class="iconfont">&#xe60b;</i><span class="percentage">4.22%</span>
+								</span>
+							</div>
+						</dd>
+					</dl>
+					<h4>整体满意度</h4>
+					<div class="satisfaction clearfix">
+						<table class="f_l satisfaction_table">
+							<caption>来自买家的评价(<span class="appraise_num">146</span>条)</caption>
+							<tr>
+								<th class="star">星级</th><th class="week">最近1周</th><th class="mouth">最近1月</th>
+								<th class="half_year">最近6月</th><th class="half_year_ago">半年以前</th><th class="all_td">总计</th>
+							</tr>
+							<tr>
+								<td class="star">
+									<i class="iconfont good">&#xe614;</i><i class="iconfont good">&#xe614;</i><i class="iconfont good">&#xe614;</i><!--
+									--><i class="iconfont good">&#xe614;</i><i class="iconfont good">&#xe614;</i>
+								</td>
+								<td class="week">0</td><td class="mouth">9</td><td class="half_year">53</td><td class="half_year_ago">92</td>
+								<td class="all_td">145</td>
+							</tr>
+							<tr>
+								<td class="star">
+									<i class="iconfont good">&#xe614;</i><i class="iconfont good">&#xe614;</i><i class="iconfont good">&#xe614;</i><!--
+									--><i class="iconfont good">&#xe614;</i><i class="iconfont bad">&#xe614;</i>
+								</td>
+								<td class="week">0</td><td class="mouth">0</td><td class="half_year">0</td><td class="half_year_ago">0</td>
+								<td class="all_td">0</td>
+							</tr>
+							<tr>
+								<td class="star">
+									<i class="iconfont good">&#xe614;</i><i class="iconfont good">&#xe614;</i><i class="iconfont good">&#xe614;</i><!--
+									--><i class="iconfont bad">&#xe614;</i><i class="iconfont bad">&#xe614;</i>
+								</td>
+								<td class="week">0</td><td class="mouth">0</td><td class="half_year">0</td><td class="half_year_ago">0</td>
+								<td class="all_td">0</td>
+							</tr>
+							<tr>
+								<td class="star">
+									<i class="iconfont good">&#xe614;</i><i class="iconfont good">&#xe614;</i><i class="iconfont bad">&#xe614;</i><!--
+									--><i class="iconfont bad">&#xe614;</i><i class="iconfont bad">&#xe614;</i>
+								</td>
+								<td class="week">0</td><td class="mouth">0</td><td class="half_year">0</td><td class="half_year_ago">0</td>
+								<td class="all_td">0</td>
+							</tr>
+							<tr>
+								<td class="star">
+									<i class="iconfont good">&#xe614;</i><i class="iconfont bad">&#xe614;</i><i class="iconfont bad">&#xe614;</i><!--
+									--><i class="iconfont bad">&#xe614;</i><i class="iconfont bad">&#xe614;</i>
+								</td>
+								<td class="week">0</td><td class="mouth">0</td><td class="half_year">0</td><td class="half_year_ago">0</td>
+								<td class="all_td">0</td>
+							</tr>
+							<tr class="good">
+								<td class="star all_tr">总计</td><td class="week all_tr">0</td><td class="mouth all_tr">9</td>
+								<td class="half_year all_tr">53</td><td class="half_year_ago all_tr">92</td><td class="all_td all_tr">145</td>
+							</tr>
+						</table>
+						<div class="satisfaction_score up f_l">
+							<div class="store_score">5</div>
+							<div class="ensemble">店铺总体满意度</div>
+							<div class="satisfaction_degree">非常满意</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<common-footer></common-footer>
+		</div>
+	</body>
+</html>

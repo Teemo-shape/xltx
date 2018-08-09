@@ -1,0 +1,164 @@
+body{
+	background: #f9f9f9;
+}
+.container{
+	width: 818px;
+	height: 676px;
+	border:1px solid #ccc;
+	border-radius: 5px;
+	background-color: #fff;
+	margin: 0 auto;
+	position: relative;
+}
+.container h2{
+	width: 700px;
+	text-align: center;
+	font-size: 30px;
+	font-weight: 500;
+	border-bottom: 1px solid #ccc;
+	padding-top: 40px;
+	padding-bottom: 30px;
+	margin: 0 auto 70px;
+}
+.fail{
+	width: 518px;
+	min-height: 30px;
+	font-size: 12px;
+	color: #faaf89;
+	line-height: 30px;
+	margin: 0 auto;
+}
+.fail_tip{
+	font-size: 14px;
+	background: #faddd9;
+	visibility: hidden;
+	margin-bottom: 8px;
+}
+.fail_tip i{
+    font-size: 18px;
+    vertical-align: top;
+    display: inline-block;
+	margin: 0 4px;
+}
+.container input{
+	width: 516px;
+	height: 48px;
+	line-height: 48px;
+	border: 1px solid #d1d1d1;
+	display: block;
+	text-indent: 10px;
+	color: #333;
+}
+.container input::-webkit-input-placeholder{
+	color: #e5e5e5;
+}
+.container input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: #e5e5e5;
+}
+.container input::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: #e5e5e5;
+}
+.container input:-ms-input-placeholder { /* Internet Explorer 10+ */
+	color: #e5e5e5;
+}
+.container .user{
+	margin: 0 auto;
+}
+.container .psd{
+	margin: 0 auto;
+}
+.container .forget{
+	width: 518px;
+	margin: 0 auto 30px;
+}
+.container .forget a{
+	line-height: 28px;
+	border-bottom: 1px solid #999;
+	color: #999;
+	float: right;
+}
+.container .login{
+	width: 518px;
+	height: 60px;
+	font-size: 24px;
+	text-align: center;
+	letter-spacing: 17px;
+	background: #717274;
+	color: #fefefe;
+	cursor: not-allowed;
+	opacity: .35;
+	filter:alpha(opacity=0.35);
+	display: block;
+	margin: 0 auto 35px; 
+}
+.container .other{
+	width: 518px;
+	height: 68px;
+	margin: 0 auto;
+}
+.container .switch{
+    width: 75px;
+    height: 75px;
+    color: #fa5400;
+    position: absolute;
+    right: 10px;
+}
+.container .wechat{
+    font-size: 96px;
+    text-indent: -10px;
+    line-height: 82px;
+    top: 10px;
+}
+.container .wechat:before{
+	content: "\e641";
+}
+.container .account{
+	font-size: 80px;
+    text-indent: 5px;
+    line-height: 70px;
+    top: 8px;
+}
+.container .account:before{
+	content: "\e64c";
+}
+.container .other .wechat i{
+	color: #48bd1c;
+    font-size: 32px;
+    vertical-align: bottom;
+    margin-right: 10px;
+}
+.container .other .go_register{
+	height: 30px;
+	color: #666;
+	line-height: 30px;
+	border-bottom: 1px solid #999;
+}
+.container .go_register span{
+	color: #fa5400;
+}
+.wechat_cont{
+	display: none;
+}
+#login_container{
+	width: 300px;
+	height: 400px;
+	background: #fff;
+	margin: 0 auto;
+}
+#login_container iframe{
+	width: 300px;
+	height: 400px;
+}
+.bg{
+	width: 100%;
+	height: 100%;
+	background: #000;
+	display: none;
+	opacity: .3;
+	filter:alpha(opacity=0);
+	position: fixed;
+    left: 0;
+    top: 0;
+	z-index: 2;
+	
+}

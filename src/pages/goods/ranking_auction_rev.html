@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>芯联-竞价式拍卖</title>
+	<link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css" />
+	<link rel="stylesheet" type="text/css" href="../static/css/views/domain/ranking_auction.css" />
+	<script src="../static/js/libs/get-user.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		isPermitted("/goods/list");
+	</script>
+	<style>
+		.scroll_cont {
+			width: 625px;
+		}
+
+		.scroll_cont::-webkit-scrollbar {
+			width: 8px;
+		}
+
+		.scroll_cont::-webkit-scrollbar-track {
+			background-color: #fff;
+		}
+
+		.scroll_cont::-webkit-scrollbar-thumb {
+			background-color: #d1d1d1;
+		}
+
+		.list_title {
+			border-bottom: 1px solid #d1d1d1;
+			padding-bottom: 10px;
+		}
+
+		.serve_name {
+			margin-right: 0px !important;
+		}
+
+		.param a {
+			text-decoration: underline;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			display: block;
+		}
+
+		.img_container img {
+			max-width: 1200px;
+		}
+
+		.ft14 {
+			font-size: 14px;
+			color: #666;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app" v-cloak>
+		<headercart></headercart>
+		<div class="cover product_container">
+			<div class="product_intro clearfix">
+				<intromangifile :message="id"></intromangifile>
+				<div class="item_info f_l">
+					<h2>{{getdraft.name_goods}}</h2>
+					<div class="info">
+						<i>当前价</i>
+						<span class="current_price">
+							<strong>0</strong>元</span>
+					</div>
+					<div class="info">
+						<i v-html="time_text"></i>
+						<div class="count_down">
+							<span class="day" v-html="count_down.day"></span>天
+							<span class="hour" v-html="count_down.hour"></span>时
+							<span class="min" v-html="count_down.min"></span>分
+							<span class="sec" v-html="count_down.sec"></span>秒</div>
+					</div>
+					<!-- 拍卖结束 -->
+					<!--<div class="info">
+							<i>开拍时间</i><span class="terminal_time">2017/10/09&ensp;11:31:00</span>
+						</div>-->
+					<div class="evaluate_cont">
+						<div class="evaluate" v-if="!has_end&&show.offer">
+							<span>出价</span>
+							<input type="text" name="price" value="3500" class="valuation_price" />
+							<div class="btns">
+								<div v-on:click="" class="price_add iconfont">&#xe62a;</div>
+								<div v-on:click="" class="price_sub iconfont">&#xe64b;</div>
+							</div>
+						</div>
+						<!-- <button @click="show.offer=true" v-if="!has_end&&!show.offer" type="button" class="button sign_up_btn">报名交保证金</button> -->
+						<button v-if="!has_end&&!show.offer" type="button" class="button sign_up_btn">报名交保证金</button>
+						<button v-if="!has_end&&show.offer" type="button" class="button sign_up_btn">报价</button>
+						<!-- <div class="finished" v-if="has_end">
+							<i class="iconfont">&#xe60f;</i>本场拍卖已结束！
+						</div>
+						<div class="finished" v-if="has_begin">
+							<i class="iconfont">&#xe60f;</i>拍卖尚未开始！
+						</div> -->
+						<div class="valuation_record">
+							<span class="record_btn" @click="show.quotation_record=true">报价记录</span>
+							<div class="records" v-show="show.quotation_record">
+								<div class="records_cont">
+									<span class="iconfont delete_btn" @click="show.quotation_record=false">&#xe617;</span>
+									<h3>我的排名及历史报价</h3>
+									<div class="scroll">
+										<div class="list_title">
+											<span class="price">状态</span>
+											<span class="date">竞买号</span>
+											<span class="time">价格</span>
+											<span class="state">时间</span>
+										</div>
+										<div class="scroll_cont">
+											<ul style="margin-bottom:10px;">
+												<li v-for="(l,i) in record_list">
+													<span class="price">{{l.state}}</span>
+													<span class="date">{{l.id}}</span>
+													<span class="time">{{l.price}}</span>
+													<span class="state">{{timestampToTime(l.time)}}</span>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<p class="notice">
+							<i class="iconfont">&#xe723;</i>提醒：先报名交保证金再出价。如果您已经交付保证金，请
+							<a href="" class="login">登录</a>
+						</p>
+					</div>
+					<div class="bidding_statement clearfix">
+						<div class="statement_left f_l">
+							<div class="statement_item">
+								<span class="statement_name">起步价</span>
+								<span class="statement_value">¥{{pros.money_start}}</span>
+							</div>
+							<div class="statement_item">
+								<span class="statement_name">保证金</span>
+								<span class="statement_value">¥{{pros.money_deposit}}</span>
+							</div>
+
+							<!-- <div class="statement_item">
+								<span class="statement_name">封顶价</span>
+								<span class="statement_value">¥{{pros.money_top}}</span>
+							</div> -->
+							<div class="statement_item">
+								<span class="statement_name">加价幅度</span>
+								<span class="statement_value">¥{{pros.money_step}}</span>
+							</div>
+						</div>
+						<div class="statement_right f_l">
+
+							<div class="statement_item">
+								<span class="statement_name">延时周期</span>
+								<el-tooltip content="如果在拍卖结束前5分钟内出价,拍卖结束时间会延长5分钟,直到无人出价,拍卖结束" placement="bottom" effect="light">
+									<span class="statement_value">{{pros.delay_minute}}分钟
+										<i class="el-icon-question" style="color: #757575"></i>
+									</span>
+								</el-tooltip>
+							</div>
+							<div class="statement_item">
+								<span class="statement_name">竞价周期</span>
+								<span class="statement_value">{{pros_time}}</span>
+							</div>
+						</div>
+					</div>
+					<p class="rule ft14">竞价规则：拍卖结束时，出价较高者即拍得商品</p>
+					<p class="serve ft14">
+						<span class="serve_name ft14">买家服务：平台担保交易&ensp;买家保障</span>
+					</p>
+					<p class="serve ft14">
+						<span class="serve_name ft14">卖&ensp;&ensp;&ensp;&ensp;家：{{com_info.company_name}}</span>
+					</p>
+					<!-- <div class="company">
+						<a href="javascript:void(0);">天卓微科技</a>
+						<i class="iconfont">&#xe66f;</i>
+						<a href="javascript:void(0);">联系卖家</a>
+					</div> -->
+				</div>
+			</div>
+		</div>
+		<section class="cover table">
+			<ul class="tab_trigger clearfix">
+				<li class="table_btn active" data-tabid="#shop_notes">竞买须知</li>
+				<li class="table_btn" data-tabid="#introduce">标的物介绍</li>
+				<!-- <li class="table_btn" data-tabid="#appraise">咨询
+					<span class="consult_num">58</span>
+				</li> -->
+				<div class="border"></div>
+			</ul>
+			<ul class="tab_content">
+				<li id="shop_notes" class="hide active">
+					<h2>竞拍规则</h2>
+					<ul class="auction_process">
+						<li>
+							<span class="">
+								<i class="sequence">1</i>
+							</span>
+							<span class="value">参与拍卖前需先将保证金汇入平台指定的账户中。</span>
+						</li>
+						<li>
+							<span class="">
+								<i class="sequence">2</i>
+							</span>
+							<span class="value">全场首次出价只能为起拍价。</span>
+						</li>
+						<li>
+							<span class="">
+								<i class="sequence">3</i>
+							</span>
+							<span class="value">加价幅度：只能按照加价幅度的N倍加价（N>=1且是整数）。</span>
+						</li>
+						<li>
+							<span class="">
+								<i class="sequence">4</i>
+							</span>
+							<span class="value">首次出价者不可在自己首次出价领先的状态下再次出价，需有第二人应价后可再应价，之后可连续出价。</span>
+						</li>
+						<li>
+							<span class="">
+								<i class="sequence">5</i>
+							</span>
+							<span class="value">出价次数无限制，竞拍周期内均可出价。</span>
+						</li>
+						<li>
+							<span class="">
+								<i class="sequence">6</i>
+							</span>
+							<span class="value">在竞拍周期内，出价后如果长时间没有其他人出价，拍卖也不会提前结束，除非卖家撤回拍卖。</span>
+						</li>
+						<div class="auction_border"></div>
+					</ul>
+					<h2>竞拍流程</h2>
+					<ul class="auction_process">
+						<li>
+							<span class="title">
+								<i class="sequence">1</i>拍卖准备</span>
+							<span class="value">注册或使用已有平台账户登录，且需完成实名认证。</span>
+						</li>
+						<li>
+							<span class="title">
+								<i class="sequence">2</i>报名交保证金</span>
+							<span class="value">建议提前两天缴纳保证金，以免错过拍卖，拍卖开始前的一天内不接受缴纳保证金。</span>
+						</li>
+						<li>
+							<span class="title">
+								<i class="sequence">3</i>验货</span>
+							<span class="value">建议您至少在开拍之前的一天去现场验货。</span>
+						</li>
+						<li>
+							<span class="title">
+								<i class="sequence">4</i>参与竞拍</span>
+							<span class="value">确认出价金额，点击“出价”按钮即可参与竞拍，参拍过程中可随时关注竞拍剩余时间、当前价格、出价记录等。</span>
+						</li>
+						<li>
+							<span class="title">
+								<i class="sequence">5</i>竞拍结束</span>
+							<span class="value">竞拍失败：保证金会自动全额退还给竞买人。
+								<br/>
+							</span>
+							<span class="value" style="display: block;margin-left: 178px;">竞拍成功：如果在本次截止时，您的出价排在第一位，并且没有其他用户继续出价，则您将获得该拍卖品。您需在规定的时间内完成确认并付款，否则系统将判断您违约，交易取消并扣除保证金。</span>
+						</li>
+						<div class="auction_border" style="height: 80%;"></div>
+					</ul>
+				</li>
+				<li id="introduce" class="hide ">
+					<h3 class="params ">物品清单</h3>
+					<ul id="2_1" class="param skip" style="margin-left: 20px;">
+						<li v-for="(l,i) in attachment">
+							<a :href="ctx+'/anon/goods/auction/download/attachment/'+id+'?filename='+encodeURI(l.name_file)" target="_blank">
+								<span>{{l.name_file}}</span>
+							</a>
+						</li>
+					</ul>
+					<h3 class="params ">物品介绍</h3>
+					<h4 id="2_2" class="prospectus skip">商品样张</h4>
+					<div class="product_img">
+						<div v-if="l.index_pic>11" class="img_container" v-for="(l,i) in img_list">
+							<img v-if="l.url_pic" :src="l.url_pic" :id="'com_img_'+i" />
+						</div>
+					</div>
+					<!-- <h4 id="2_3" class="specification skip">商品规格</h4>
+					<div class="product_img">
+						<div class="img_container">
+							<img src="../static/img/product_detail_03.png" />
+						</div>
+					</div> -->
+					<h4 id="2_4" class="display skip">资质展示</h4>
+					<div class="product_img">
+						<div v-if="l.index_pic==8" class="img_container" v-for="(l,i) in img_list">
+							<img v-if="l.url_pic" :src="l.url_pic" :id="'com_img_'+i" />
+						</div>
+					</div>
+					<h4 id="2_5" class="manage skip">其他经营</h4>
+					<div class="product_img">
+						<div v-if="l.index_pic==9" class="img_container" v-for="(l,i) in img_list">
+							<img v-if="l.url_pic" :src="l.url_pic" :id="'com_img_'+i" />
+						</div>
+					</div>
+					<h4 id="2_6" class="intro skip">公司介绍</h4>
+					<div class="product_img">
+						<div v-if="l.index_pic==10" class="img_container" v-for="(l,i) in img_list">
+							<img v-if="l.url_pic" :src="l.url_pic" :id="'com_img_'+i" />
+						</div>
+					</div>
+					<h4 id="2_7" class="reading skip">购物须知</h4>
+					<div class="product_img">
+						<div v-if="l.index_pic==11" class="img_container" v-for="(l,i) in img_list">
+							<img v-if="l.url_pic" :src="l.url_pic" :id="'com_img_'+i" />
+						</div>
+					</div>
+					<!-- 目录 -->
+					<div class="side-catalog" style="visibility: visible; bottom: 10px;">
+						<div class="side-bar">
+							<em class="circle start"></em>
+							<em class="circle end"></em>
+						</div>
+						<div class="catalog-scroller">
+							<dl class="catalog-list">
+								<dt class="catalog-title level1">
+									<em class="pointer"></em>
+									<a href="#1_0" class="title-link">
+										<span class="text">1 竞买须知</span>
+									</a>
+								</dt>
+								<dt class="catalog-title level1">
+									<em class="pointer"></em>
+									<a href="#2_0" class="title-link">
+										<span class="text">2 标的物介绍</span>
+									</a>
+								</dt>
+								<dd class="catalog-title level2">
+									<a href="#2_1" class="title-link">
+										<span class="text">2.1 物品清单</span>
+									</a>
+								</dd>
+								<dd class="catalog-title level2">
+									<a href="#2_2" class="title-link">
+										<span class="text">2.2 商品样张</span>
+									</a>
+								</dd>
+								<!-- <dd class="catalog-title level2">
+									<a href="#2_3" class="title-link">
+										<span class="text">2.3 商品规格与说明</span>
+									</a>
+								</dd> -->
+								<dd class="catalog-title level2">
+									<a href="#2_4" class="title-link">
+										<span class="text">2.3 资质展示</span>
+									</a>
+								</dd>
+								<dd class="catalog-title level2">
+									<a href="#2_5" class="title-link">
+										<span class="text">2.4 其他经营</span>
+									</a>
+								</dd>
+								<dd class="catalog-title level2">
+									<a href="#2_6" class="title-link">
+										<span class="text">2.5 公司介绍</span>
+									</a>
+								</dd>
+								<dd class="catalog-title level2">
+									<a href="#2_7" class="title-link">
+										<span class="text">2.6 购物须知</span>
+									</a>
+								</dd>
+								<a class="arrow" href="javascript:void(0);"></a>
+							</dl>
+						</div>
+						<div class="right-wrap">
+							<button type="button" @click="go_up" class="go-up disable button"></button>
+							<button type="button" @click="go_down" class="go-down disable button"></button>
+						</div>
+						<div class="bottom-wrap">
+							<button type="button" class="toggle-button iconfont button">&#xe61a;</button>
+							<button type="button" class="gotop-button iconfont button">&#xe61e;</button>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</section>
+
+		<vfooter></vfooter>
+	</div>
+</body>
+<script src="../static/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../static/js/config/package.js" type="text/javascript" charset="utf-8"></script>
+<script src="../static/js/plugins/jquery.imagezoom.js" type="text/javascript" charset="utf-8"></script>
+<script src="../static/js/plugins/jquery.pages.js" type="text/javascript" charset="utf-8"></script>
+<script src="../static/js/goods/ranking_auction.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

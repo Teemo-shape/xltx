@@ -1,0 +1,147 @@
+body{
+	color: #333;
+	font-size: 16px;
+}
+iframe{
+	width: 100%;
+	border: none;
+}
+.cover{
+	width: 1200px;
+	margin: 0 auto;
+}
+i,span,div,a{
+	vertical-align: top;
+}
+
+/*
+ * 您的位置
+ */
+.position{
+	margin-top: 20px;
+}
+.position .nav{
+	margin-top: 20px;
+    line-height: 1;
+}
+.position .nav .position_first{
+	color: #fa5400;
+}
+.position .nav .my_order{
+	color: #fa5400;
+}
+.position .steps{
+	text-align: center;
+	margin-top: 20px;
+	padding-bottom: 14px;
+	padding-left: 376px;
+    margin-bottom: 152px;
+	position: relative;
+}
+.steps .step_cont{
+	width: 124px;
+	display: inline-block;
+	float: left;
+	position: relative;
+}
+.step_cont img{
+	position: absolute;
+	top: 4px;
+    left: 31px;
+}
+.steps .step{
+	width: 122px;
+	height: 60px;
+	font-size: 18px;
+	line-height: 60px;
+	border: solid 1px #e5e5e5;
+	box-shadow: 3px 3px 3px #d1d1d1;
+	margin-top: 20px;
+}
+.position .steps>.iconfont{
+    font-size: 38px;
+    color: #e5e5e5;
+    line-height: 60px;
+    float: left;
+    margin: 20px;
+    margin-bottom: 0;
+}
+.steps .transaction_closed{
+    width: 1138px;
+    height: 150px;
+    text-align: initial;
+    border: solid 1px #ddd;
+    position: absolute;
+    left: 0;
+    bottom: -152px;
+    padding-left: 60px;
+}
+.transaction_closed::before{
+  	width: 0;
+  	height: 0;
+  	content: '';
+  	position: absolute;
+	border: 15px solid transparent;
+	border-bottom-color: inherit;
+  	top: -30px;
+  	left: 829px;
+}
+.transaction_closed:after{
+  	width: 0;
+  	height: 0;
+  	content: '';
+	border: 14px solid transparent;
+  	border-bottom: 14px solid #fff;
+  	position: absolute;
+  	top: -28px;
+  	left: 830px;
+}
+.transaction_closed .check{
+	margin-top: 20px;
+	line-height: 46px;
+}
+.transaction_closed .check .iconfont{
+	font-size: 26px;    
+	margin-right: 10px;
+}
+.transaction_closed .check strong{
+	font-size: 20px;
+	color: #111;
+}
+.transaction_closed .check a{
+	color: #666;
+	text-decoration: underline;
+    vertical-align: bottom;
+}
+.transaction_closed .check a:hover{
+	text-decoration: underline;
+}
+.transaction_closed .close_cont{
+	line-height: 36px;
+}
+.transaction_closed .reason_cont{
+	margin-bottom: 20px;
+}
+.position h2{
+	font-size: 20px;
+	line-height: 1;
+	padding: 30px 0 20px 30px;
+}
+.position .address{
+	border-bottom: solid 1px #e5e5e5;
+	padding-left: 60px;
+	padding-bottom: 30px;
+}
+.position .address .post_code{
+	margin-left: 60px;
+}
+
+
+/*
+ * footer
+ */
+#bottomFrame{
+	height: 260px;
+	background: #f5f5f5;
+	margin-top: 30px;
+}

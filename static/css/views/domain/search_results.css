@@ -1,0 +1,359 @@
+.cover{
+	width: 1200px;
+	margin: 0 auto;
+}
+/* 搜索条件 */
+.nav_filter{
+	width: 100%;
+	background: #f5f5f5;
+	position: initial;
+	top: 0;
+	z-index: 8;
+}
+.select_condition{
+	padding: 17px 0;
+	color: #4e4e4e;
+	font-size: 20px;
+}
+.filters .filter{
+	margin-right: 20px;
+	line-height: 42px;
+}
+.filters .filter:last-child{
+	margin-right: 0;
+}
+ .filters .selected{
+	color: #fa5400;
+}
+.select_condition .sort_select{
+	margin-right: 16px;
+	line-height: 42px;
+}
+.s.sort_select .sort_input{
+	width: 152px;
+	height: 40px;
+	border: 1px solid #999;
+	margin-left: 16px;
+	position: relative;
+}
+.select_word{
+    width: 110px;
+    text-align: center;
+}
+.sort_input .sort_list{
+	width: 100%;
+	height: 100%;
+	line-height: 40px;
+}
+.sort_list .arrow_select{
+	width: 10px;
+	height: 27px;
+	margin-right: 22px;
+	margin-top: 8px;
+}
+\.arrow_select .arrow_top{
+	line-height: 0;
+	font-size: 0;
+	border-bottom: 10px solid #999;
+	border-left: 5px dashed #000;
+	border-right: 5px dashed #000;
+    border-left-color: transparent;  
+    border-right-color: transparent;
+    border-top-width: 0;
+}
+\.arrow_select .arrow_bottom{
+	line-height: 0;
+	font-size: 0;
+	border-top: 10px solid #000;
+	border-left: 5px dashed #000;
+	border-right: 5px dashed #000;
+    border-left-color: transparent;  
+    border-right-color: transparent;
+    border-bottom-width: 0;
+    margin-top: 7px;
+}
+\.sort_input>select{
+	width: 100%;
+	height: 40px;
+	position: absolute;
+	left: -1px;
+	top: 0px;
+	opacity: 0;
+	filter:alpha(opacity=0);
+}
+
+/*  搜索结果 */
+.mid_half{
+	background:#fff;
+	margin-top: 30px;
+	position: relative;
+}
+.select_contents{
+	min-height: 280px;
+	background: #f8f8f8;
+}
+.select_menu{
+	width: 210px;
+	padding-top: 6px;
+	margin-left: 10px;
+}
+.select_menu .display_results{
+	width: 210px;
+	font-size: 24px;
+	font-weight: 800;
+	line-height: 1;
+	color: #333;
+	margin-bottom: 9px;
+}
+.category>li a{
+	color: #4e4e4e;
+}
+.category .filter_selected{
+	padding-left: 14px;
+}
+.select_menu .filter_title{
+	font-size: 24px;
+	padding: 9px 0 2px 0;
+	line-height: 34px;
+}
+.select_menu h2{
+	font-size: 20px;
+	line-height: 32px;
+	margin-top: 5px;
+}
+.select_menu .padd_top_no{
+	margin-top: 0;
+}
+.select_menu .multiple_list_title{
+	position: relative;
+}
+.select_menu ul{
+	margin-bottom: 15px;
+}
+.select_menu .multiple_list{
+	position: relative;
+}
+.select_menu ul li{
+	font-size: 20px;
+	line-height: 30px;
+	color: #4e4e4e;
+}
+.select_menu li a{
+	width: 100%;
+}
+.category a span{
+	margin-left: -7px;
+}
+.price_range input{
+	width: 42px;
+    height: 20px;
+    border: 1px solid #999;
+    margin-left: 5px;
+}
+.price_range button{
+	height: 21px;
+	font-size: 18px;
+	border: none;
+	border-bottom: 1px solid #4e4e4e;
+	background: none;
+	outline: none;
+    cursor: pointer;
+}
+.select_menu ul input[type=checkbox]{
+	width: 12px;
+	height: 12px;
+	/*-webkit-appearance:none;*/	/* 设置背景色无效，需要清除默认样式，清除后点击勾选失效 */
+	background: #fff;
+	border: 1px solid #000;
+	margin-right: 5px;
+	display: none;
+}
+.multiple_list .iconfont{
+	display: none;
+	margin-left: 8px;
+}
+.multiple_list_title>span{
+	color: #4e4e4e;
+	font-size: 18px;
+	font-weight: 500;
+	background: #eee;
+	cursor: pointer;
+	display: none;
+	position: absolute;
+	top: 0;
+}
+.multiple_btn{
+	display: block;
+}
+.multiple_btn{
+	right: 11px;
+}
+.confirm_btn{
+	right: 54px;
+}
+.cancel_btn{
+	right: 11px;
+}
+
+
+
+/* 产品列表 */
+.nothing{
+	font-size: 24px;
+	text-align: center;
+	padding-top: 100px;
+}
+.nothing .selected{
+	color: #fa5400;
+}
+/* .select_contents{
+	
+} */
+.select_contents .products{
+	/* width: 966px; */
+	width: 1194px;
+	background: #f8f8f8;
+	padding-top: 20px;
+	padding-right: 6px;
+}
+.products .product{
+	height: 448px;
+	font-size: 14px;
+	background: #fff;
+	/* margin: 0 14px 20px 20px; */
+	margin: 0 54px 20px;
+	float: left;
+}
+.product>a{
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+.product:hover{
+	box-shadow: 0 0 8px #ccc;
+}
+.product .product_img{
+	width: 288px;
+	height: 288px;
+	text-align: center;
+	position: relative;
+}
+.product_img img{
+	width: auto;
+	max-width: 100%;
+}
+.product_img .countdown{
+	width: 100%;
+	height: 40px;
+	color: #fff;
+	font-size: 16px;
+	line-height: 40px;
+	padding-top: 9px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: url(../../../img/count_down.png) no-repeat;
+}
+.countdown .iconfont{
+	font-size: 22px;
+	margin-right: 7px;
+	vertical-align: top;
+}
+.product_price{
+	font-size: 16px;
+	color: #fa5400;
+	margin-top: 12px;
+	padding-left: 10px;
+	line-height: 34px;
+}
+.product_price span{
+	display: inline-block;
+}
+.product_price .price{
+	width: 60px;
+	font-size: 24px;
+	text-indent: 5px;
+}
+.product_price .auction_time{
+	margin-left: 16px;
+    vertical-align: top;
+    color: #333;
+}
+.product_title{
+	width: 205px;
+	text-indent: 10px;
+	line-height: 28px;
+	white-space: nowrap;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.product_company{
+	padding-left: 10px;
+}
+.product_company .product_address{
+	float: right;
+	margin-right: 7px;
+	line-height: 24px;
+}
+.other_operate{
+	line-height: 24px;
+	margin-top: 18px;
+	padding-left: 10px;
+}
+.m_b95{
+	margin-bottom: 95px;
+}
+.select_contents .paging{
+	text-align: center;
+	background: #fff;
+}
+/* 我的足迹 */
+.footmark{
+	background: #f5f5f5;
+	padding-top: 9px;
+}
+.footmark .footmark_title{
+	font-size: 20px;
+	text-indent: 20px;
+	line-height: 30px;
+	color: #333;
+	font-weight: 500;
+}
+.footmark ul{
+	margin: 27px 38px 16px;
+	position: relative;
+}
+.footmark ul li{
+	margin: 0 16px;
+}
+.footmark_img{
+	width: 108px;
+}
+.footmark ul>span{
+	width: 26px;
+	height: 50px;
+	color: #757575;
+	font-size: 50px;
+	line-height: 1;
+	text-indent: -12px;
+	position: absolute;
+	top: 23px;
+}
+.footmark .arrow_prev{
+	left: -26px;
+}
+.footmark .arrow_next{
+	right: -26px;
+}
+.footmark .footmark_price{
+	text-align: center;
+	color: #fa5400;
+	font-size: 12px;
+	line-height: 30px;
+	margin-top: 7px;
+	margin-bottom: 15px;
+}
+.footmark_price span{
+	font-size: 16px;
+}

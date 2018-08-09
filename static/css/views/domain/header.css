@@ -1,0 +1,234 @@
+.clearfix{
+	*zoom:1;
+} /* 针对IE6/7 hack，触发IE6/7的haslayout，以清除浮动 */
+.clearfix:before,.clearfix:after{
+	display:block;
+	content:"";
+	height:0;
+	visibility: hidden;
+	overflow: hidden;
+}
+.clearfix:after{
+	clear:both;
+}
+.f_l{
+	float: left;
+}
+.f_r{
+	float: right;
+}
+/*
+ * 带箭头的选择框
+ */
+.arrow_appear::before{
+  	width: 0;
+  	height: 0;
+  	content: '';
+  	position: absolute;
+	border: 11px solid transparent;
+	border-bottom-color: inherit;
+  	top: -22px;
+  	left: 20px;
+}
+.arrow_appear:after{
+  	width: 0;
+  	height: 0;
+  	content: '';
+	border: 10px solid transparent;
+  	border-bottom: 10px solid #fff;
+  	position: absolute;
+  	top: -20px;
+  	left: 21px;
+}
+
+@font-face {font-family: "iconfont";
+  src: url('/font/iconfont.eot'); /* IE9*/
+  src: url('/font/iconfont.eot') format('embedded-opentype'), /* IE6-IE8 */
+  url('/font/iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('/font/iconfont.svg') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header .logo{
+	width: auto;
+	margin-top: 5px;
+	margin-right: 5PX;
+}
+
+header .classify{
+	width: 114px;
+	margin: 20px 22px 0 8px;
+	position: relative;
+}
+.classify .classify_btn{
+	width: 114px;
+	height: 50px;
+	font-size: 20px;
+	line-height: 50px;
+	font-weight: 500;
+}
+.classify_btn .select_classify{
+	width: 88px;
+	text-align: center;
+	margin: 0 3px;
+	float: left;
+}
+.classify_btn .iconfont{
+	font-size: 12px;
+}
+.classify_item a{
+	color: #333;
+}
+
+.shop_car_logo{
+    width: 50px;
+    text-align: center;
+    cursor: pointer;
+    display: block;
+    margin-top: 20px;
+    position: relative;
+}
+.shop_car_logo .iconfont{
+    font-size: 35px;
+    line-height: 50px;
+}
+.shop_car_logo span{
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    color: #fff;
+    background: #fa5400;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+}
+
+header .account{
+	width: auto;
+	display: inline-block;
+	margin-top: 20px;
+	margin-right: 10px;
+	position: relative;
+}
+.account .account_title{
+	width: 124px;
+	height: 50px;
+	text-indent: 7px;
+	font-size: 20px;
+	line-height: 50px;
+	color: #333;
+}
+.account_title a{
+	color: #333;
+}
+.account .account_items{
+	width: auto;
+	min-width: 100%;
+	text-align: center;
+	background: #fff;
+	border: 1px solid #ccc;
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 50px;
+	z-index: 9;
+}
+.account_items .account_item{
+	height: 30px;
+	line-height: 30px;
+}
+.account_item a{
+	color: #999;
+}
+header .search{
+	width: auto;
+	height: 48px;
+	border: 1px solid #adadad;
+	margin-top: 20px;
+}
+header .search .select_btn{
+	height: 48px;
+	position: relative;
+	display: inline-block;
+}
+header .select_btn .search_title{
+	width: auto;
+	height: 28px;
+	font-size: 20px;
+	line-height: 28px;
+	text-align: center;
+	margin: 10px 0;
+	box-sizing: border-box;
+	border-right: 1px solid #adadad;
+}
+header .search_title span{
+	margin-right: 7px;
+	float: right;
+} 
+header .search_title .select_classify{
+	text-indent: 11px;
+	float: left;
+}
+header .select_items{
+	width: 100%;
+	text-indent: 11px;
+	border: 1px solid #ccc;
+	background: #fff;
+	display: none;
+	position: absolute;
+	left: -1px;
+	top: 48px;
+	z-index: 9;
+}
+header .select_items .select_item{
+	height: 30px;
+	line-height: 30px;
+}
+header .search_icon{
+	width: 50px;
+	position: relative;
+	display: inline-block;
+}
+header .search_icon span{
+	width: 100%;
+	height: 48px;
+	text-align: center;
+	font-size: 28px;
+	color: #8e8e8e;
+	line-height: 48px;
+	display: block;
+}
+header .search_icon .icon_input{
+	width: 100%;
+	height: 48px;
+	border: none;
+	background: #fff;
+	opacity: 0;
+	filter:alpha(opacity=0);
+	cursor: pointer;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+header .search .search_container{
+	width: auto;
+	overflow: hidden;
+}
+header .search .search_input{
+	width: 510px;
+	height: 48px;
+	border: none;
+	text-indent: 14px;
+}
+/*@media only screen and (min-width: 1230px) and (max-width: 1410px) {
+	header .search .search_input{
+		width: 400px;
+	}
+}*/

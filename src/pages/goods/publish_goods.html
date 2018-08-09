@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>芯联-发布商品</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/views/individual/publish_goods.css" />
+    <script src="../static/js/libs/get-user.js" type="text/javascript"></script>
+    <script>
+        isPermitted("/goods/list");
+        //console.log(2);
+    </script>
+    <style>
+        /* 超过两行隐藏 */
+
+        a.over2 {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+
+        .tips {
+            border: 1px solid #999;
+        }
+
+        .no_style a {
+            cursor: default;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" @click='closeall()' v-cloak>
+        <header-cart></header-cart>
+        <div class="bg"></div>
+        <section class="home_page cover clearfix">
+            <left-menu :name="menu_name"></left-menu>
+            <div class="container f_l">
+                <div class="publish_cont">
+                    <div id="iwannaRelease" class="release">
+                        <div class="button publish">
+                            <i class="iconfont">&#xe62a;</i>我要发布</div>
+                        <ul class="publish_list">
+                            <li>
+                                <a target="_blank" href="ranking_auction_edit.html">竞价式卖单</a>
+                            </li>
+                            <li class="no_style">
+                                <a target="_blank" href="javascript:void(0)">普通卖单</a>
+                            </li>
+                            <!-- <li>
+                                <a target="_blank" href="/views/domain/dutch_auction.html">荷兰式拍卖</a>
+                            </li> -->
+
+                            <!-- <li style="border-bottom: none;">
+                                <a target="_blank" href="/views/domain/valuation_auction.html">估价式拍卖</a>
+                            </li> -->
+                        </ul>
+                    </div>
+                    <!-- <a class="freight_mod f_r" href="/views/individual/freight_tmpl.html">设置运费模板</a> -->
+                </div>
+                <div class="tab_content" id="app">
+                    <div class="search_word  ">
+                        <input type="text" name="search" id="search" value="" placeholder="请输入关键词" />
+                        <label for="search" class="iconfont">&#xe604;</label>
+                    </div>
+                    <ul class="state_list clearfix">
+                        <li class="state_item f_l">
+                            <div class="radio">
+                                <label data-id='0' for="" class="iconfont checked label"></label>
+                                <input type="radio" name="ordinary_state" id="ordinary_auction_all" value="ordinary_auction" />
+                            </div>全部
+                            <span></span>
+                        </li>
+                        <li class="state_item f_l">
+                            <el-tooltip content="基本条件，过滤必选" popper-class="tips" placement="bottom" effect="light">
+                                <div class="radio el-icon-info" style="color: #999">
+                                </div>
+                            </el-tooltip>
+                            卖单类型：
+                            <span></span>
+                        </li>
+                        <li class="state_item f_l">
+                            <div class="radio">
+                                <label data-id="2" pid="0" for="ordinary_auction" class="iconfont unchecked label"></label>
+                                <input type="radio" name="ordinary_state" id="ordinary_auction" value="ordinary_auction" />
+                            </div>普通卖单
+                            <span></span>
+                        </li>
+                        <li class="state_item f_l">
+                            <div class="radio">
+                                <label data-id='3' pid='0' for="ordinary_rough_draft" class="iconfont unchecked label"></label>
+                                <input type="radio" name="ordinary_state" id="ordinary_rough_draft" value="ordinary_rough_draft" />
+                            </div>拍卖卖单
+                            <span></span>
+                        </li>
+                    </ul>
+                    <ul class="state_list clearfix">
+                        <li class="state_item f_l" style="visibility: hidden;">
+                            <div class="radio">
+                            </div>全部
+                            <span></span>
+                        </li>
+                        <li class="state_item f_l">
+                            <el-tooltip content="附加条件，过滤可选" popper-class="tips" placement="bottom" effect="light">
+                                <div class="radio el-icon-info" style="color: #999">
+                                </div>
+                            </el-tooltip>
+                            卖单状态：
+                            <span></span>
+                        </li>
+
+                        <li class="state_item f_l">
+                            <div class="radio">
+                                <label data-id='10' pid='1' for="ordinary_rough_draft" class="iconfont unchecked label"></label>
+                                <input type="radio" name="ordinary_state" id="ordinary_rough_draft" value="ordinary_rough_draft" />
+                            </div>草稿
+                            <span></span>
+                        </li>
+                        <li class="state_item f_l">
+                            <div class="radio">
+                                <label data-id='11' pid='1' for="ordinary_verify" class="iconfont unchecked label"></label>
+                                <input type="radio" name="ordinary_state" id="ordinary_verify" value="ordinary_verify" />
+                            </div>待审核
+                            <span></span>
+                        </li>
+                        <li class="state_item f_l">
+                            <div class="radio">
+                                <label data-id='12' pid='1' for="ordinary_verify" class="iconfont unchecked label"></label>
+                                <input type="radio" name="ordinary_state" id="ordinary_verify" value="ordinary_verify" />
+                            </div>审核通过
+                            <span></span>
+                        </li>
+                        <li class="state_item f_l">
+                            <div class="radio">
+                                <label data-id='13' pid='1' for="ordinary_verify" class="iconfont unchecked label"></label>
+                                <input type="radio" name="ordinary_state" id="ordinary_verify" value="ordinary_verify" />
+                            </div>审核被拒
+                            <span></span>
+                        </li>
+                        <li class="state_item f_l">
+                            <div class="radio">
+                                <label data-id='22' pid='2' for="" class="iconfont unchecked label"></label>
+                                <input type="radio" name="ordinary_state" id="" value="" />
+                            </div>已预约上架
+                            <span class="tishi">(共有的状态)</span>
+                        </li>
+                    </ul>
+                    <ul class="state_list clearfix">
+                        <li class="state_item f_l" style="visibility: hidden;">
+                            <div class="radio">
+                            </div>全部
+                            <span></span>
+                        </li>
+                        <li class="state_item f_l" style="visibility: hidden;">
+                            <div class="radio">
+                            </div>卖单状态：
+                            <span></span>
+                        </li>
+
+
+                        <li class="state_item f_l">
+                            <div class="radio">
+                                <label data-id='30' pid='3' for="ordinary_wait_auction" class="iconfont unchecked label"></label>
+                                <input type="radio" name="ordinary_state" id="ordinary_wait_auction" value="ordinary_wait_auction" />
+                            </div>等待开拍
+                            <span></span>
+                        </li>
+                        <li class="state_item f_l">
+                            <div class="radio">
+                                <label data-id='31' pid='3' for="ordinary_auction" class="iconfont unchecked label"></label>
+                                <input type="radio" name="ordinary_state" id="ordinary_auction" value="ordinary_auction" />
+                            </div>竞拍中
+                            <span></span>
+                        </li>
+                        <li class="state_item f_l">
+                            <div class="radio">
+                                <label data-id='32' pid='3' for="ordinary_completed" class="iconfont unchecked label"></label>
+                                <input type="radio" name="ordinary_state" id="ordinary_completed" value="ordinary_completed" />
+                            </div>竞拍结束
+                            <span class="tishi">(拍卖卖单的状态)</span>
+                        </li>
+                    </ul>
+                    <ul class="state_list clearfix">
+                        <li class="state_item f_l" style="visibility: hidden;">
+                            <div class="radio">
+                            </div>全部
+                            <span></span>
+                        </li>
+                        <li class="state_item f_l" style="visibility: hidden;">
+                            <div class="radio">
+                            </div>卖单状态：
+                            <span></span>
+                        </li>
+                        <li class="state_item f_l">
+                            <div class="radio">
+                                <label data-id='20' pid='2' for="" class="iconfont unchecked label"></label>
+                                <input type="radio" name="ordinary_state" id="" value="" />
+                            </div>在售
+                            <span></span>
+                        </li>
+                        <li class="state_item f_l">
+                            <div class="radio">
+                                <label data-id='21' pid='2' for="" class="iconfont unchecked label"></label>
+                                <input type="radio" name="ordinary_state" id="" value="" />
+                            </div>已下架
+                            <span class="tishi">(普通卖单的状态)</span>
+                        </li>
+                    </ul>
+                    <dl class="order_list">
+                        <dt class="clearfix">
+                            <div class="product_name f_l">商品名称</div>
+                            <div class="product_type f_l">类型</div>
+                            <div class="product_num f_l">数量</div>
+                            <div class="product_price f_l">价格</div>
+                            <div class="product_state f_l">商品状态</div>
+                            <div class="product_state f_l">操作</div>
+                        </dt>
+                        <dd class="clearfix">
+                            <p v-show="!loading&&show_list.length==0" style="margin-top:10px;font-size:16px;text-align: center;font-weight:400 ">您还没有卖单</p>
+                        </dd>
+                        <dd class="clearfix">
+                            <p v-if="loading" style="margin-top:10px;font-size:16px;text-align: center;font-weight: 400">卖单加载中...</p>
+                        </dd>
+                        <dd v-show="page_num*page_list_max<=index&&index<(page_num+1)*page_list_max" v-for="(item,index) in show_list">
+                            <dl class="order_item">
+                                <dt v-if="item.state_goods>3&&item.state_goods<9">
+                                    <span class="order_time" v-html="stamp_time(item.ltm_create)"></span>商品编号：
+                                    <span class="order_id">{{item.id_goods}}</span>
+                                </dt>
+                                <dt v-if="item.state_goods==9||item.state_goods<4">
+                                    <span class="order_time" v-html="stamp_time(item.ltm_create)"></span>商品版本号：
+                                    <span class="order_id">{{item.id_goods_revision}}</span>
+                                </dt>
+                                <dt v-if="!item.id_goods&&!item.id_goods_revision">
+                                    <span class="order_time" style="visibility: hidden;">订单编号，草稿编号都不存在，隐藏不显示：</span>
+                                    <span class="order_id"></span>
+                                </dt>
+                                <dd class="clearfix">
+                                    <div class="order_name f_l clearfix">
+                                        <div class="order_img f_l">
+                                            <img v-if="page_num*page_list_max<=index&&index<(page_num+1)*page_list_max" v-bind:src="item.url_pic" />
+                                        </div>
+                                        <div class="order_title f_l">
+                                            <a v-html="item.name_goods" class="over2"></a>
+                                        </div>
+                                    </div>
+                                    <div class="product_type f_l list_border">
+                                        <div class="list_border" v-if="item.type_goods==1">普通</div>
+                                        <div class="list_border" v-if="item.type_goods==2">荷兰式</div>
+                                        <div class="list_border" v-if="item.type_goods==3">竞价式</div>
+                                        <div class="list_border" v-if="item.type_goods==4">沽价式</div>
+                                    </div>
+                                    <div class="product_num f_l" v-if="item.type_goods==3" style="font-size:12px;">
+                                        1PCS
+                                        <!-- TODO -->
+                                    </div>
+                                    <div v-else class="product_num f_l" style="font-size:12px;">
+                                        <template v-if="item.price_low==item.price_high">
+                                            {{item.price_low}}PCS
+                                        </template>
+                                        <template v-else>
+                                            {{item.price_low}}-{{item.price_high}}PCS
+                                        </template>
+                                    </div>
+
+                                    <div class="product_num f_l" style="font-size:12px;" v-if="item.type_goods==3">
+                                        <template>-</template>
+                                    </div>
+                                    <div class="product_num f_l" style="font-size:12px; " v-else>
+                                        <template v-if="item.quantity_enable_low==item.quantity_enable_high">
+                                            ¥{{item.quantity_enable_low}}
+                                        </template>
+                                        <template v-else>
+                                            ¥{{item.quantity_enable_low}}-{{item.quantity_enable_high}}
+                                        </template>
+                                    </div>
+
+                                    <!-- <div class="product_num f_l" style="font-size:12px;" v-if="item.price_low==item.price_high">
+                                        {{item.price_low}}PCS
+                                    </div>
+                                    <div class="product_num f_l" style="font-size:12px;" v-else>
+                                        {{item.price_low}}-{{item.price_high}}PCS
+                                    </div>
+                                    <div class="product_price f_l" style="font-size:12px;" v-if="item.quantity_enable_low==item.quantity_enable_high">
+                                        ¥{{item.quantity_enable_low}}
+                                    </div>
+                                    <div class="product_price f_l" style="font-size:12px;" v-else>
+                                        ¥{{item.quantity_enable_low}}-{{item.quantity_enable_high}}
+                                    </div> -->
+                                    <div class="product_state f_l" v-if="item.state_goods==-1">审核被拒</div>
+                                    <div class="product_state f_l" v-if="item.state_goods==0">无意义</div>
+                                    <div class="product_state f_l" v-if="item.state_goods==1">草稿</div>
+                                    <div class="product_state f_l" v-if="item.state_goods==2">待审核</div>
+                                    <div class="product_state f_l" v-if="item.state_goods==3">审核通过</div>
+                                    <div class="product_state f_l" v-if="item.state_goods==4">在售</div>
+                                    <div class="product_state f_l" v-if="item.state_goods==5">已下架</div>
+                                    <div class="product_state f_l" v-if="item.state_goods==6">等待开拍</div>
+                                    <div class="product_state f_l" v-if="item.state_goods==7">竞拍中</div>
+                                    <div class="product_state f_l" v-if="item.state_goods==8">竞拍结束</div>
+                                    <div class="product_state f_l" v-if="item.state_goods==9">已预约上架</div>
+                                    <!-- 下面是操作 -->
+
+                                    <div class="product_state f_l " v-if="item.state_goods==1||item.state_goods==-1">
+                                        <a target="_blank" :href="'ranking_auction_edit.html?id='+item.id_goods_revision" style="margin-top:0;">编辑</a>
+                                        <a target="_blank" :href="'ranking_auction_rev.html?id='+item.id_goods_revision" style="margin-top:0;">预览</a>
+                                    </div>
+
+
+
+                                    <div class="product_state f_l " v-if="item.state_goods==2">
+                                        <a target="_blank" :href="'ranking_auction_rev.html?id='+item.id_goods_revision" style="margin-top:0;">预览</a>
+                                    </div>
+
+
+                                    <div class="product_state f_l shelve" v-if="item.state_goods==3">
+                                        <a target="_blank" :href="'ranking_auction_rev.html?id='+item.id_goods_revision" style="margin-top:0;">预览</a>
+                                        <a @click.stop="deposit(index)" style="margin-top:0;cursor: pointer;">上架</a>
+                                        <div class="shelve_div" v-show='item.popup1.show' @click.stop="">
+                                            <ul class="shelve_ul">
+                                                <li>
+                                                    <span class="left_span">上架时间：</span>
+                                                    <div style="width: 220px;display: inline-block;font-size: 16px;text-align: left ;">
+                                                        <label @click.stop="item.popup1.timer=0">
+                                                            <input type="radio" name="shelve_r" checked="checked">现在上架
+                                                        </label>
+                                                        <label @click.stop="item.popup1.timer=1">
+                                                            <input type="radio" name="shelve_r">预约
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li v-show="item.popup1.timer==1">
+                                                    <span style="visibility: hidden;" class="left_span">隐藏显示：</span>
+                                                    <el-date-picker v-model="item.popup1.ltm_put_on" type="datetime" placeholder="选择上架时间">
+                                                    </el-date-picker>
+                                                </li>
+                                                <li>
+                                                    <span class="left_span">开拍时间：</span>
+                                                    <el-date-picker :picker-options="pickerOptions0" v-model="item.popup1.ltm_auction_start" type="datetime" placeholder="选择日期时间">
+                                                    </el-date-picker>
+                                                </li>
+                                                <li>
+                                                    <span class="left_span">竞拍时长：</span>
+                                                    <div style="width: 220px;display: inline-block;font-size: 16px;position: relative;">
+                                                        <div @click="item.popup1.bidding_show=!item.popup1.bidding_show" class="timeofbidding">{{item.popup1.end_time}}分钟
+                                                            <i class="el-icon-caret-bottom timeofbidding_ii"></i>
+                                                        </div>
+                                                        <ul class="timeofbidding_ul" v-show="item.popup1.bidding_show">
+                                                            <li v-for="(l,i) in bizparams_list" @click="check_end_time(index,l.param_value)" class="timeofbidding">{{l.param_value}}分钟</li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <!-- <li>
+                                                    <span class="left_span">结束时间:</span>
+                                                    <el-date-picker v-model="item.popup1.ltm_auction_end" type="datetime" placeholder="选择日期时间">
+                                                    </el-date-picker>
+                                                </li> -->
+                                            </ul>
+                                            <p class="time_p">注意：</p>
+                                            <p class="time_p">1、上架时间需与开拍时间间隔{{min_to_day(param_value)}}及以上</p>
+                                            <p class="time_p">2、竞拍的延时时长为{{dely_time}}分钟/每次</p>
+                                            <p class="time_p">3、竞拍前{{front_time}}分钟停止缴纳保证金</p>
+                                            <div style="width: 200px;margin: 30px auto">
+                                                <div style="cursor: pointer;" class="button publish " @click.stop="goods_shelve(index)">
+                                                    确定
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="shelve_div popup2" v-if="item.popup2.show" @click.stop="">
+                                            <template v-if="!item.popup2.noloading">
+                                                <h4 v-html="item.popup2.text" style="text-align: center"></h4>
+                                            </template>
+                                            <template v-else>
+                                                <h4>经系统检测，还未收到您缴纳的保证金，请先将保证金汇入平台制定的账户中。</h4>
+                                                <ul>
+                                                    <li class="tit">此保证金仅作为本次商品卖单的保证金。</li>
+                                                    <li class="tit">如因您的违约行为，系统将扣除保证金。</li>
+                                                </ul>
+                                                <ul class="shelve_ul">
+                                                    <li>
+                                                        <span class="left_span">收款账号</span>：
+                                                        <span class="right_span">{{item.popup2.data.id_bank_pay_to}}</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="left_span">开户行</span>：
+                                                        <span class="right_span">{{item.popup2.data.name_bank_platform}}</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="left_span">金额</span>：
+                                                        <span class="right_span">{{item.popup2.data.money_deposit_actual}}</span>
+                                                        <p class="sub">保证金¥{{item.popup2.data.money_deposit}}+系统验证金¥{{item.popup2.data.money_addition}}</p>
+                                                    </li>
+                                                </ul>
+                                                <div class="pay">
+                                                    请告诉我们情况：
+                                                    <a class="f_r" @click.stop="feedback(index)">我已缴纳
+                                                        <i class="iconfont" v-show="item.popup2.icon==1">&#xe666;</i>
+                                                    </a>
+                                                    <a class="f_r" @click.stop="item.popup2.icon=2">我还没缴纳
+                                                        <i class="iconfont" v-show="item.popup2.icon==2">&#xe666;</i>
+                                                    </a>
+                                                </div>
+                                                <p class="btm">如已缴纳保证金，请等待系统确认。</p>
+                                            </template>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- 状态9可以[修改预约]，如果预约失败出现立即[上架选项]-->
+                                    <div class="product_state f_l shelve" v-if="item.state_goods==9">
+                                        <a @click.stop="deposit(index)" style="margin-top:0;cursor: pointer;">修改</a>
+                                        <!-- <a @click="shelve_now_click(i)" style="margin: 0;cursor: pointer;" v-if="shelves_now(index)">立即上架</a> -->
+                                        <div class="shelve_div" v-show='item.popup1.show' @click.stop="">
+                                            <ul class="shelve_ul">
+                                                <li>
+                                                    <span class="left_span">上架时间：</span>
+                                                    <div style="width: 220px;display: inline-block;font-size: 16px;text-align: left ;">
+                                                        <label @click.stop="item.popup1.timer=0">
+                                                            <input type="radio" name="shelve_r" checked="checked">现在上架
+                                                        </label>
+                                                        <label @click.stop="item.popup1.timer=1">
+                                                            <input type="radio" name="shelve_r">预约
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li v-show="item.popup1.timer==1">
+                                                    <span style="visibility: hidden;" class="left_span">隐藏显示：</span>
+                                                    <el-date-picker v-model="item.popup1.ltm_put_on" type="datetime" placeholder="选择上架时间">
+                                                    </el-date-picker>
+                                                </li>
+                                                <li>
+                                                    <span class="left_span">开拍时间：</span>
+                                                    <el-date-picker :picker-options="pickerOptions0" v-model="item.popup1.ltm_auction_start" type="datetime" placeholder="选择日期时间">
+                                                    </el-date-picker>
+                                                </li>
+                                                <li>
+                                                    <span class="left_span">竞拍时长：</span>
+                                                    <div style="width: 220px;display: inline-block;font-size: 16px;position: relative;">
+                                                        <div @click="item.popup1.bidding_show=!item.popup1.bidding_show" class="timeofbidding">{{item.popup1.end_time}}分钟
+                                                            <i class="el-icon-caret-bottom timeofbidding_ii"></i>
+                                                        </div>
+                                                        <ul class="timeofbidding_ul" v-show="item.popup1.bidding_show">
+                                                            <li v-for="(l,i) in bizparams_list" @click="check_end_time(index,l.param_value)" class="timeofbidding">{{l.param_value}}分钟</li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <!-- <li>
+                                                        <span class="left_span">结束时间:</span>
+                                                        <el-date-picker v-model="item.popup1.ltm_auction_end" type="datetime" placeholder="选择日期时间">
+                                                        </el-date-picker>
+                                                    </li> -->
+                                            </ul>
+                                            <p class="time_p">注意：</p>
+                                            <p class="time_p">1、上架时间需与开拍时间间隔{{min_to_day(param_value)}及以上</p>
+                                            <p class="time_p">2、竞拍的延时时长为{{dely_time}}分钟/每次</p>
+                                            <p class="time_p">3、竞拍前{{front_time}}分钟停止缴纳保证金</p>
+                                            <div style="width: 200px;margin: 30px auto">
+                                                <div style="cursor: pointer;" class="button publish " @click.stop="goods_shelve(index)">
+                                                    确定
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="shelve_div popup2" v-if="item.popup2.show" @click.stop="">
+                                            <template v-if="!item.popup2.noloading">
+                                                <h4 v-html="item.popup2.text" style="text-align: center"></h4>
+                                            </template>
+                                            <template v-else>
+                                                <h4>经系统检测，还未收到您缴纳的保证金，请先将保证金汇入平台制定的账户中。</h4>
+                                                <ul>
+                                                    <li class="tit">此保证金仅作为本次商品卖单的保证金。</li>
+                                                    <li class="tit">如因您的违约行为，系统将扣除保证金。</li>
+                                                </ul>
+                                                <ul class="shelve_ul">
+                                                    <li>
+                                                        <span class="left_span">收款账号</span>：
+                                                        <span class="right_span">{{item.popup2.data.id_bank_pay_to}}</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="left_span">开户行</span>：
+                                                        <span class="right_span">{{item.popup2.data.name_bank_platform}}</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="left_span">金额</span>：
+                                                        <span class="right_span">{{item.popup2.data.money_deposit_actual}}</span>
+                                                        <p class="sub">保证金¥{{item.popup2.data.money_deposit}}+系统验证金¥{{item.popup2.data.money_addition}}</p>
+                                                    </li>
+                                                </ul>
+                                                <div class="pay">
+                                                    请告诉我们情况：
+                                                    <a class="f_r" @click.stop="feedback(index)">我已缴纳
+                                                        <i class="iconfont" v-show="item.popup2.icon==1">&#xe666;</i>
+                                                    </a>
+                                                    <a class="f_r" @click.stop="item.popup2.icon=2">我还没缴纳
+                                                        <i class="iconfont" v-show="item.popup2.icon==2">&#xe666;</i>
+                                                    </a>
+                                                </div>
+                                                <p class="btm">如已缴纳保证金，请等待系统确认。</p>
+                                            </template>
+                                        </div>
+                                    </div>
+                                    <!-- 普通商品卖单 -->
+                                    <div class="product_state f_l " v-if="item.state_goods==4||item.state_goods==5||item.state_goods==6||item.state_goods==7||item.state_goods==8">
+                                        <a :href="'ranking_auction.html?id='+item.id_goods_revision" style="margin-top:0;" target="_blank">商品详情</a>
+                                    </div>
+                                </dd>
+                            </dl>
+                        </dd>
+
+
+                </div>
+                <div class="paging">
+
+                </div>
+            </div>
+            <div id="goTop" class="iconfont">&#xe61e;</div>
+        </section>
+        <common-footer></common-footer>
+    </div>
+</body>
+<script src="../static/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../static/js/plugins/jquery.pages.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

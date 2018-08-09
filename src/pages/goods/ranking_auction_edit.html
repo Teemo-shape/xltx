@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>芯联-创建竞拍卖单</title>
+	<link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="../static/css/libs/element-ui.css" /> -->
+	<link rel="stylesheet" type="text/css" href="../static/css/views/domain/ranking_auction_edit.css" />
+	<script src="../static/js/libs/get-user.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		isPermitted(ctx + '/goods/list')
+	</script>
+	<style>
+		.param a {
+			text-decoration: underline;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			line-height: 40px;
+			/* display: block; */
+		}
+
+		.item_info .h2 input {
+			color: black
+		}
+
+		.img_sub_content img {
+			width: 780px;
+		}
+
+		.srol {
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			z-index: 101;
+		}
+
+		.del_i {
+			margin-left: 50px;
+			cursor: pointer;
+		}
+
+		.tips {
+			font-size: 14px;
+			color: #aaa;
+			margin-left: 10px;
+		}
+
+		.ft14 {
+			font-size: 14px;
+			color: #666;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app" v-cloak>
+		<headercart></headercart>
+		<div class="cover product_container">
+			<div class="product_intro clearfix">
+				<intromangifile :message="id"></intromangifile>
+
+				<div class="item_info f_l" style="margin-bottom: 110px;">
+					<div class="h2">
+						<input maxlength="50" type="text" v-model="name_goods" placeholder="请输入宝贝名称" @change="build_goods" />
+						<el-tooltip content="请先输入宝贝名称再进行后续操作" placement="bottom" effect="light">
+							<i class="iconfont">&#xe643;</i>
+						</el-tooltip>
+					</div>
+
+					<div class="info" style="font-size: 14px;">
+						开拍时间：
+						<span>在我的卖单列表中上架时指定</span>
+
+					</div>
+					<div class="bidding_statement clearfix">
+						<div class="statement_left f_l">
+							<div class="statement_item">
+								<span class="statement_name">起拍价</span>
+								<span class="statement_value">
+									<i>¥</i>
+									<input @change="pros.money_start=Number(pros.money_start)>0?Number(pros.money_start):0" type="text" v-model="pros.money_start"
+									    class="start_price" />
+								</span>
+							</div>
+							<div class="statement_item">
+								<span class="statement_name">保证金</span>
+								<span class="statement_value">
+									<i>¥</i>
+									<input @change="pros.money_deposit=Number(pros.money_deposit)>0?Number(pros.money_deposit):0" type="text" v-model="pros.money_deposit"
+									    class="bail" />
+								</span>
+							</div>
+
+						</div>
+						<div class="statement_right f_l">
+							<div class="statement_item">
+								<span class="statement_name">加价幅度</span>
+								<span class="statement_value">
+									<i>¥</i>
+									<input @change="pros.money_step=Number(pros.money_step)>0?Number(pros.money_step):0" type="text" v-model="pros.money_step"
+									    type="text" class="range" />
+								</span>
+							</div>
+
+						</div>
+					</div>
+					<p class="rule ft14">竞价规则：拍卖结束时，出价较高者即拍得商品</p>
+					<p class="serve ft14">
+						<span class="serve_name ft14">买家服务：平台担保交易&ensp;买家保障</span>
+					</p>
+				</div>
+				<p class="f_l tips" style="margin-left: 180px;">建议上传图片的大小为760px*760px,
+					<br>支持jpg,jpeg,giff,png,bmp等格式</p>
+			</div>
+		</div>
+		<section class="cover table">
+			<ul class="tab_trigger clearfix">
+				<li class="table_btn active" data-tabid="#detail_info">详细信息</li>
+				<div class="border"></div>
+			</ul>
+			<ul class="tab_content">
+				<li id="detail_info" class="hide">
+					<div class="articles">
+						<h3>
+							<div style="width:1200px;">
+								物品清单&ensp;[
+								<label for="ex_up">
+									<a type="button" class="iconfont button add_article">&#xe62a;</a>]
+								</label>
+								<span class="tips ">支持Excel/word/ppt/图片文件</span>
+							</div>
+						</h3>
+
+						<ul id="2_1" class="param skip" style="margin-left: 20px;">
+							<li v-for="(l,i) in attachment">
+								<a :href="ctx+'/anon/goods/auction/download/attachment/'+id+'?filename='+encodeURI(l.name_file)" target="_blank">
+									<span>{{l.name_file}}</span>
+								</a>
+								<i class="del_i" alt="删除文件" @click="excel_del(i)">删除</i>
+							</li>
+						</ul>
+						<input type="file" id="ex_up" @change="ex_upload()" style="visibility: hidden;">
+					</div>
+					<div class="articles">
+						<h3>
+							<div style="width: 1200px;">
+								物品介绍
+								<span class="tips">建议上传图片的宽度为780px,长度不限,支持jpg,jpeg,giff,png,bmp等格式,文件小于4M</span>
+							</div>
+						</h3>
+						<h4 class="prospectus">商品样张(必填)</h4>
+						<ul class="product_img">
+
+
+							<li v-if="l.index_pic==12" :indexpic="l.index_pic" class="img_container" v-for="(l,i) in img_list">
+								<div class="img_sub_content">
+									<img :src="l.url_pic" :id="'com_img_'+i" />
+									<div class="img_change">
+										<span class="iconfont">&#xe669;</span>
+										<input type="file" id="index_pic12" class="file" @change="com_img_up(index_pictoi(12),12)" />
+									</div>
+								</div>
+							</li>
+							<li class="img_container" v-if="add_show(12)">
+								<div class="img_sub_content">
+									<div class="iconfont add_img">&#xe62a;</div>
+									<input type="file" id="index_pic12" @change="com_img_up(index_pictoi(12),12,true)" class="file" />
+								</div>
+							</li>
+
+							<li v-if="l.index_pic==13" :indexpic="l.index_pic" class="img_container" v-for="(l,i) in img_list">
+								<div class="img_sub_content">
+									<img :src="l.url_pic" :id="'com_img_'+i" />
+									<div class="img_change">
+										<span class="iconfont">&#xe669;</span>
+										<input type="file" id="index_pic13" class="file" @change="com_img_up(index_pictoi(13),13)" />
+									</div>
+								</div>
+							</li>
+							<li class="img_container" v-if="add_show(13)">
+								<div class="img_sub_content">
+									<div class="iconfont add_img">&#xe62a;</div>
+									<input type="file" id="index_pic13" @change="com_img_up(index_pictoi(13),13,true)" class="file" />
+								</div>
+							</li>
+
+							<li v-if="l.index_pic==14" :indexpic="l.index_pic" class="img_container" v-for="(l,i) in img_list">
+								<div class="img_sub_content">
+									<img :src="l.url_pic" :id="'com_img_'+i" />
+									<div class="img_change">
+										<span class="iconfont">&#xe669;</span>
+										<input type="file" id="index_pic14" class="file" @change="com_img_up(index_pictoi(14),14)" />
+									</div>
+								</div>
+							</li>
+							<li class="img_container" v-if="add_show(14)">
+								<div class="img_sub_content">
+									<div class="iconfont add_img">&#xe62a;</div>
+									<input type="file" id="index_pic14" @change="com_img_up(index_pictoi(14),14,true)" class="file" />
+								</div>
+							</li>
+							<li v-if="l.index_pic==15" :indexpic="l.index_pic" class="img_container" v-for="(l,i) in img_list">
+								<div class="img_sub_content">
+									<img :src="l.url_pic" :id="'com_img_'+i" />
+									<div class="img_change">
+										<span class="iconfont">&#xe669;</span>
+										<input type="file" id="index_pic15" class="file" @change="com_img_up(index_pictoi(15),15)" />
+									</div>
+								</div>
+							</li>
+							<li class="img_container" v-if="add_show(15)">
+								<div class="img_sub_content">
+									<div class="iconfont add_img">&#xe62a;</div>
+									<input type="file" id="index_pic15" @change="com_img_up(index_pictoi(15),15,true)" class="file" />
+								</div>
+							</li>
+							<li v-if="l.index_pic==16" :indexpic="l.index_pic" class="img_container" v-for="(l,i) in img_list">
+								<div class="img_sub_content">
+									<img :src="l.url_pic" :id="'com_img_'+i" />
+									<div class="img_change">
+										<span class="iconfont">&#xe669;</span>
+										<input type="file" id="index_pic16" class="file" @change="com_img_up(index_pictoi(16),16)" />
+									</div>
+								</div>
+							</li>
+							<li class="img_container" v-if="add_show(16)">
+								<div class="img_sub_content">
+									<div class="iconfont add_img">&#xe62a;</div>
+									<input type="file" id="index_pic16" @change="com_img_up(index_pictoi(16),16,true)" class="file" />
+								</div>
+							</li>
+							<li v-if="l.index_pic==17" :indexpic="l.index_pic" class="img_container" v-for="(l,i) in img_list">
+								<div class="img_sub_content">
+									<img :src="l.url_pic" :id="'com_img_'+i" />
+									<div class="img_change">
+										<span class="iconfont">&#xe669;</span>
+										<input type="file" id="index_pic17" class="file" @change="com_img_up(index_pictoi(17),17)" />
+									</div>
+								</div>
+							</li>
+							<li class="img_container" v-if="add_show(17)">
+								<div class="img_sub_content">
+									<div class="iconfont add_img">&#xe62a;</div>
+									<input type="file" id="index_pic17" @change="com_img_up(index_pictoi(17),17,true)" class="file" />
+								</div>
+							</li>
+						</ul>
+
+						<h4 class="display">公司资质(选填)</h4>
+						<ul class="product_img">
+							<li v-if="l.index_pic==8" :indexpic="l.index_pic" class="img_container" v-for="(l,i) in img_list">
+								<div class="img_sub_content">
+									<img :src="l.url_pic" :id="'com_img_'+i" />
+									<div class="img_change">
+										<span class="iconfont">&#xe669;</span>
+										<input type="file" id="index_pic8" class="file" @change="com_img_up(index_pictoi(8),8)" />
+									</div>
+								</div>
+							</li>
+							<li class="img_container" v-if="add_show(8)">
+								<div class="img_sub_content">
+									<div class="iconfont add_img">&#xe62a;</div>
+									<input type="file" id="index_pic8" @change="com_img_up(index_pictoi(8),8,true)" class="file" />
+								</div>
+							</li>
+						</ul>
+						<h4 class="manage">其他经营(选填)</h4>
+						<ul class="product_img">
+							<li v-if="l.index_pic==9" :indexpic="l.index_pic" class="img_container" v-for="(l,i) in img_list">
+								<div class="img_sub_content">
+									<img :src="l.url_pic" :id="'com_img_'+i" />
+									<div class="img_change">
+										<span class="iconfont">&#xe669;</span>
+										<input type="file" id="index_pic9" class="file" @change="com_img_up(index_pictoi(9),9)" />
+									</div>
+								</div>
+							</li>
+							<li class="img_container" v-if="add_show(9)">
+								<div class="img_sub_content">
+									<div class="iconfont add_img">&#xe62a;</div>
+									<input type="file" id="index_pic9" @change="com_img_up(index_pictoi(9),9,true)" class="file" />
+								</div>
+							</li>
+						</ul>
+						<h4 class="intro">公司介绍(选填)</h4>
+						<ul class="product_img">
+							<li v-if="l.index_pic==10" :indexpic="l.index_pic" class="img_container" v-for="(l,i) in img_list">
+								<div class="img_sub_content">
+									<img :src="l.url_pic" :id="'com_img_'+i" />
+									<div class="img_change">
+										<span class="iconfont">&#xe669;</span>
+										<input type="file" id="index_pic10" class="file" @change="com_img_up(index_pictoi(10),10)" />
+									</div>
+								</div>
+							</li>
+							<li class="img_container" v-if="add_show(10)">
+								<div class="img_sub_content">
+									<div class="iconfont add_img">&#xe62a;</div>
+									<input type="file" id="index_pic10" @change="com_img_up(index_pictoi(10),10,true)" class="file" />
+								</div>
+							</li>
+						</ul>
+						<h4 class="reading">购物须知(选填)</h4>
+						<ul class="product_img">
+							<li v-if="l.index_pic==11" :indexpic="l.index_pic" class="img_container" v-for="(l,i) in img_list">
+								<div class="img_sub_content">
+									<img :src="l.url_pic" :id="'com_img_'+i" />
+									<div class="img_change">
+										<span class="iconfont">&#xe669;</span>
+										<input type="file" id="index_pic11" class="file" @change="com_img_up(index_pictoi(11),11)" />
+									</div>
+								</div>
+							</li>
+							<li class="img_container" v-if="add_show(11)">
+								<div class="img_sub_content">
+									<div class="iconfont add_img">&#xe62a;</div>
+									<input type="file" id="index_pic11" @change="com_img_up(index_pictoi(11),11,true)" class="file" />
+								</div>
+							</li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</section>
+		<section class="btns cover" :class="{'srol':!btn_cover}">
+			<a :href="'ranking_auction_rev.html?id='+id" target="_blank" class="button preview">预览</a>
+			<button @click="data_send('auto')" type="button" class="button submit">保存草稿</button>
+			<button @click="data_send('manual')" type="button" class="button submit">提交审核</button>
+		</section>
+		<!-- <vfooter></vfooter> -->
+		<sutoast :message="toast"></sutoast>
+		<div v-if="rejectdetail_div.length>0" @click='note()' class="page-component-up" style="position: fixed;top: 50px;right: 50px;border: 1px solid rgb(202, 202, 202);border-radius: 100px">
+			<i class="el-icon-caret-left" style="font-size: 30px;color:#fa5400"></i>
+		</div>
+	</div>
+</body>
+<script src="../static/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<!-- <script src="../static/js/libs/vue.min.js" type="text/javascript" charset="utf-8"></script> -->
+<!-- <script src="../static/js/libs/element-ui.js" type="text/javascript" charset="utf-8"></script> -->
+<script src="../static/js/config/package.js" type="text/javascript" charset="utf-8"></script>
+<script src="../static/js/plugins/jquery.imagezoom.js" type="text/javascript" charset="utf-8"></script>
+<script src="../static/js/plugins/jquery.pages.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-商品详情</title>
+		<link rel="stylesheet" type="text/css" href="/css/framework/reset.css" />
+		<link rel="stylesheet" type="text/css" href="/css/libs/element-ui.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/views/domain/product_detail.css" />
+		
+		<script src="/js/libs/get-user.js" type="text/javascript"></script>
+		<script>
+			window.id_goods_revision = getUrlParam("id");
+			isPermitted("/goods/detail/" + id_goods_revision);
+		</script>
+	</head>
+	
+	<body>
+		<header></header>
+		<img id="zoom_icon" src="/img/mask.png" hidden="hidden"/>
+		<div id="app">
+			<section class="cover product_container">
+				<div class="product_intro clearfix">
+					<div class="product_actions">
+						<a href="javascript:void(0);">
+							<i class="iconfont">&#xe609;</i>关注&ensp;
+							<span>369</span>
+						</a>
+						<a href="javascript:void(0);">
+							<i class="iconfont">&#xe612;</i>收藏
+						</a>
+					</div>
+					<div class="intro_magnifier f_l clearfix">
+						<ul class="tb-thumb f_l" id="thumblist">
+							<li class="tb-selected thumb_item">
+								
+							</li>
+							<li class="thumb_item">
+								
+							</li>
+							<li class="thumb_item">
+								
+							</li>
+							<li class="thumb_item">
+								
+							</li>
+						</ul>
+						<div class="tb-booth f_l">
+							<img v-cloak :src="'' + select_img" alt="" :rel="'' + select_img" class="tb_zoom" />
+						</div>
+					</div>
+					<div class="item_info f_l">
+						<h2>IC音频放大器系列低价出</h2>
+						<div class="price_range">
+							¥&ensp;<i v-cloak v-show="Boolean(pick_list.length)" class="min_price">{{min_price}}</i>-¥&ensp;<i v-cloak v-show="Boolean(pick_list.length)" class="max_price">{{max_price}}</i>
+						</div>
+						<ul>
+							<li>
+								<span class="title">物流</span>
+								<span class="departure">广东深圳</span>
+								&ensp;至&ensp;
+								<span class="destination">广东广州</span>
+								&ensp;|&ensp;快递费&ensp;
+								<span class="express_fee">6</span>元
+							</li>
+							<li>
+								<span class="title">优惠</span>单笔订单满200元包邮
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<span class="title">卖家服务</span>支付宝担保交易&ensp;买家保障
+							</li>
+							<li>
+								<a href="javascript:void(0);" class="product_company">天卓微科技</a>
+								<i class="iconfont">&#xe66f;</i>&ensp;
+								<a href="javascript:void(0);" class="contact_seller">联系卖家</a>
+							</li>
+						</ul>
+					</div>
+					<transition name="fade">
+						<div class="pick">
+							<dl class="pick_model" v-cloak>
+								<dt>选货</dt>
+								<dd class="clearfix" v-for="(item,index) in pick_list">
+									<div class="model  f_l">
+										<div v-show="!item.check_on" v-on:click="fun_check(index)" class="model_name">{{item.name_materiel}}</div>
+										<div v-show="item.check_on" v-on:click="fun_check(index)" class="model_name selected">{{item.name_materiel}}</div>
+									</div>
+									<ul class="f_l  clearfix">
+										<li class="price_help f_l price">¥{{item.price.toFixed(2)}}
+											<template v-if="item.prices">
+												<span class="iconfont icon_help">
+													<i style="cursor: pointer;display: inline-block;" v-on:mouseenter="item.explain_show=true" v-on:mouseleave="item.explain_show=false"
+													    class="iconfont">&#xe643;</i>
+													<div class="price_explain" v-show="item.explain_show">
+														<table>
+															<thead>
+																<tr>
+																	<th class="wholesale_num">起批量</th>
+																	<th class="wholesale_price">单价</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr v-for="(ex,ii) in item.prices">
+																	<td class="wholesale_num">{{ex[0]}}PCS</td>
+																	<td class="wholesale_price">¥{{ex[1].toFixed(2)}}</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</span>
+											</template>
+										</li>
+										<li class="f_l stock">{{item.quantity_enable}}可售</li>
+										<li class="f_l min_order">起订量:{{item.quantity_minimum}}</li>
+										<li class="f_l restrict">递增量:{{item.quantity_step}}</li>
+									</ul>
+									<div class="buy_num  f_l" v-bind:id="'tip_'+index">
+										<input v-model="item.quantity_number" v-show="!item.check_on" type="text" style="border:solid 1px #d1d1d1;" class="input_num"
+										    readonly="readonly" />
+										<input v-on:change="fun_input_info(index)" v-model="item.quantity_number" v-show="item.check_on" type="text" class="input_num"
+										/>
+										<div class="adjust_cont" v-show="!item.check_on">
+											<div class="add_num iconfont">&#xe62c;</div>
+											<div class="sub_num iconfont">&#xe62d;</div>
+										</div>
+										<div class="adjust_cont" v-show="item.check_on">
+											<div v-on:click="fun_quantity_number_add(index)" class="add_num iconfont adjust">&#xe62c;</div>
+											<div v-on:click="fun_quantity_number_sub(index)" class="sub_num iconfont adjust">&#xe62d;</div>
+										</div>
+									</div>
+								</dd>
+							</dl>
+						</div>
+					</transition>
+	
+					<div v-cloak class="shops clearfix">
+						<span class="shops_selected f_l">已选</span>
+						<span class="shops_num f_l">{{total_quantity}}PCS</span>
+						<span class="shops_price f_l">{{total_price}}元</span>
+						<span v-on:mouseenter="model_list_show=true" v-on:mouseleave="model_list_show=false" class="selected_list f_r" >
+							已选清单
+							<i class="iconfont">&#xe607;</i>
+							<div v-show="model_list_show && hascheck_on>0" class="model_list" v-bind:style="{top:(-hascheck_on-1)*44-10+'px'}">
+								<table>
+									<thead>
+										<tr>
+											<th style="width:30%">物料名称</th>
+											<th style="width:30%;">已选数量</th>
+											<th style="width:40%">总体价格</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr v-for="(item,index) in pick_list" v-if="item.check_on">
+											<td>{{item.name_materiel}}</td>
+											<td>
+												<div class="adjust_cont">
+													<div v-on:click="fun_quantity_number_sub(index)" class="sub_num adjust iconfont">&#xe62d;</div>
+												</div>
+												{{item.quantity_number}}
+												<div class="adjust_cont">
+													<div v-on:click="fun_quantity_number_add(index)" class="add_num adjust iconfont">&#xe62c;</div>
+												</div>
+											</td>
+											<td>¥ {{item.list_price}}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</span>
+					</div>
+					<div class="purchase">
+						<button type="button" class="buy_btn button">立即购买</button>
+						<button type="button" class="shop_car">
+							<i class="iconfont">&#xe603;</i>加入购物车</button>
+						<div class="add_success">
+							<div class="clearfix">
+								<span class="delete iconfont">&#xe617;</span>
+							</div>
+							<h3>
+								<i class="iconfont">&#xe61b;</i>成功加入购物车!</h3>
+							<p>去
+								<a href="/views/domain/view_cart.html" class="go_shopcar">购物车</a>结算&gt;&gt;</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="cover table">
+				<template>
+				  	<el-tabs v-cloak v-model="activeName" @tab-click="handleClick">
+				    	<el-tab-pane label="详细信息" name="first">
+				    		<div class="select_model">
+								<span class="selected_cont" @click="models_show=!models_show">
+									<span class="model_selected" :materiel="current_materiel.id_goods_materiel">{{current_materiel.name_materiel}}</span><i class="iconfont">&#xe605;</i>
+								</span>
+								<ul class="models" v-show="models_show">
+									<li v-for="(pick,index) in pick_list" class="model_item" @click.stop="changeMaterielInfo(index)" :id="pick.id_goods_materiel">{{pick.name_materiel}}</li>
+								</ul>
+							</div>
+							<h4 id="1_1" class="params skip">参数</h4>
+							<ul class="param">
+								<li v-for="param in current_params" class="param_item clearfix">
+									<span class="param_title f_l">{{param.name_param}}</span><span class="param_info f_l">{{param.val_param}}</span>
+								</li>
+							</ul>
+							<h4 id="1_2" class="prospectus skip">商品样张</h4>
+							<div class="product_img">
+								<div class="img_container" index="5">
+									<img v-if="Boolean(materiel_imgs[current_materiel.id_goods_materiel+'5'])" :src="materiel_imgs[current_materiel.id_goods_materiel+'5'].imgData"/>
+								</div>
+								<div class="img_container" index="6">
+									<img v-if="Boolean(materiel_imgs[current_materiel.id_goods_materiel+'6'])" :src="materiel_imgs[current_materiel.id_goods_materiel+'6'].imgData"/>
+								</div>
+							</div>
+							<h4 id="1_3" class="specification skip">商品规格</h4>
+							<div class="product_img">
+								<div class="img_container" index="7">
+									<img v-if="Boolean(materiel_imgs[current_materiel.id_goods_materiel+'7'])" :src="materiel_imgs[current_materiel.id_goods_materiel+'7'].imgData"/>
+								</div>
+							</div>
+							<h4 id="2_1" class="display skip">资质展示</h4>
+							<div class="product_img">
+								<div class="img_container" index="8">
+									<img v-if="Boolean(materiel_imgs[current_materiel.id_goods_materiel+'8'])" :src="materiel_imgs[current_materiel.id_goods_materiel+'8'].imgData"/>
+								</div>
+							</div>
+							<h4 id="2_2" class="manage skip">其他经营</h4>
+							<div class="product_img">
+								<div class="img_container" index="9">
+									<img v-if="Boolean(materiel_imgs[current_materiel.id_goods_materiel+'9'])" :src="materiel_imgs[current_materiel.id_goods_materiel+'9'].imgData"/>
+								</div>
+							</div>
+							<h4 id="2_3" class="intro skip">公司介绍</h4>
+							<div class="product_img">
+								<div class="img_container" index="10">
+									<img v-if="Boolean(materiel_imgs[current_materiel.id_goods_materiel+'10'])" :src="materiel_imgs[current_materiel.id_goods_materiel+'10'].imgData"/>
+								</div>
+							</div>
+							<h4 id="2_4" class="reading skip">购物须知</h4>
+							<div class="product_img">
+								<div class="img_container" index="11">
+									<img v-if="Boolean(materiel_imgs[current_materiel.id_goods_materiel+'11'])" :src="materiel_imgs[current_materiel.id_goods_materiel+'11'].imgData"/>
+								</div>
+							</div>
+							<div class="side-catalog">
+								<div class="side-bar">
+									<em class="circle start"></em>
+									<em class="circle end"></em>
+								</div>
+								<div class="catalog-scroller">
+									<dl class="catalog-list">
+										<dt class="catalog-title level1">
+											<em class="pointer"></em>
+											<a href="#1" class="title-link">
+												<span class="text">1 标的物介绍</span>
+											</a>
+										</dt>
+										<dd class="catalog-title level2">
+											<a href="#1_1" class="title-link">
+												<span class="text">1.1 参数</span>
+											</a>
+										</dd>
+										<dd class="catalog-title level2">
+											<a href="#1_2" class="title-link">
+												<span class="text">1.2 商品样张</span>
+											</a>
+										</dd>
+										<dd class="catalog-title level2">
+											<a href="#1_3" class="title-link">
+												<span class="text">1.3 商品规格</span>
+											</a>
+										</dd>
+										<dt class="catalog-title level1">
+											<em class="pointer"></em>
+											<a href="#2" class="title-link">
+												<span class="text">2 公司介绍</span>
+											</a>
+										</dt>
+										<dd class="catalog-title level2">
+											<a href="#2_1" class="title-link">
+												<span class="text">2.1 资质展示</span>
+											</a>
+										</dd>
+										<dd class="catalog-title level2">
+											<a href="#2_2" class="title-link">
+												<span class="text">2.2 其他经营</span>
+											</a>
+										</dd>
+										<dd class="catalog-title level2">
+											<a href="#2_3" class="title-link">
+												<span class="text">2.3 公司介绍</span>
+											</a>
+										</dd>
+										<dd class="catalog-title level2">
+											<a href="#2_4" class="title-link">
+												<span class="text">2.4 购物须知</span>
+											</a>
+										</dd>
+										<a class="arrow" href="javascript:void(0);"></a>
+									</dl>
+								</div>
+								<div class="right-wrap">
+									<button type="button" class="go-up disable button"></button>
+									<button type="button" class="go-down disable button"></button>
+								</div>
+								<div class="bottom-wrap">
+									<button type="button" class="toggle-button iconfont button">&#xe61a;</button>
+									<button type="button" class="gotop-button iconfont button">&#xe61e;</button>
+								</div>
+							</div>
+				    	</el-tab-pane>
+				    	<el-tab-pane label="咨询 183" class="seek_advice" name="second">
+				    		<span slot="label">咨询<span class="consult_num">183</span></span>
+				    		<p class="tip">温馨提示:因每位咨询者购买情况咨询时间等不同，请注意答复的时效性，其他网友仅供参考。</p>
+							<div class="search_word">
+								<label for="search" class="iconfont">&#xe604;</label>
+								<input type="text" name="search" id="search" value="" placeholder="请输入关键词" />
+							</div>
+							<ul class="interlocutiones">
+								<li class="interlocution">
+									<ul>
+										<li class="question clearfix">
+											<p class="f_l">咨询内容:电脑刚买回来怎么优化让电脑运行更流畅&ensp;(xl_186628oea)</p>
+											<span class="question_time f_r">2017-10-24&ensp;13:25:38</span>
+										</li>
+										<li class="answer">
+											卖家回复:您好!建议您打开任务管理器关闭启动卡中后台无用的开机启动项;将电源设为高性能模式; 卸载不用的软件;定期的清理缓存和残存文件。感谢你对京东的支持!祝您购物愉快!
+										</li>
+									</ul>
+								</li>
+								<li class="interlocution">
+									<ul>
+										<li class="question clearfix">
+											<p class="f_l">咨询内容:电脑刚买回来怎么优化让电脑运行更流畅&ensp;(xl_186628oea)</p>
+											<span class="question_time f_r">2017-10-24&ensp;13:25:38</span>
+										</li>
+										<li class="answer">
+											卖家回复:您好!建议您打开任务管理器关闭启动卡中后台无用的开机启动项;将电源设为高性能模式; 卸载不用的软件;定期的清理缓存和残存文件。感谢你对京东的支持!祝您购物愉快!
+										</li>
+									</ul>
+								</li>
+								<li class="interlocution">
+									<ul>
+										<li class="question clearfix">
+											<p class="f_l">咨询内容:电脑刚买回来怎么优化让电脑运行更流畅&ensp;(xl_186628oea)</p>
+											<span class="question_time f_r">2017-10-24&ensp;13:25:38</span>
+										</li>
+										<li class="answer">
+											卖家回复:您好!建议您打开任务管理器关闭启动卡中后台无用的开机启动项;将电源设为高性能模式; 卸载不用的软件;定期的清理缓存和残存文件。感谢你对京东的支持!祝您购物愉快!
+										</li>
+									</ul>
+								</li>
+								<li class="interlocution">
+									<ul>
+										<li class="question clearfix">
+											<p class="f_l">咨询内容:电脑刚买回来怎么优化让电脑运行更流畅&ensp;(xl_186628oea)</p>
+											<span class="question_time f_r">2017-10-24&ensp;13:25:38</span>
+										</li>
+										<li class="answer">
+											卖家回复:您好!建议您打开任务管理器关闭启动卡中后台无用的开机启动项;将电源设为高性能模式; 卸载不用的软件;定期的清理缓存和残存文件。感谢你对京东的支持!祝您购物愉快!
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<div class="paging">
+			
+							</div>
+							<div class="seekAdvice">我要咨询</div>
+				    	</el-tab-pane>
+				    	<el-tab-pane label="评价 58" name="third">
+				    		<span slot="label">评价<span class="consult_num">58</span></span>
+				    		暂未设计评价相关
+				    	</el-tab-pane>
+				    	<el-tab-pane label="买家须知" name="fourth">
+				    		暂未设计买家须知
+				    	</el-tab-pane>
+				  	</el-tabs>
+				</template>
+			</section>
+			<div class="write_advice">
+				<div class="advice_cont">
+					<h4>发表咨询</h4>
+					<p class="your_advice">您的咨询</p>
+					<div class="advice_text clearfix">
+						<textarea name="advice" maxlength="200" class="advice"></textarea>
+						<div class="advice_tip">
+							<p>资讯提示</p>
+							<p>发表咨询时，请参考以下准则:</p>
+							<p>.&ensp;可对产品的包装、颜色等方面咨询</p>
+							<p>.&ensp;可对运输和库存等方面咨询</p>
+							<p class="last">因卖家随时会更改一些产品的包装、颜色、产地等参数，所以该回复仅在当时对提问者有效，其他网友仅供参考!</p>
+						</div>
+						<div class="advice_btn">
+							<button type="button" class="submit">提交</button>
+							<button type="button" class="cancle">取消</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="shopping_statement cover">
+				<div class="statement_title">
+					<span>内容声明</span>
+					<div class="hr"></div>
+				</div>
+				<p class="statement">
+					芯联天下为第三方交易平台及互联网信息服务提供者，芯联(含网站、客户端等)所展示的商品/服务的标题、价格、详情等信息内容系由店铺经营者发布，其真实性、准确性和合法性均由 店铺经营者负责。芯联提醒您购买商品/服务前注意谨慎核实，如您对商品/服务的标题、价格、详情等任何信息有任何疑问的，请在购买前通过通讯工具与店铺经营者沟通确认；芯联存在海量
+					店铺，如您发现店铺内有任何违法/侵权信息，请立即向芯联举报并提供有效线索。
+				</p>
+			</div>
+		</div>
+		<iframe src="/views/domain/footer.html" name="bottomFrame" id="bottomFrame" scrolling="no" noresize="noresize"></iframe>
+		<div class="full_bg"></div>
+		<div id="loading">
+			<p>正在加载数据，请稍候...</p>
+			<img src="/img/loading-0.gif"/>
+		</div>
+	</body>
+	<script src="/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/config/package.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/plugins/jquery.imagezoom.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/plugins/jquery.pages.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/libs/jquery.mockjax.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/config/mock.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/libs/vue.min.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="/js/libs/element-ui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/views/domain/product_detail.js" type="text/javascript" charset="utf-8"></script>
+	
+</html>

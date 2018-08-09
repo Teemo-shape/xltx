@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-搜索结果</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/plugins/page.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/views/domain/search_results.css"/>
+		<script src="../static/js/libs/get-user.js"></script>
+	</head>
+	<body>
+		<div id="app" v-cloak>
+			<header-search ref="header"></header-search>
+			<div class="nav_filter" v-if="Boolean(goods_list.length)">
+				<section class="select_condition cover clearfix">
+					<ul class="f_l filters clearfix">
+						<li v-if="goods_list.length" class="filter f_l">显示:<span class="start_num">{{(page_index-1)*page_num+1}}</span>-<span class="end_num"><i v-if="page_index*page_num>goods_list.length">{{goods_list.length}}</i><i v-if="page_index*page_num<=goods_list.length">{{page_index*page_num}}</i></span>条</li>
+						<li v-if="goods_list.length" class="filter f_l">共<span class="all_num">{{goods_list.length}}</span>条</li>
+						<li v-if="goods_list.length" class="filter f_l">
+							<!-- <span class="title_first">模拟器件</span>:
+							<span class="title_second">放大器</span>:
+							<span class="title_third">音频</span>:&ensp; -->
+							<span class="selected">{{keyword}}</span>
+						</li>
+					</ul>
+					<!-- <div class="f_r sort_select clearfix">
+						<span>排序：</span>
+						<div class="sort_input f_r">
+							<div class="sort_list clearfix">
+								<span class="select_word f_l">相关度</span>
+								<div class="arrow_select f_r">
+									<div class="arrow_top iconfont"></div>
+									<div class="arrow_bottom iconfont"></div>
+								</div>
+							</div>
+							<select name="sort" class="relation">
+								<option value="mutuality">相关度</option>
+								<option value="sales_volume">销量</option>
+								<option value="price">价格</option>
+								<option value="appraise">评价</option>
+							</select>
+						</div>
+					</div> -->
+				</section>
+			</div>
+			
+			<section class="mid_half cover clearfix" :class="goods_list.length>page_num?'':'m_b95'">
+				<!-- <div class="select_menu f_l">
+					<div class="display_results">显示搜索结果:</div>
+					<ul class="category">
+						<li class="filter_first">
+							<a href="javascript:void(0)">
+								<i class="iconfont">&#xe601;</i>
+								<span>所有类别</span>
+							</a>
+						</li>
+						<li class="filter_second">
+							<a href="javascript:void(0)">
+								<i class="iconfont">&#xe601;</i>
+								<span>模拟器件</span>
+							</a>
+						</li>
+						<li class="filter_third">
+							<a href="javascript:void(0)">
+								<i class="iconfont">&#xe601;</i>
+								<span>放大器</span>
+							</a>
+						</li>
+						<li class="filter_selected">
+							<strong>音频</strong>
+						</li>
+					</ul>
+					<div class="filter_title">
+						筛选:
+					</div>
+					<h2>卖单类型</h2>
+					<ul>
+						<li><a href="/goods/ranking_auction.html">拍卖卖单</a></li>
+						<li><a href="/goods/product_detail.html">普通卖单</a></li>
+					</ul>
+					<h2>价格</h2>
+					<ul>
+						<li>0-99元</li>
+						<li>100-199元</li>
+						<li>200-399元</li>
+						<li class="price_range">
+							<label for="price_start">¥</label><input type="text" id="price_start" value="" />
+							&ensp;至&ensp;
+							<label for="price_end">¥</label><input type="text" id="price_end" value="" />
+							<button type="button">Go</button>
+						</li>
+					</ul>
+					<h2 class="multiple_list_title padd_top_no">品牌
+						<span class="multiple_btn">多选+</span>
+						<span class="confirm_btn">确定</span>
+						<span class="cancel_btn">取消</span>
+					</h2>
+					<ul class="brand_list multiple_list">
+						<li><input type="checkbox" name="brand" />AAEOM<i class="iconfont">&#xe602;</i></li>
+						<li><input type="checkbox" name="brand" />Biver<i class="iconfont">&#xe602;</i></li>
+						<li><input type="checkbox" name="brand" />Optek<i class="iconfont">&#xe602;</i></li>
+					</ul>
+					<h2 class="multiple_list_title">卖家
+						<span class="multiple_btn">多选+</span>
+						<span class="confirm_btn">确定</span>
+						<span class="cancel_btn">取消</span>
+					</h2>
+					<ul class="seller_list multiple_list">
+						<li><input type="checkbox" name="seller" />金瑞电子<i class="iconfont">&#xe602;</i></li>
+						<li><input type="checkbox" name="seller" />凯美能源<i class="iconfont">&#xe602;</i></li>
+						<li><input type="checkbox" name="seller" />比亚迪<i class="iconfont">&#xe602;</i></li>
+					</ul>
+				</div> -->
+				<!-- 下方暂时不加f_l -->
+				<div class="select_contents">
+					<p v-if="loading" class="nothing">商品搜索中...</p>
+					<p v-if="goods_list.length==0 && !loading" class="nothing">抱歉，没有找到<span v-if="Boolean(keyword)" class="selected">"{{keyword}}"</span>相关商品</p>
+					<ul v-if="goods_list.length && !loading" class="products clearfix">
+						<!-- <li class="product">
+							<div class="product_container">
+								<div class="product_img">
+									<a href="/goods/product_detail.html">
+										<img src="../static/img/search_01.jpg"/>
+										<div class="countdown">
+											<i class="iconfont">&#xe624;</i>距离结束01小时03分22秒
+										</div>
+									</a>
+								</div>
+								<div class="product_price">
+									¥<span class="price">22</span><span class="auction_time">300次出价</span>
+								</div>
+								<p class="product_title">
+									<a href="/goods/product_detail.html">SN8F5708&ensp;SONIX单片机IC</a>
+								</p>
+								<div class="product_company clearfix">
+									<a href="/store/store.html">千瑞科技有限公司</a><span class="product_address">广东&ensp;深圳</span>
+								</div>
+								<div class="other_operate">
+									点赞14&ensp;|&ensp;围观次数20
+								</div>
+							</div>
+						</li> -->
+						<li class="product" v-for="goods in current_goods">
+							<div class="product_container">
+								<div class="product_img">
+									<a v-if="goods.type_goods==1" target="_blank" :href="'/goods/product_detail.html?id='+goods.id_goods_revision">
+										<img :src="goods.url_pic"/>
+									</a>
+									<a v-if="goods.type_goods==2" target="_blank" :href="'/goods/dutch_auction.html?id='+goods.id_goods_revision">
+										<img :src="goods.url_pic"/>
+										<div v-if="Boolean(goods.count_down)" class="countdown">
+											<i class="iconfont">&#xe624;</i><i v-if="goods.state_goods==6">距离开始</i><i v-if="goods.state_goods==7">距离结束</i>{{goods.count_down}}
+										</div>
+									</a>
+									<a v-if="goods.type_goods==3" target="_blank" :href="'/goods/ranking_auction.html?id='+goods.id_goods_revision">
+										<img :src="goods.url_pic"/>
+										<div v-if="Boolean(goods.count_down)" class="countdown">
+											<i class="iconfont">&#xe624;</i><i v-if="goods.state_goods==6">距离开始</i><i v-if="goods.state_goods==7">距离结束</i>{{goods.count_down}}
+										</div>
+									</a>
+									<a v-if="goods.type_goods==4" target="_blank" :href="'/goods/valuation_auction.html?id='+goods.id_goods_revision">
+										<img :src="goods.url_pic"/>
+										<div v-if="Boolean(goods.count_down)" class="countdown">
+											<i class="iconfont">&#xe624;</i><i v-if="goods.state_goods==6">距离开始</i><i v-if="goods.state_goods==7">距离结束</i>{{goods.count_down}}
+										</div>
+									</a>
+								</div>
+								<div class="product_price">
+									¥<span class="price">{{goods.price}}</span><span class="auction_time">{{goods.amount_bid}}次出价</span>
+								</div>
+								<p class="product_title">
+									<a v-if="goods.type_goods==1" target="_blank" :href="'/goods/product_detail.html?id='+goods.id_goods_revision">{{goods.name_goods}}</a>
+									<a v-if="goods.type_goods==2" target="_blank" :href="'/goods/dutch_auction.html?id='+goods.id_goods_revision">{{goods.name_goods}}</a>
+									<a v-if="goods.type_goods==3" target="_blank" :href="'/goods/ranking_auction.html?id='+goods.id_goods_revision">{{goods.name_goods}}</a>
+									<a v-if="goods.type_goods==4" target="_blank" :href="'/goods/valuation_auction.html?id='+goods.id_goods_revision">{{goods.name_goods}}</a>
+								</p>
+								<div class="product_company clearfix">
+									<a href="javascript:void(0);">{{goods.company_name}}</a><!-- <span class="product_address">广东&ensp;深圳</span> -->
+								</div>
+								<div class="other_operate">
+									参与人数{{goods.amount_joined}}&ensp;|&ensp;围观次数{{goods.amount_interested}}
+								</div>
+							</div>
+						</li>
+					</ul>
+					<div v-show="goods_list.length>page_num" class="paging"></div>
+				</div>
+			</section>
+			<section class="footmark cover" @mouseenter="arrow_show=true;" @mouseleave="arrow_show=false;">
+				<h4 class="footmark_title">我的足迹</h4>
+				<ul class="clearfix history_cont">
+					<li class="f_l" v-for="goods in current_history">
+						<!-- <a :href="'/goods/product_detail.html?id='+goods.id_goods_revision"> -->
+						<a href="javascript:void(0);">
+							<div class="footmark_img">
+								<img :src="goods.pic"/>
+							</div>
+							<div class="footmark_price">¥<span>{{goods.price}}</span></div>
+						</a>
+					</li>
+					<span class="iconfont arrow_prev" @click="arrow_prev" v-if="history_index!=1" v-show="arrow_show">&#xe62e;</span>
+					<span class="iconfont arrow_next" @click="arrow_next" v-if="history_index<Math.ceil(goods_history.length/history_num)" v-show="arrow_show">&#xe66b;</span>
+				</ul>
+			</section>
+			<common-footer></common-footer>
+		</div>
+	</body>
+</html>

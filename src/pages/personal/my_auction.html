@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-我的拍卖</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/views/individual/my_auction.css"/>
+		<script src="../static/js/libs/get-user.js"></script>
+		<script>
+			isPermitted(ctx + "/buyers/list");
+		</script>
+	</head>
+	<body>
+		<div id="app" v-cloak>
+			<header-cart></header-cart>
+			<div class="bg"></div>
+			<section class="home_page cover clearfix">
+				<left-menu :name="menu_name" ></left-menu>
+				<div class="container f_l">
+					<ul class="tab clearfix">
+						<li class="tab_item">所有的</li>
+						<div class="border_top"></div>
+						<div class="border_bottom"></div>
+					</ul>
+					<div class="tab_content">
+						<div class="search_word">
+							<label for="search" class="iconfont">&#xe604;</label><input type="text" name="search" id="search" value="" placeholder="请输入关键词"/>
+						</div>
+						<dl class="order_list">
+							<dt class="clearfix">
+								<div class="product_name f_l">货物名称</div>
+								<div class="product_price f_l">价格</div>
+								<div class="product_num f_l">数量</div>
+								<div class="bail_state f_l" @mouseenter="state_show.state.bail=true;hover_show($event)" @mouseleave="state_show.state.bail=false;hover_hide($event)">
+									<div class="select_title"><span class="state_title">{{state_show.text.bail}}</span><i class="iconfont">&#xe61c;</i></div>
+									<ul v-show="state_show.state.bail" class="pop_cont">
+										<li v-for="(bail_state,index) in bail_list" @click="bailStateChange(index)">{{bail_state.text}}</li>
+									</ul>
+								</div>
+								<div class="order_state f_l" @mouseenter="state_show.state.order=true;hover_show($event)" @mouseleave="state_show.state.order=false;hover_hide($event)">
+									<div class="select_title"><span class="state_title">{{state_show.text.order}}</span><i class="iconfont">&#xe61c;</i></div>
+									<ul v-show="state_show.state.order" class="pop_cont">
+										<li v-for="(order_state,index) in order_list" @click="orderStateChange(index)">{{order_state.text}}</li>
+									</ul>
+								</div>
+							</dt>
+							<dd v-if="loading" v-show="!Boolean(all_select_list.length)" class="no_order">数据加载中...</dd>
+							<dd v-if="!loading" v-show="!Boolean(all_select_list.length)" class="no_order">没有数据</dd>
+							<dd v-if="!loading" v-show="Boolean(all_select_list.length)" v-for="(order,index) in current_auction">
+								<dl class="order_item">
+									<dt class="clearfix">
+										<span class="order_time">{{order.over_time}}</span>
+										<i v-if="order.id_order!='0'">订单编号：</i><span v-if="order.id_order!='0'" class="order_id">{{order.id_order}}</span>
+										<i v-if="order.id_order=='0'">保证金编号：</i><span v-if="order.id_order=='0'" class="order_id">{{order.id_deposit}}</span>
+										<span class="contact_cont f_r" @mouseenter="sellerShow(index)" @mouseleave="order.seller_show=false;">
+											<span class="button contact_seller">联系卖家</span>
+											<ul class="sell_info" v-show="order.seller_show">
+												<li v-if="order.seller_info.state && !order.seller_info.data" class="loading_tip">暂无卖家相关信息</li>
+												<li v-if="!order.seller_info.state" class="loading_tip">数据加载中...</li>
+												<li v-if="order.seller_info.state && order.seller_info.data" class="clearfix">
+													<span class="info_name">卖家名称：</span><span class="info_value">{{order.seller_info.seller_name}}</span>
+												</li>
+												<li v-if="order.seller_info.state && order.seller_info.data" class="clearfix">
+													<span class="info_name">联&ensp;系&ensp;人：</span><span class="info_value">{{order.seller_info.seller_contact}}</span>
+												</li>
+												<li v-if="order.seller_info.state && order.seller_info.data" class="clearfix">
+													<span class="info_name">联系电话：</span><span class="info_value">{{order.seller_info.seller_phone}}</span>
+												</li>
+												<li v-if="order.seller_info.state && order.seller_info.data" class="clearfix">
+													<span class="info_name">邮&emsp;&emsp;箱：</span><span class="info_value">{{order.seller_info.seller_email}}</span>
+												</li>
+												<li v-if="order.seller_info.state && order.seller_info.data" class="clearfix">
+													<span class="info_name">地&emsp;&emsp;址：</span><span class="info_value">{{order.seller_info.seller_address}}</span>
+												</li>
+											</ul>
+										</span>
+									</dt>
+									<dd class="clearfix">
+										<div class="order_name f_l clearfix">
+											<div class="order_img f_l">
+												<a v-if="order.type_goods==2" :href="'/goods/dutch_auction.html?id='+order.id_goods_revision"><img :src="order.url_pic"/></a>
+												<a v-if="order.type_goods==3" :href="'/goods/ranking_auction.html?id='+order.id_goods_revision"><img :src="order.url_pic"/></a>
+												<a v-if="order.type_goods==4" :href="'/goods/valuation_auction.html?id='+order.id_goods_revision"><img :src="order.url_pic"/></a>
+											</div>
+											<div class="order_title f_l">
+												<a v-if="order.type_goods==2" :href="'/goods/dutch_auction.html?id='+order.id_goods_revision">{{order.name_goods}}</a>
+												<a v-if="order.type_goods==3" :href="'/goods/ranking_auction.html?id='+order.id_goods_revision">{{order.name_goods}}</a>
+												<a v-if="order.type_goods==4" :href="'/goods/valuation_auction.html?id='+order.id_goods_revision">{{order.name_goods}}</a>
+											</div>
+										</div>
+										<div class="product_price f_l">
+											<i v-if="order.id_order=='0'">¥{{order.price_unit.toFixed(2)}}</i>
+											<i v-if="order.id_order!='0'">¥{{order.price_unit.toFixed(2) * order.amount}}</i>
+										</div>
+										<div class="product_num f_l">{{order.amount}}</div>
+										<div class="bail_state f_l" @mouseenter="bailShow(index)" @mouseleave="order.bail_show=false;">
+											<span class="bail_word" v-if ="order.state_deposit==1">已缴纳，生效中</span>
+											<span class="bail_word" v-if="order.state_deposit==2">待退还</span>
+											<!-- <span class="bail_word" @mouseenter="bailShow(index)" @mouseleave="order.bail_show=false;" v-if="order.state_deposit==3">已退还</span>
+											<span class="bail_word" @mouseenter="bailShow(index)" @mouseleave="order.bail_show=false;" v-if="order.state_deposit==-1">退还失败</span> -->
+											<span class="bail_word" v-if="order.state_deposit==-3">已扣除</span>
+											<ul class="bail_info" v-show="order.bail_show">
+												<li v-if="!order.bail_info.state" class="loading_tip">数据加载中...</li>
+												<li v-if="order.bail_info.data.length" v-for="(bail,index) in order.bail_info.data" class="clearfix" :class="index==0?'bail_1st':''">
+													<span class="info_name">{{bail.createTime}}&emsp;:&emsp;</span><span class="info_value">{{bail.comment_state}}</span>
+												</li>
+											</ul>
+										</div>
+										<div class="order_state f_l" :class="order.state_order!='0' ? '' : 'parallel'">
+											<div class="state" v-if="order.state_goods==6">等待开拍</div>
+											<div class="state" v-if="order.state_goods==7">拍卖中</div>
+											<div class="state" :class="order.state_goods==8 && order.state_order=='0' ? 'line' : ''" v-if="order.state_goods==8 && order.state_order=='0'">未拍得</div>
+											<div class="state" v-if="order.state_order==1 && order.state_order==2 || order.state_order==3">拍得商品</div>
+											<div class="state" v-if="order.state_order==4">交易完成</div>
+											<div class="state" v-if="order.state_order==5">买家有争议</div>
+											<div class="state" v-if="order.state_order==6">卖家有争议</div>
+											<div class="state" v-if="order.state_order==10">弃拍，买家取消</div>
+											<div class="state" v-if="order.state_order==13 || order.state_order==14">弃拍，业务超时</div>
+											<div class="count_down" v-if="Boolean(order.count_down)"><i class="iconfont">&#xe624;</i>{{order.count_down}}</div>
+											<a class="button action_btn" :href="'/goods/ranking_auction.html?id='+order.id_goods_revision" v-if="order.state_goods==7" type="button">出&emsp;价</a>
+											<a class="button action_btn" :href="'/order/auction_process.html?id='+order.id_order" v-if="order.state_order==1" type="button">确认拍品</a>
+											<a class="button action_btn" :href="'/order/auction_process.html?id='+order.id_order" v-if="order.state_order==2" type="button">确认收货</a>
+											<a class="order_detail" v-if="order.state_order!='0' && order.state_order!=10 && order.state_order!=13 && order.state_order!=14 " :href="'/order/auction_process.html?id='+order.id_order">订单详情</a>
+											<a class="order_detail" v-if="order.state_order==10 || order.state_order==13 || order.state_order==14 " :href="'/order/auction_process_close.html?id='+order.id_order">订单详情</a>
+										</div>
+									</dd>
+								</dl>
+							</dd>
+						</dl>
+						<div class="paging" v-show="all_select_list.length > page_num">
+							
+						</div>
+					</div>
+				</div>
+				<div id="goTop" class="iconfont">&#xe61e;</div>
+			</section>
+			<common-footer></common-footer>
+		</div>
+	</body>
+</html>

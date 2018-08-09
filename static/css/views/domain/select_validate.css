@@ -1,0 +1,36 @@
+ody{
+	line-height: 1;
+	background: #f9f9f9;
+}
+.container{
+	width: 820px;
+	font-size: 20px;
+	margin: 0 auto;
+}
+.container dt{
+	margin-bottom: 50px;
+}
+.container dd{
+	width: 818px;
+	height: 98px;
+	line-height: 98px;
+	border: solid 1px #e5e5e5;
+	margin-bottom: 40px;
+}
+.container i{
+	width: 96px;
+	font-size: 50px;
+	text-align: center;
+	color: #429fff;
+}
+.container .button{
+	width: 120px;
+	height: 40px;
+	text-align: center;
+	font-size: 18px;
+	line-height: 40px;
+	color: #fff;
+	background: #fa5400;
+	margin-top: 30px;
+	margin-right: 20px;
+}

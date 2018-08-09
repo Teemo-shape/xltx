@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-密保重置密码-验证密保</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/views/domain/security_second.css"/>
+		<script src="../static/js/libs/get-user.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<headersim></headersim>
+		</div>
+		<form action="" class="container" method="get">
+			<input type="hidden" name="code" id="code" value="" />
+			<div class="step_num clearfix">
+				<span class="first_step step pass f_l">01</span>
+				<span class="second_step step pass f_l">02</span>
+				<span class="third_step step nopass f_r">03</span>
+				<hr class="middle-line"/>
+			</div>
+			<div class="step_name clearfix">
+				<span class="first_name pass f_l">验证账号</span>
+				<span class="second_name pass f_l">验证密保</span>
+				<span class="third_name nopass f_r">重置密码</span>
+			</div>
+			<p class="fail fail_tip"></p>
+			<div class="question clearfix">
+				<div class="info_name f_l">安全保护问题一</div>
+				<div class="info_value f_l"></div>
+			</div>
+			<div class="answer clearfix">
+				<label class="info_name f_l" for="first_question">答案</label>
+				<input type="text" name="first_question" id="security_answer" enter="go_next" trigger="['btn_next']" class="info_value border input f_l" value="" />
+			</div>
+			<p class="fail" id="msg_security_answer"></p>
+			<div class="question clearfix">
+				<div class="info_name f_l">安全保护问题二</div>
+				<div class="info_value f_l"></div>
+			</div>
+			<div class="answer clearfix">
+				<label class="info_name f_l" for="second_question">答案</label>
+				<input type="text" name="second_question" enter="go_next" trigger="['btn_next']" id="security_answer1" class="info_value border input f_l" value="" />
+			</div>
+			<p class="fail" id="msg_security_answer2"></p>
+			<button type="button" class="send_next button" id="btn_next" disabled="disabled">确定</button>
+		</form>
+	</body>
+	<script src="../static/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/config/package.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/config/input.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/account/security_second.js" type="text/javascript" charset="utf-8"></script>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>芯联-拍卖订单-拍下宝贝</title>
+	<link rel="stylesheet" href="../static/css/framework/reset.css" />
+	<link rel="stylesheet" href="../static/css/views/domain/auction_process_first.css" />
+	<script src="../static/js/libs/get-user.js" type="text/javascript"></script>
+	<script>
+		isPermitted("/goods/list");
+	</script>
+</head>
+
+<body>
+	<div id="app" v-cloak>
+		<headercart></headercart>
+		<div class="position cover">
+			<div class="nav clearfix">
+				<span class="f_l">您的位置：</span>
+				<a href="/personal/sold_manage.html" class="position_first f_l">个人区</a>
+				<i class="iconfont f_l">&#xe600;</i>
+				<a href="/personal/sold_manage.html" class="position_first f_l">卖家功能</a>
+				<i class="iconfont f_l">&#xe600;</i>
+				<a href="javascript:void(0)" class="position_first f_l">已售管理</a>
+			</div>
+			<div class="title_div" v-if="index_step!=3">
+				<p class="state">
+					{{switch_index(index_step)}}
+				</p>
+			</div>
+			<div class="title_div" v-if="index_step==3">
+				<p class="state">
+					买家已支付货款并验收货物，请您在规定的时间内确认收款
+				</p>
+				<p class="notice">
+					请在
+					<i class="iconfont">&#xe624;</i>
+					<span class="count_down">{{remaining_time}}</span>
+					时间内确认收款；否则系统将判定为自动确认收款。
+					<br />
+					<!-- 如果您想放弃拍品，可以直接
+					<a class="cancle_order" @click="button_cancel_order">取消订单</a>系统将判定您违约并扣除保证金 -->
+				</p>
+			</div>
+			
+			<div class="pay" v-if="index_step==3">
+				<h3>货款</h3>
+				<div class="pay_div ">
+					<div class="clearfix hed">
+						<div class="cont1 f_l">
+							支付金额：
+							<span>{{toThousand(get_order.money_order)}}元</span>
+						</div>
+						<div class="cont2 f_l">
+							<i class="iconfont">&#xe6ab;</i>
+							提示：
+						</div>
+						<div class="cont3 f_l">
+							<p>请核对到账货款金额无误后，再确认收款。</p>
+						</div>
+					</div>
+					<div style="position: relative;">
+						<div v-if="index_step==3" class="pay_button" @click="fun_order_done">确认收款</div>
+						<div v-if="index_step==4" class="pay_button" style="background: #ddd;color: #333;">已收款</div>
+						<a v-if="index_step==3" class="btn_feedback" href="javascript:void(0);" @click="feedback_div.show=true">有争议，我要反馈</a>
+					</div>
+				</div>
+			</div>
+			<orderinfo :cid="get_order" sell="true"></orderinfo>
+		</div>
+		<vfooter></vfooter>
+		<cancel-order @kidshow="kind_show" v-if="show.cancel_order"></cancel-order>
+		<div class="feedback" v-if="feedback_div.show" @click="feedback_div.show=false">
+			<div class="content" @click.stop="">
+				<div class="title">
+					<i class="el-icon-close" @click="feedback_div.show=false"></i>
+					<h4>有争议，我要反馈</h4>
+				</div>
+				<p class="">交易过程中如果有争议，请将问题简要描述并反馈给我们，交易将立即停滞，等待协商处理:</p>
+				<textarea v-model="feedback_div.text" placeholder="将问题在此处描述，限20字内" maxlength="20" rows="4"></textarea>
+				<div style="text-align: center;margin-top: 20px;margin-bottom: 10px;">
+					<a href="javascript:void(0)" class="btns-save" @click="fun_feed_cancel()">确&nbsp;&nbsp;&nbsp;&nbsp;认</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<!-- <script src="../static/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script> -->
+<!-- <script src="../static/js/plugins/jquery.pages.js" type="text/javascript" charset="utf-8"></script> -->
+<!-- <script src="../static/js/views/domain/auction_process_first.js" type="text/javascript" charset="utf-8"></script> -->
+
+</html>

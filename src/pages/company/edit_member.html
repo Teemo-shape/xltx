@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-内部成员-编辑成员</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/views/individual/edit_member.css"/>
+		<script src="../static/js/libs/get-user.js"></script>
+		<script>
+			isPermitted(ctx + "/manager/edit/member");
+		</script>
+	</head>
+	<body>
+		<div id="app" v-cloak>
+			<header-cart ref="header"></header-cart>
+			<div class="bg"></div>
+			<section class="home_page cover clearfix">
+					<left-menu :name="menu_name" ></left-menu>
+				<div class="container f_l">
+					<h4>
+						<a href="./member_index.html" class="go">内部成员</a>&gt;
+						<span class="current">编辑成员</span>
+					</h4>
+					<p class="fail fail_tip"></p>
+					<form action="" method="post" id="form_addmember">
+						<ul class="items">
+							<li class="item clearfix">
+								<div class="info_name member f_l">会员名：</div>
+								<div class="name f_l">{{member.uname}}</div>
+							</li>
+							<input type="hidden" name="checkbox" id="authority" :value="selectValue" />
+							<li class="item clearfix">
+								<div class="info_name f_l">权限<i></i></div>
+								<ul class="set_authority f_l">
+									<li v-for="(role,index) in roles"> 
+										<span class="authority_cont">
+											<label :for="role.role_id" v-show="role.check" class="iconfont label checked" @click="check(index)"></label>
+											<label :for="role.role_id" v-show="!role.check" class="iconfont label unchecked" @click="check(index)"></label>
+											<input type="checkbox" name="permission" :id="role.role_id" :value="role.role_id" />
+										</span>{{role.role_name_zh}}
+									</li>
+								</ul>
+							</li>
+							<p class="fail" id="msg_authority"></p>
+						</ul>
+						<button type="button" class="button submit" id="btn_next">提交</button>
+					</form>
+				</div>
+			</section>
+			<common-footer></common-footer>
+		</div>
+	</body>
+	<script src="../static/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/config/package.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/config/input.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/company/edit_member.js" type="text/javascript" charset="utf-8"></script>
+</html>

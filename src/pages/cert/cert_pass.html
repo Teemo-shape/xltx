@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-企业实名-认证成功</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/views/individual/cert_pass.css"/>
+		<script src="../static/js/libs/get-user.js"></script>
+		<script src="../static/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			isPermitted(ctx + "/cert/index");
+
+			//获取当前状态
+			checkState();
+
+			/**
+			 * 判断当前实名认证状态
+			 */
+			function checkState () {
+				$.ajax({
+					url: ctx + '/cert/state',
+					type:"get",
+					cache:false,
+					async:false,
+					dataType: "json",
+					success:function (result) {
+						if (handleResponseData(result)) {
+							if (result.res=="s") {
+								if (result.company) {
+									$().ready(function () {
+										$(".company_name").text(result.company.company_name);
+									});
+								} else if (result.cert) {
+									if (result.cert.identify_state == -3) {    //冻结
+										location.href = ctx + "/cert/cert_conf_amount.html";
+									} else if (result.cert.identify_state == -2) { //失效
+										location.href = ctx + "/cert/cert_conf_amount.html";
+									} else if (result.cert.identify_state == -1) { //被拒
+										location.href = ctx + "/cert/cert_conf_amount.html";
+									} else if (result.cert.identify_state == 1) {  //草稿
+										location.href = ctx + "/cert/cert_apply.html";
+									} else if (result.cert.identify_state == 2) {  //正在等待审核
+										location.href = ctx + "/cert/cert_wait_varify.html";
+									} else if (result.cert.identify_state == 3) {  //等待确认金额
+										location.href = ctx + "/cert/cert_conf_amount.html";
+									}
+								} else {
+									location.href = ctx + "/cert/cert_index.html";
+								}
+							}
+						}	
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown){
+						alert("网络异常，请重试一次！", {
+							theme: "danger"
+						});
+					}
+				})
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div id="app" v-cloak>
+			<header-cart ref="header"></header-cart>
+			<div class="bg"></div>
+			<section class="home_page cover clearfix">
+				<left-menu :name="menu_name" ></left-menu>
+				<div class="container f_l">
+					<h4>实名认证</h4>
+					<div class="success_cont">
+						<div class="iconfont icon f_l">&#xe75a;</div>
+						<div class="cont">
+							<div class="pass">您已通过芯联天下实名认证</div>
+							<div class="pass_company">
+								企业名称：<span class="company_name"></span>
+							</div>
+						</div>
+						<div class="seal">
+							<img src="../static/img/license_02.png"/>
+						</div>
+					</div>
+				</div>
+			</section>
+			<common-footer></common-footer>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-企业认证-编辑信息</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/views/individual/cert_apply.css"/>
+		<script src="../static/js/libs/get-user.js"></script>
+		<script>
+			isPermitted(ctx + "/cert/index");
+		</script>
+	</head>
+	<body>
+		<div id="app" v-cloak>
+			<header-cart ref="header"></header-cart>
+			<div class="bg"></div>
+			<div class="img_bg"></div>
+			<div class="big_img"></div>
+			<section class="home_page cover clearfix">
+				<left-menu :name="menu_name" ></left-menu>
+				<div class="container f_l">
+					<div class="basic_info active hide">
+						<h4><span class="page_title">实名认证</span><span class="fail_tip next_tip"></span></h4>
+						<ul class="steps_num">
+							<li class="number first pass">1</li>
+							<li class="number second wait">2</li>
+							<li class="number third wait">3</li>
+							<li class="number fourth wait">4</li>
+							<li class="number fifth wait">5</li>
+							<div class="border border_wait"></div>
+							<div class="border_pass border first"></div>
+						</ul>
+						<ul class="steps_value clearfix">
+							<li class="step pass">填写资料</li>
+							<li class="step wait">提交资料</li>
+							<li class="step wait">等待审核</li>
+							<li class="step wait">等您反馈</li>
+							<li class="step wait">完成</li>
+						</ul>
+						<input type="hidden" name="id" value="" id="certId"/>
+						<input type="hidden" id="time" value="">
+						<input type="hidden" name="cert_img" id="cert_img" enter="go_next" trigger="['btn_next','btn_save']" value="">
+						<div class="fail_info clearfix">
+							<p class="fail_title"><i class="iconfont warning">&#xe6ab;</i>您的实名认证申请<span class="fail_type">！</span></p>
+							<div class="fail_left f_l"></div><div class="fail_right f_l"></div>
+						</div>
+						<p class="count_down">您还剩<i class="iconfont icon_time">&#xe624;</i><span class="valid_time"></span>，请尽快提交实名认证申请，超过有效时间，您的申请将视为作废！</p>
+						<ul class="information">
+							<li class="clearfix">
+								<label for="name" class="info_name f_l">公司名<i>*</i></label>
+								<div class="info_value f_l">
+									<input type="text" name="company_name" placeholder="请填写有效企业全称" maxlength="20" callback="testCompany" id="company" enter="go_next" trigger="['btn_next','btn_save']" class="input" />
+									<p class="fail" id="msg_company"></p>
+								</div>
+							</li>
+							<li class="clearfix upload_item">
+								<label for="upload" class="info_name f_l">营业执照<i>*</i></label>
+								<div class="info_value f_l">
+									<div class="upload_cont f_l">
+										<div class="sub_cont">
+											<label class="upload_btn" for="upload">上传执照</label>
+											<input type="file" accept="image/x-png,image/jpeg" name="cert_pic" id="upload" value="" />
+										</div>
+									</div>
+									<p class="fail" id="msg_cert_img"></p>
+								</div>
+							</li>
+							<li class="clearfix">
+								<label for="bank_name" class="info_name f_l">对公账号开户行<i>*</i></label>
+								<div class="info_value f_l clearfix">
+									<input type="text" name="bank_name" placeholder="开户银行及支行，例：招商银行南油支行" enter="go_next" trigger="['btn_next','btn_save']" id="bank_name" class="input"/>
+									<p class="fail" id="msg_bank_name"></p>
+								</div>
+							</li>
+							<li class="clearfix">
+								<label for="card_id" class="info_name f_l">公司对公账号<i>*</i></label>
+								<div class="info_value f_l">
+									<input type="text" name="bank_card_id" maxlength="19" placeholder="请填写贵公司开户许可证登记银行账号" enter="go_next" trigger="['btn_next','btn_save']" id="card_id" class="input" />
+									<p class="tip">不支持个人信用卡和个人存折进行认证</p>
+									<p class="fail" id="msg_card_id"></p>
+								</div>
+							</li>
+							<li class="clearfix">
+								<label for="address" class="info_name f_l">公司地址<i>*</i></label>
+								<div class="info_value f_l" style="line-height:1;">
+									<textarea name="company_address" maxlength="80" placeholder="请填写公司地址" enter="go_next" trigger="['btn_next','btn_save']" id="address" class="input" ></textarea>
+									<p class="fail" id="msg_address"></p>
+								</div>
+							</li>
+						</ul>
+						<div class="btn_cont clearfix">
+							<button type="button" class="button save f_l" id="btn_save" disabled="disabled">保存草稿</button>
+							<button type="button" class="button next f_l" id="btn_next" disabled="disabled">下一步</button>
+						</div>
+					</div>
+					<div class="confirm_info hide">
+						<h4><span class="page_title">实名认证-确认信息</span><span class="fail_tip submit_tip"></span></h4>
+						<ul class="steps_num">
+							<li class="number first pass">1</li>
+							<li class="number second pass">2</li>
+							<li class="number third wait">3</li>
+							<li class="number fourth wait">4</li>
+							<li class="number fifth wait">5</li>
+							<div class="border border_wait"></div>
+							<div class="border_pass border second"></div>
+						</ul>
+						<ul class="steps_value clearfix">
+							<li class="step pass">填写资料</li>
+							<li class="step pass">提交资料</li>
+							<li class="step wait">等待审核</li>
+							<li class="step wait">等您反馈</li>
+							<li class="step wait">完成</li>
+						</ul>
+						<ul class="information">
+							<li class="clearfix">
+								<div class="info_name f_l">公司全名：</div>
+								<div class="info_value f_l company"></div>
+							</li>
+							<li class="clearfix">
+								<div class="info_name f_l">营业执照：</div>
+								<div class="info_value f_l">
+									<div class="license display">
+										
+									</div>
+								</div>
+							</li>
+							<li class="clearfix">
+								<div class="info_name f_l"> 对公账号开户行：</div>
+								<div class="info_value f_l bank"></div>
+							</li>
+							<li class="clearfix">
+								<div class="info_name f_l">公司对公账号：</div>
+								<div class="info_value f_l bank_account"></div>
+							</li>
+							<li class="clearfix">
+								<div class="info_name f_l">公司地址：</div>
+								<div class="info_value f_l address"></div>
+							</li>
+						</ul>
+						<div class="btn_cont clearfix">
+							<button type="button" class="button f_l back">返回编辑</button>
+							<button type="button" class="button f_l confirm">确认提交</button>
+						</div>
+						<p class="notice">注意：以上信息错误可能导致认证失败</p>
+					</div>
+				</div>
+			</section>
+			<common-footer></common-footer>
+		</div>
+	</body>
+	<script src="../static/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/config/package.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/config/input.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../static/js/cert/cert_apply.js" type="text/javascript" charset="utf-8"></script>
+</html>

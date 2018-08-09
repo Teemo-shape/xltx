@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>芯联-估价式拍卖-编辑</title>
+		<link rel="stylesheet" type="text/css" href="/css/framework/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/libs/jquery-ui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/libs/jquery-ui-timepicker-addon.min.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/views/domain/valuation_auction_edit.css"/>
+	</head>
+	<body>
+		<section class="cover product_container">
+			<div class="product_intro clearfix">
+				<div class="intro_magnifier f_l clearfix">
+					<ul class="tb-thumb f_l" id="thumblist">
+						<li class="tb-selected thumb_item">
+							<img src="/img/product_small_01.png" mid="/img/product_mid_01.png" big="/img/product_big.jpg">
+							<div class="img_change_sm">
+								<span class="iconfont">&#xe669;</span>
+								<input type="file" class="file"/>
+							</div>
+						</li>
+						<li class="thumb_item">
+							<img src="/img/product_small_02.png" mid="/img/product_mid_01.png" big="/img/product_big.jpg">
+							<div class="img_change_sm">
+								<span class="iconfont">&#xe669;</span>
+								<input type="file" class="file"/>
+							</div>
+						</li>
+						<li class="thumb_item">
+							<img src="/img/product_small_03.png" mid="/img/product_mid_01.png" big="/img/product_big.jpg">
+							<div class="img_change_sm">
+								<span class="iconfont">&#xe669;</span>
+								<input type="file" class="file"/>
+							</div>
+						</li>
+						<li>
+							<img src="/img/img_add_01.png"/>
+							<div class="img_change_sm file_hide">
+								<span class="iconfont">&#xe669;</span>
+								<input type="file" class="file"/>
+							</div>
+							<input type="file" class="file"/>
+						</li>
+					</ul>
+					<div class="tb-booth f_l">
+						<img src="/img/product_mid_01.png" alt="美女" rel="/img/product_big.jpg" class="tb_zoom" />
+						<div class="img_change_mid clearfix">
+							<span class="iconfont">&#xe669;</span>
+							<input type="file" class="file" />
+						</div>
+					</div>
+				</div>
+				<div class="item_info f_l">
+					<div class="h2">
+						<input type="text" placeholder="请输入宝贝名称"/><i class="iconfont">&#xe643;</i>
+					</div>
+					<div class="info">
+						当前价<span class="current_price"><strong>3000</strong>元</span><span class="explan">(模拟)</span>
+					</div>
+					<div class="info">
+						开拍时间<input placeholder="请输入日期和时间" class="set_time" id="date" >
+					</div>
+					<div class="bidding_statement clearfix">
+						<div class="statement_left f_l">
+							<div class="statement_item">
+								<span class="statement_name">起拍价</span>
+								<span class="statement_value"><i>¥</i><input type="text" class="start_price"/></span>
+							</div>
+							<div class="statement_item">
+								<span class="statement_name">保证金</span>
+								<span class="statement_value"><i>¥</i><input type="text" class="bail"/></span>
+							</div>
+						</div>
+						<div class="statement_right f_l">
+							<div class="statement_item">
+								<span class="statement_name">加价幅度</span>
+								<span class="statement_value"><i>¥</i><input type="text" class="range"/></span>
+							</div>
+							<div class="statement_item">
+								<span class="statement_name">竞价周期</span>
+								<span class="statement_value"><span>一天</span><i class="iconfont">&#xe624;</i></span>
+							</div>
+						</div>
+					</div>
+					<p class="rule">竞价规则：估价式拍卖，截止时间时，估价较高者将拍得此商品</p>
+				</div>
+			</div>
+		</section>
+		<section class="cover table">
+			<ul class="tab_trigger clearfix">
+				<li class="table_btn active" data-tabid="#detail_info">详细信息</li>
+				<div class="border"></div>
+			</ul>
+			<ul class="tab_content">
+				<li id="detail_info" class="hide">
+					<div class="articles">
+						<h3>
+							<div>
+								物品清单&ensp;[<button type="button" class="iconfont button add_article">&#xe62a;</button>]&ensp;[<button type="button" class="batch_import button">批量导入</button>]
+							</div>
+							<div class="edit_article edit">
+								<ul>
+									<li class="clearfix">
+										<div class="option_name f_l">物品名</div>
+										<div class="option_value f_l">
+											<input type="text" name="article_name" value="" class="set_article_name" />
+										</div>
+									</li>
+									<li class="clearfix">
+										<div class="option_name f_l">数量</div>
+										<div class="option_value f_l">
+											<input type="text" name="article" value="" class="set_article"/>
+										</div>
+									</li>
+								</ul>
+								<button class="button ensure_article">确定</button>
+							</div>
+						</h3>
+						<dl class="articles_cont">
+							<dt>
+								<span class="article_name">物品名称</span><span class="article_num">数量</span>
+							</dt>
+							<dd>
+								<span class="article_name">SOP-8盘装</span><span class="article_num">1200</span>
+								<button class="button delete_article iconfont">&#xe633;</button>
+							</dd>
+							<dd>
+								<span class="article_name">SOP-8盘装</span><span class="article_num">300</span>
+								<button class="button delete_article iconfont">&#xe633;</button>
+							</dd>
+							<dd>
+								<span class="article_name">PAMB006ATR</span><span class="article_num">200</span>
+								<button class="button delete_article iconfont">&#xe633;</button>
+							</dd>
+							<dd>
+								<span class="article_name">AS1702Z</span><span class="article_num">1000</span>
+								<button class="button delete_article iconfont">&#xe633;</button>
+							</dd>
+							<dd>
+								<span class="article_name">AS3420-EQFP</span><span class="article_num">500</span>
+								<button class="button delete_article iconfont">&#xe633;</button>
+							</dd>
+							<div class="look_more">查看更多<i class="iconfont">&#xe61c;</i></div>
+						</dl>
+					</div>
+					<div class="select_model">
+						<span>
+							<span class="model_selected">SOP-8盘装</span><i class="iconfont">&#xe61c;</i>
+						</span>
+						<ul class="models">
+							<li>SOP-8管装</li>
+							<li>SOP-8盘装</li>
+							<li>PAMB006ATR</li>
+							<li>AS1702Z</li>
+							<li>AS3420-EQFP</li>
+						</ul>
+					</div>
+					<h4 class="params">
+						<div>
+							<span class="catalogue_title">参数</span>[<button type="button" class="iconfont button add_param">&#xe62a;</button>]
+						</div>
+						<div class="edit_param edit">
+							<ul>
+								<li class="clearfix">
+									<div class="option_name f_l">参数项</div>
+									<div class="option_value select_param f_l">
+										<span class="param_name">品牌</span><i class="iconfont">&#xe61c;</i>
+										<ul class="param_list">
+											<li class="param_item" data-val="存储器">类型</li>
+											<li class="param_item" data-val="ATMEL\爱特梅尔">品牌</li>
+											<li class="param_item" data-val="AT24C02">型号</li>
+											<li class="param_item" data-val="标准">功率</li>
+											<li class="param_item" data-val="17+">批号</li>
+										</ul>
+									</div>
+								</li>
+								<li class="clearfix">
+									<div class="option_name f_l">值</div>
+									<div class="option_value f_l">
+										<input type="text" name="param" value="" class="set_param"/>
+									</div>
+								</li>
+							</ul>
+							<button class="button ensure_param">确定</button>
+						</div>
+					</h4>
+					<ul class="param">
+						<li>
+							<span class="param_title">类型</span><span class="param_value">存储器</span>
+						</li>
+						<li>
+							<span class="param_title">品牌</span><span class="param_value">ATMEL\爱特梅尔</span>
+						</li>
+						<li>
+							<span class="param_title">型号</span><span class="param_value">AT24C02</span>
+						</li>
+						<li>
+							<span class="param_title">功率</span><span class="param_value">标准</span>
+						</li>
+						<li>
+							<span class="param_title">批号</span><span class="param_value">17+</span>
+						</li>
+					</ul>
+					<h4 class="prospectus">商品样张</h4>
+					<ul class="product_img">
+						<li class="img_container">
+							<div class="img_sub_content">
+								<img src="/img/param_03.png"/>
+								<div class="img_change">
+									<span class="iconfont">&#xe669;</span>
+									<input type="file" class="file" />
+								</div>
+							</div>
+						</li>
+						<li class="img_container">
+							<div class="img_sub_content">
+								<div class="iconfont add_img">&#xe62a;</div>
+								<input type="file" class="file" />
+							</div>
+						</li>
+						<li class="img_container">
+							<div class="img_sub_content">
+								<div class="iconfont add_img">&#xe62a;</div>
+								<input type="file" class="file" />
+							</div>
+						</li>
+						<li class="img_container">
+							<div class="img_sub_content">
+								<div class="iconfont add_img">&#xe62a;</div>
+								<input type="file" class="file" />
+							</div>
+						</li>
+					</ul>
+					<h4 class="specification">商品规格</h4>
+					<ul class="product_img">
+						<li class="img_container">
+							<div class="img_sub_content">
+								<img src="/img/product_detail_03.png"/>
+								<div class="img_change">
+									<span class="iconfont">&#xe669;</span>
+									<input type="file" class="file" />
+								</div>
+							</div>
+						</li>
+						<li class="img_container">
+							<div class="img_sub_content">
+								<div class="iconfont add_img">&#xe62a;</div>
+								<input type="file" class="file" />
+							</div>
+						</li>
+						<li class="img_container">
+							<div class="img_sub_content">
+								<div class="iconfont add_img">&#xe62a;</div>
+								<input type="file" class="file" />
+							</div>
+						</li>
+						<li class="img_container">
+							<div class="img_sub_content">
+								<div class="iconfont add_img">&#xe62a;</div>
+								<input type="file" class="file" />
+							</div>
+						</li>
+					</ul>
+					<h4 class="display">商品展示</h4>
+					<ul class="product_img">
+						<li class="img_container">
+							<div class="img_sub_content">
+								<img src="/img/product_detail_04.png"/>
+								<div class="img_change">
+									<span class="iconfont">&#xe669;</span>
+									<input type="file" class="file" />
+								</div>
+							</div>
+						</li>
+						<li class="img_container">
+							<div class="img_sub_content">
+								<div class="iconfont add_img">&#xe62a;</div>
+								<input type="file" class="file" />
+							</div>
+						</li>
+						<li class="img_container">
+							<div class="img_sub_content">
+								<div class="iconfont add_img">&#xe62a;</div>
+								<input type="file" class="file" />
+							</div>
+						</li>
+						<li class="img_container">
+							<div class="img_sub_content">
+								<div class="iconfont add_img">&#xe62a;</div>
+								<input type="file" class="file" />
+							</div>
+						</li>
+					</ul> 
+					<h4 class="manage">其他经营</h4>
+					<ul class="product_img">
+						<li class="img_container">
+							<div class="img_sub_content">
+								<img src="/img/product_detail_05.png"/>
+								<div class="img_change">
+									<span class="iconfont">&#xe669;</span>
+									<input type="file" class="file" />
+								</div>
+							</div>
+						</li>
+						<li class="img_container">
+							<div class="img_sub_content">
+								<div class="iconfont add_img">&#xe62a;</div>
+								<input type="file" class="file" />
+							</div>
+						</li>
+						<li class="img_container">
+							<div class="img_sub_content">
+								<div class="iconfont add_img">&#xe62a;</div>
+								<input type="file" class="file" />
+							</div>
+						</li>
+						<li class="img_container">
+							<div class="img_sub_content">
+								<div class="iconfont add_img">&#xe62a;</div>
+								<input type="file" class="file" />
+							</div>
+						</li>
+					</ul>
+					<h4 class="intro">公司介绍</h4>
+					<ul class="product_img">
+						<li class="img_container">
+							<div class="img_sub_content">
+								<img src="/img/product_detail_06.png"/>
+								<div class="img_change">
+									<span class="iconfont">&#xe669;</span>
+									<input type="file" class="file" />
+								</div>
+							</div>
+						</li>
+						<li class="img_container">
+							<div class="img_sub_content">
+								<img src="/img/product_detail_07.png"/>
+								<div class="img_change">
+									<span class="iconfont">&#xe669;</span>
+									<input type="file" class="file" />
+								</div>
+							</div>
+						</li>
+						<li class="img_container">
+							<div class="img_sub_content">
+								<img src="/img/product_detail_08.png"/>
+								<div class="img_change">
+									<span class="iconfont">&#xe669;</span>
+									<input type="file" class="file" />
+								</div>
+							</div>
+						</li>
+						<li class="img_container">
+							<div class="img_sub_content">
+								<img src="/img/product_detail_09.png"/>
+								<div class="img_change">
+									<span class="iconfont">&#xe669;</span>
+									<input type="file" class="file" />
+								</div>
+							</div>
+						</li>
+					</ul>
+					<h4 class="reading">购物须知</h4>
+					<ul class="product_img">
+						<li class="img_container">
+							<div class="img_sub_content">
+								<img src="/img/product_detail_10.png"/>
+								<div class="img_change">
+									<span class="iconfont">&#xe669;</span>
+									<input type="file" class="file" />
+								</div>
+							</div>
+						</li>
+						<li class="img_container">
+							<div class="img_sub_content">
+								<img src="/img/product_detail_11.png"/>
+								<div class="img_change">
+									<span class="iconfont">&#xe669;</span>
+									<input type="file" class="file" />
+								</div>
+							</div>
+						</li>
+						<li class="img_container">
+							<div class="img_sub_content">
+								<div class="iconfont add_img">&#xe62a;</div>
+								<input type="file" class="file" />
+							</div>
+						</li>
+						<li class="img_container">
+							<div class="img_sub_content">
+								<div class="iconfont add_img">&#xe62a;</div>
+								<input type="file" class="file" />
+							</div>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</section>
+		<section class="btns cover">
+			<a href="/views/domain/valuation_auction_preview.html" class="button preview">预览</a>
+			<button type="button" class="button save">保存草稿</button>
+			<button type="button" class="button submit">提交审核</button>
+		</section>
+	</body>
+	<script src="/js/libs/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/libs/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/libs/jquery-ui-timepicker-addon.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/libs/jquery-ui-timepicker-zh-CN.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/plugins/jquery.imagezoom.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/plugins/laydate/laydate.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/views/domain/valuation_auction_edit.js" type="text/javascript" charset="utf-8"></script>
+</html>

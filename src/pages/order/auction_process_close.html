@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>芯联-拍卖订单-交易关闭</title>
+	<link rel="stylesheet" href="../static/css/framework/reset.css" />
+	<link rel="stylesheet" href="../static/css/views/domain/auction_process_first.css" />
+	<script src="../static/js/libs/get-user.js" type="text/javascript"></script>
+	<script>
+		isPermitted("/goods/list");
+	</script>
+	<style>
+		.transaction_closed::before {
+			left: 700px;
+		}
+
+		.transaction_closed:after {
+			left: 701px;
+		}
+
+		.view_det_a {
+			font-size: 14px;
+			text-decoration: underline;
+			line-height: 30px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app" v-cloak>
+		<headercart></headercart>
+		<div class="position cover">
+			<div class="nav clearfix">
+				<span class="f_l">您的位置：</span>
+				<a href="/personal/my_auction.html" class="position_first f_l">个人区</a>
+				<i class="iconfont f_l">&#xe600;</i>
+				<a href="/personal/my_auction.html" class="position_first f_l">我买到的</a>
+				<i class="iconfont f_l">&#xe600;</i>
+				<a href="javascript:viod(0)" class="position_first f_l">拍卖商品</a>
+			</div>
+			<ul class="steps clearfix">
+				<li class="step_cont" style="margin-left:400px; ">
+					<img src="../static/img/flow_path_down_02.png" />
+					<div class="step">确认拍品</div>
+				</li>
+				<span class="iconfont">&#xe600;</span>
+				<li class="step_cont">
+					<img src="../static/img/flow_path_01.png" />
+					<div class="step">交易关闭</div>
+				</li>
+
+				<div class="transaction_closed">
+					<p class="state">
+						<i class="iconfont" style="font-size: 30px;">&#xe6b7;</i>
+						交易已关闭，由于您的违约，您的保证金已被扣除，
+						<!-- <a class="view_det_a">查看详情</a> -->
+					</p>
+					<p class="notice">
+						关闭类型：
+						<template v-if="index_step==10">买家取消拍卖</template>
+						<template v-if="index_step==13">买家超时未确认拍品</template>
+						<template v-if="index_step==14">买家超时未确认收货</template>
+						<br/> 原因：
+						<template  v-if="get_order">{{get_order.comment_flow}}</template>
+					</p>
+				</div>
+
+
+			</ul>
+			<orderinfo :cid="get_order"></orderinfo>
+		</div>
+		<vfooter></vfooter>
+		<!-- <cancel-order @kidshow="kind_show" v-if="show.cancel_order"></cancel-order>
+		<div class="feedback" v-if="feedback_div.show" @click="feedback_div.show=false">
+			<div class="content" @click.stop="">
+				<div class="title">
+					<i class="el-icon-close" @click="feedback_div.show=false"></i>
+					<h4>有争议，我要反馈</h4>
+				</div>
+				<p class="">交易过程中如果有争议，请将问题简要描述并反馈给我们，交易将立即停滞，等待协商处理：</p>
+				<textarea v-model="feedback_div.text" placeholder="将问题在此处描述，限20字内" maxlength="20" rows="4"></textarea>
+				<div style="text-align: center;margin-top: 20px;margin-bottom: 10px;">
+					<a href="javascript:void(0)" class="btns-save" @click="fun_feed_cancel()">确&nbsp;&nbsp;&nbsp;&nbsp;认</a>
+				</div>
+			</div>
+		</div> -->
+	</div>
+
+</body>
+
+</html>
